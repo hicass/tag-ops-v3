@@ -1,5 +1,5 @@
 import prisma from '../database/prisma';
-import AllPosts from '../components/PostsFeed';
+import PostsFeed from '../components/PostsFeed';
 
 interface Post {
   id: number;
@@ -18,7 +18,8 @@ export default async function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <AllPosts posts={posts}/>
+      <h1>Main Page</h1>
+      <PostsFeed posts={posts}/>
     </main>
   );
 }
