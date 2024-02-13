@@ -1,5 +1,7 @@
 export default function NewPost() {
     return (
-        <h1>NewPost</h1>
+        <div className="pt-20">
+            <h1>NewPost</h1>
+        </div>
     )
 }

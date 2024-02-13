@@ -1,6 +1,7 @@
 'use client';
 import { useSession, signOut } from 'next-auth/react';
 import { useState } from 'react';
+import Header from '../components/Header/Header';
 import ExplorePosts from '../components/ExplorePosts/ExplorePosts';
 import NewPost from '../components/NewPost/NewPost';
 import AllPosts from '../components/AllPosts/AllPosts';
@@ -23,10 +24,11 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col items-center m-10">
+      <Header />
       {session ? (
-        <div>
-          <nav className="flex flex-col">
+        <>
+          <nav className="absolute top-10 left-10 flex flex-col items-start">
             <button onClick={() => signOut()}>Logout</button>
             <button onClick={() => setActiveView('explore')}>Explore</button>
             <button onClick={() => setActiveView('new')}>New</button>
@@ -34,7 +36,7 @@ export default function Home() {
           </nav>
 
           {renderView()}
-        </div>
+        </>
       ) : (
         <ExplorePosts />
       )}

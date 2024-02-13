@@ -1,5 +1,7 @@
 export default function AllPosts() {
-    return (
-        <h1>AllPosts</h1>
-    )
+  return (
+    <div className="pt-20">
+      <h1>AllPosts</h1>
+    </div>
+  );
 }

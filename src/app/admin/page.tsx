@@ -56,14 +56,14 @@ export default function Admin() {
   }
 
   return (
-    <div className="max-w-md relative flex flex-col p-4 rounded-md text-black bg-white">
-      <div className="text-2xl font-bold mb-2 text-[#1e0e4b] text-center">
+    <div className="flex flex-col items-center p-4">
+      <div className="text-2xl mb-2 text-center">
         Welcome back!
       </div>
 
-      <form className="flex flex-col gap-3" onSubmit={loginUser}>
+      <form className="flex flex-col gap-3 w-1/2" onSubmit={loginUser}>
         <div className="block relative">
-          <label className="block text-gray-600 cursor-text text-sm leading-[140%] font-normal mb-2">
+          <label className="block cursor-text text-sm leading-[140%] font-normal mb-2">
             Username
           </label>
           <input
@@ -74,12 +74,12 @@ export default function Admin() {
             onChange={(e) => {
               setUserData({ ...userData, username: e.target.value });
             }}
-            className="rounded border border-gray-200 text-sm w-full font-normal leading-[18px] text-black tracking-[0px] appearance-none block h-11 m-0 p-[11px] focus:ring-2 ring-offset-2  ring-gray-900 outline-0"
+            className="text-sm w-full font-normal leading-[18px] text-black tracking-[0px] appearance-none block h-11 m-0 p-[11px] focus:ring-2 ring-offset-2  ring-gray-900 outline-0"
           />
         </div>
 
         <div className="block relative">
-          <label className="block text-gray-600 cursor-text text-sm leading-[140%] font-normal mb-2">
+          <label className="block cursor-text text-sm leading-[140%] font-normal mb-2">
             Password
           </label>
           <input
@@ -90,22 +90,22 @@ export default function Admin() {
             onChange={(e) => {
               setUserData({ ...userData, password: e.target.value });
             }}
-            className="rounded border border-gray-200 text-sm w-full font-normal leading-[18px] text-black tracking-[0px] appearance-none block h-11 m-0 p-[11px] focus:ring-2 ring-offset-2 ring-gray-900 outline-0"
+            className="text-sm w-full font-normal leading-[18px] text-black tracking-[0px] appearance-none block h-11 m-0 p-[11px] focus:ring-2 ring-offset-2 ring-gray-900 outline-0"
           />
         </div>
 
         <button
           type="submit"
-          className="bg-[#7747ff] w-max m-auto px-6 py-2 rounded text-white text-sm font-normal"
+          className="bg-gray-500 w-max m-auto px-6 py-2 rounded text-white text-sm font-normal"
         >
           Submit
         </button>
       </form>
 
-      <form className="flex flex-col gap-3" onSubmit={createUser}>
+      <form className="flex flex-col gap-3 w-1/2" onSubmit={createUser}>
         <p>Create user</p>
         <div className="block relative">
-          <label className="block text-gray-600 cursor-text text-sm leading-[140%] font-normal mb-2">
+          <label className="cursor-text text-sm leading-[140%] font-normal mb-2">
             Username
           </label>
           <input
@@ -116,12 +116,12 @@ export default function Admin() {
             onChange={(e) => {
               setNewUserData({ ...newUserData, username: e.target.value });
             }}
-            className="rounded border border-gray-200 text-sm w-full font-normal leading-[18px] text-black tracking-[0px] appearance-none block h-11 m-0 p-[11px] focus:ring-2 ring-offset-2  ring-gray-900 outline-0"
+            className="text-sm w-full font-normal leading-[18px] text-black tracking-[0px] appearance-none block h-11 m-0 p-[11px] focus:ring-2 ring-offset-2  ring-gray-900 outline-0"
           />
         </div>
 
         <div className="block relative">
-          <label className="block text-gray-600 cursor-text text-sm leading-[140%] font-normal mb-2">
+          <label className="block cursor-text text-sm leading-[140%] font-normal mb-2">
             Email
           </label>
           <input
@@ -132,12 +132,12 @@ export default function Admin() {
             onChange={(e) => {
               setNewUserData({ ...newUserData, email: e.target.value });
             }}
-            className="rounded border border-gray-200 text-sm w-full font-normal leading-[18px] text-black tracking-[0px] appearance-none block h-11 m-0 p-[11px] focus:ring-2 ring-offset-2  ring-gray-900 outline-0"
+            className="text-sm w-full font-normal leading-[18px] text-black tracking-[0px] appearance-none block h-11 m-0 p-[11px] focus:ring-2 ring-offset-2  ring-gray-900 outline-0"
           />
         </div>
 
         <div className="block relative">
-          <label className="block text-gray-600 cursor-text text-sm leading-[140%] font-normal mb-2">
+          <label className="cursor-text text-sm leading-[140%] font-normal mb-2">
             Password
           </label>
           <input
@@ -154,7 +154,7 @@ export default function Admin() {
 
         <button
           type="submit"
-          className="bg-[#7747ff] w-max m-auto px-6 py-2 rounded text-white text-sm font-normal"
+          className="bg-gray-500 w-max m-auto px-6 py-2 rounded text-white text-sm font-normal"
         >
           Submit
         </button>
