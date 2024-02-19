@@ -4,5 +4,5 @@ export default async function create(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  console.log('Post create route initiated...');
+  return 'Hello';
 }
