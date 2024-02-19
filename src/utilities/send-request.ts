@@ -10,24 +10,27 @@ interface Method {
 export default async function sendRequest(
   url: string,
   method = 'GET',
-  body: any
+  body: any,
+  timeout: number = 9000
 ) {
   const projectDir = process.cwd();
   loadEnvConfig(projectDir);
 
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), timeout);
+
   try {
-    console.log(`${process.env.URL}/${url}`)
     const res = await fetch(`${process.env.URL}/${url}`, {
       method: method,
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body),
+      signal: controller.signal
     });
-
-    console.log('Response: ', res);
 
     if (res.ok) return res.json();
   } catch (error) {
-    console.log('Error: ', error);
     throw new Error('Bad Request');
+  } finally {
+    clearTimeout(timeoutId);
   }
 }
