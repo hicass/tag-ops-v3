@@ -7,8 +7,6 @@ import { NextResponse } from 'next/server';
 
 const prisma = new PrismaClient();false
 
-console.log('Auth route initiated...');
-
 export const authOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [

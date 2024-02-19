@@ -1,36 +1,32 @@
 import { useState, FormEvent } from 'react';
+import * as postAPI from '../../app/utilities/post-api';
 
 export default function NewPost() {
-  const [content, setContent] = useState('');
+  const [postData, setPostData] = useState({
+    content: '',
+  });
 
-  const submitPost = async (e: FormEvent<HTMLFormElement>) => {
+  const sendPost = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('Post content:', content);
+    console.log('Post content:', postData);
 
-    try {
-        const body = { content };
-        console.log('Post body: ', body);
-        await fetch(`api/post/create`, {
-            method: 'POST',
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(body),
-        });
-    } catch (error) {
-        console.log(error);
-    }
+    const submittedPost = await postAPI.submitPost(postData);
 
+    console.log('SUBMITTED POST: ', submittedPost);
   };
 
   return (
     <div className="pt-20">
       <h1>NewPost</h1>
 
-      <form onSubmit={submitPost} className="flex flex-col">
+      <form onSubmit={sendPost} className="flex flex-col">
         <textarea
-          autoFocus
-          onChange={(e) => setContent(e.target.value)}
+          autoFocus 
           className="text-black"
-          value={content}
+          value={postData.content}
+          onChange={(e) =>
+            setPostData({ ...postData, content: e.target.value })
+          }
         />
         <button type="submit">Submit</button>
       </form>

@@ -1,3 +1,4 @@
+'use server';
 import { loadEnvConfig } from '@next/env';
 
 interface Method {
@@ -9,7 +10,7 @@ interface Method {
 
 export default async function sendRequest(
   url: string,
-  method = 'GET',
+  method: keyof Method,
   body: any,
   timeout: number = 9000
 ) {
@@ -20,12 +21,15 @@ export default async function sendRequest(
   const timeoutId = setTimeout(() => controller.abort(), timeout);
 
   try {
+    console.log(`${process.env.URL}/${url}`);
     const res = await fetch(`${process.env.URL}/${url}`, {
       method: method,
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body),
       signal: controller.signal
     });
+
+    console.log('RESPONSE: ', res);
 
     if (res.ok) return res.json();
   } catch (error) {
