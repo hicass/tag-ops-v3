@@ -1,8 +1,8 @@
 import { POST } from '../../../../../src/app/api/posts/route';
 import { getServerSession } from 'next-auth';
 import { NextRequest, NextResponse } from 'next/server';
-import { prismaMock } from '../../../../utilities/mocks/mockPrisma';
-import { invalidSession, validSession } from '../../../../utilities/fixtures/session';
+import { prismaMock } from '../../../../utilities/mocks/mockPrisma.ts';
+import { invalidSession, validSession } from '../../../../utilities/fixtures/session.ts';
 
 jest.mock('next-auth');
 
