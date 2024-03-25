@@ -1,34 +1,42 @@
+'use client';
 import { useState, FormEvent } from 'react';
-import * as postAPI from '../../app/utilities/post-api';
+import * as postHandler from '../../utilities/post-handler';
 
-export default function NewPost() {
+export default function NewPost({ setActiveView }: any) {
   const [postData, setPostData] = useState({
     content: '',
   });
 
-  const sendPost = async (e: FormEvent<HTMLFormElement>) => {
+  const submitPost = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('Post content:', postData);
-
-    const submittedPost = await postAPI.submitPost(postData);
-
-    console.log('SUBMITTED POST: ', submittedPost);
+    const createdPost = await postHandler.submitPost(postData);
+    console.log('Post created: ', createdPost);
+    setActiveView('all');
   };
 
   return (
-    <div className="pt-20">
-      <h1>NewPost</h1>
-
-      <form onSubmit={sendPost} className="flex flex-col">
+    <div className="flex flex-col items-center w-1/2 pt-20">
+      <form
+        onSubmit={submitPost}
+        className="flex flex-col my-10 w-full p-4 form  m-3"
+      >
         <textarea
-          autoFocus 
-          className="text-black"
+          autoFocus
+          className="p-2 mb-6"
           value={postData.content}
           onChange={(e) =>
             setPostData({ ...postData, content: e.target.value })
           }
         />
-        <button type="submit">Submit</button>
+
+        <div className="flex justify-between">
+          <button type="submit" className="form-button">
+            Draft
+          </button>
+          <button type="submit" className="form-button">
+            Publish
+          </button>
+        </div>
       </form>
     </div>
   );

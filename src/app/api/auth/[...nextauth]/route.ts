@@ -1,63 +1,64 @@
-import NextAuth from 'next-auth';
-import CredentialsProvider from 'next-auth/providers/credentials';
 import bcrypt from 'bcrypt';
-import { PrismaAdapter } from '@auth/prisma-adapter';
-import { PrismaClient } from '@prisma/client';
-import { NextResponse } from 'next/server';
+import NextAuth, { NextAuthOptions } from 'next-auth';
+import CredentialsProvider from 'next-auth/providers/credentials';
+import { PrismaAdapter } from '@next-auth/prisma-adapter';
+import prisma from '@/database/prisma';
 
-const prisma = new PrismaClient();false
-
-export const authOptions = {
+export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
     CredentialsProvider({
       name: 'Credentials',
       credentials: {
         username: { label: 'Username', type: 'text' },
-        hashedPassword: { label: 'Password', type: 'password' },
+        password: { label: 'Password', type: 'password' },
       },
       // @ts-ignore
-      async authorize(credentials: {username: string, password: string}) {
-        console.log('Credentials: ', credentials);
+      authorize: async (credentials: {
+        username: string;
+        password: string;
+      }) => {
         if (!credentials.username || !credentials.password) {
-            throw new Error("Username or password is missing");
+          throw new Error('Username or password is missing');
         }
 
         const user = await prisma.user.findUnique({
-            where: {
-                username: credentials.username
-            }
-          })
-          console.log('User found: ', user);
+          where: {
+            username: credentials.username,
+          },
+        });
 
-        if (!user) {
-          return new NextResponse('User exists', {
-            status: 400,
-          });
+        if (user) {
+          const passwordsMatch = await bcrypt.compare(
+            credentials.password,
+            user.hashedPassword
+          );
+
+          if (passwordsMatch) {
+            return {
+              id: user.id,
+              name: user.username,
+              email: user.email,
+            };
+          }
         }
-
-        const passwordsMatch = await bcrypt.compare(credentials.password, user.hashedPassword)
-
-        if (!passwordsMatch) {
-          return new NextResponse('Incorrect password', {
-            status: 400,
-          });
-        }
-
-        console.log('Successful login with user: ', user);
-
-        return user;
       },
     }),
   ],
-  session: {
-    strategy: 'jwt',
+  callbacks: {
+    // jwt is called before session
+    async jwt({ token, account, profile }) {
+      // Add what you'd like to the token here
+      return token;
+    },
+    async session({ session, token, user }) {
+      return { ...session, token: token };
+    },
   },
   secret: process.env.NEXTAUTH_SECRET,
+  session: { strategy: 'jwt' },
   debug: process.env.NODE_ENV === 'development',
 };
 
-// @ts-ignore
 const handler = NextAuth(authOptions);
-
-export { handler as GET, handler as POST }
+export { handler as GET, handler as POST };

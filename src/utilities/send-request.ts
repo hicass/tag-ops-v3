@@ -1,5 +1,5 @@
 'use server';
-import { loadEnvConfig } from '@next/env';
+import { cookies } from 'next/headers';
 
 interface Method {
   GET: 'GET';
@@ -9,30 +9,34 @@ interface Method {
 }
 
 export default async function sendRequest(
-  url: string,
+  path: string,
   method: keyof Method,
-  body: any,
+  body?: any,
   timeout: number = 9000
 ) {
-  const projectDir = process.cwd();
-  loadEnvConfig(projectDir);
-
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), timeout);
 
-  try {
-    console.log(`${process.env.URL}/${url}`);
-    const res = await fetch(`${process.env.URL}/${url}`, {
-      method: method,
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
-      signal: controller.signal
-    });
+  // TODO: Research how to handle this in test or test config
+  const reqCookies: any = process.env.NODE_ENV === 'test' ? {} : cookies().toString()
 
-    console.log('RESPONSE: ', res);
+  try {
+    const url = `${process.env.NEXT_PUBLIC_URL}/${path}`;
+
+    const res = await fetch(url, {
+      method: method,
+      mode: 'no-cors',
+      body: JSON.stringify(body),
+      signal: controller.signal,
+      headers: {
+        'Content-Type': 'application/json',
+        Cookie: reqCookies,
+      },
+    });
 
     if (res.ok) return res.json();
   } catch (error) {
+    console.log(error);
     throw new Error('Bad Request');
   } finally {
     clearTimeout(timeoutId);
