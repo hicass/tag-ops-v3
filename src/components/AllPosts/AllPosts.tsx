@@ -26,15 +26,15 @@ export default function AllPosts() {
 
   const handlePrev = async () => {
     const prevPostsBatchProps = await postHandler.getPrevBatchProps(cursorId);
-    const newCursorId = prevPostsBatchProps.postsBatch[0].id;
+    const lastBatchIdx = prevPostsBatchProps.postsBatch.length - 1;
+    const newCursorId = prevPostsBatchProps.postsBatch[lastBatchIdx].id;
     setCursorId(newCursorId);
     setPostsBatchProps(prevPostsBatchProps);
   };
 
   const handleNext = async () => {
     const nextPostsBatchProps = await postHandler.getNextBatchProps(cursorId);
-    const lastBatchIdx = nextPostsBatchProps.postsBatch.length - 1;
-    const newCursorId = nextPostsBatchProps.postsBatch[lastBatchIdx].id;
+    const newCursorId = nextPostsBatchProps.postsBatch[0].id;
     setCursorId(newCursorId);
     setPostsBatchProps(nextPostsBatchProps);
   };

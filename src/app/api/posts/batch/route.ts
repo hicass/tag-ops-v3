@@ -12,7 +12,7 @@ export async function GET(req: NextRequest) {
   if (action) {
     try {
       const postBatch = await prisma.post.findMany({
-        take: action === 'next' ? 5 : -5,
+        take: action === 'prev' ? 5 : -5,
         skip: 1,
         cursor: {
           id: parseInt(cursorId as string),
@@ -25,7 +25,7 @@ export async function GET(req: NextRequest) {
       const nextPost = await prisma.post.findFirst({
         where: {
           taggedDate: {
-            gt: postBatch[postBatch.length - 1].taggedDate,
+            gt: postBatch[0].taggedDate,
           },
         },
         orderBy: {
@@ -36,7 +36,7 @@ export async function GET(req: NextRequest) {
       const prevPost = await prisma.post.findFirst({
         where: {
           taggedDate: {
-            lt: postBatch[0].taggedDate,
+            lt: postBatch[postBatch.length - 1].taggedDate,
           },
         },
         orderBy: {
@@ -49,8 +49,6 @@ export async function GET(req: NextRequest) {
         postsBatch: postBatch,
         nextPostId: nextPost?.id,
       };
-
-      console.log('POST BATCH PROPS: ', postBatchProps);
 
       return NextResponse.json(postBatchProps, { status: 201 });
     } catch (error) {
@@ -71,10 +69,10 @@ export async function GET(req: NextRequest) {
       },
     });
 
-    const nextPost = await prisma.post.findFirst({
+    const prevPost = await prisma.post.findFirst({
       where: {
         taggedDate: {
-          gt: today,
+          lt: postBatch[postBatch.length - 1].taggedDate,
         },
       },
       orderBy: {
@@ -84,7 +82,7 @@ export async function GET(req: NextRequest) {
 
     const postBatchProps: PostsBatchProps = {
       postsBatch: postBatch,
-      nextPostId: nextPost?.id,
+      prevPostId: prevPost?.id,
     };
 
     return NextResponse.json(postBatchProps, { status: 201 });
@@ -92,54 +90,3 @@ export async function GET(req: NextRequest) {
     console.log(error);
   }
 }
-
-// const url = new URL(req.url);
-
-// const take = url.searchParams.get('take');
-// const lastCursor = url.searchParams.get('lastCursor');
-
-// let result = await prisma.post.findMany({
-//   take: take ? parseInt(take as string) : 10,
-//   ...(lastCursor && {
-//     skip: 1,
-//     cursor: {
-//       id: parseInt(lastCursor as string),
-//     },
-//   }),
-//   orderBy: {
-//     taggedDate: 'desc',
-//   },
-// });
-
-// if (result.length == 0) {
-//   return new Response(
-//     JSON.stringify({
-//       data: [],
-//       metaData: {
-//         lastCursor: null,
-//         hasNextPage: false,
-//       },
-//     }),
-//     { status: 200 }
-//   );
-// }
-
-// const lastPostInResults: any = result[result.length - 1];
-// const cursor: any = lastPostInResults.id;
-
-// const nextPage = await prisma.user.findMany({
-//   // Same as before, limit the number of events returned by this query.
-//   take: take ? parseInt(take as string) : 7,
-//   skip: 1, // Do not include the cursor itself in the query result.
-//   cursor: {
-//     id: cursor,
-//   },
-// });
-
-// const data = {
-//   data: result,
-//   metaData: {
-//     lastCursor: cursor,
-//     hasNextPage: nextPage.length > 0,
-//   },
-// };
