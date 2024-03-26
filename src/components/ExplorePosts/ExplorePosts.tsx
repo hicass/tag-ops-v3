@@ -1,8 +1,8 @@
 'use client';
-import { useEffect, useState } from 'react';
 import * as postHandler from '../../utilities/post-handler';
-import moment from 'moment';
+import { useEffect, useState } from 'react';
 import { Post } from '@prisma/client';
+import moment from 'moment';
 
 export type ExplorePostsProps = {
   currentPost?: Post;
