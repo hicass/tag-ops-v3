@@ -53,12 +53,23 @@ export default function AllPosts() {
           ))}
 
           <div className="flex justify-between w-full my-10">
-            {}
-            <button onClick={handlePrev} className="explore-button">
+            <button
+              onClick={handlePrev}
+              className={`explore-button ${
+                !postsBatchProps.prevPostId && 'opacity-30 pointer-events-none'
+              }`}
+              disabled={!postsBatchProps.prevPostId}
+            >
               Previous
             </button>
 
-            <button onClick={handleNext} className="explore-button">
+            <button
+              onClick={handleNext}
+              className={`explore-button ${
+                !postsBatchProps.nextPostId && 'opacity-30 pointer-events-none'
+              }`}
+              disabled={!postsBatchProps.nextPostId}
+            >
               Next
             </button>
           </div>

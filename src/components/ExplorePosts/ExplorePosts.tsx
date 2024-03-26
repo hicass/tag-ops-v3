@@ -40,21 +40,25 @@ export default function ExplorePosts() {
         <p className="mt-10 p-4 w-full post">{post?.content}</p>
 
         <div className="flex justify-between w-full my-10">
-          {postProps.prevPostId ? (
-            <button onClick={handlePrev} className="explore-button">
-              Previous
-            </button>
-          ) : (
-            <></>
-          )}
+          <button
+            onClick={handlePrev}
+            className={`explore-button ${
+              !postProps.prevPostId && 'opacity-30 pointer-events-none'
+            }`}
+            disabled={!postProps.prevPostId}
+          >
+            Previous
+          </button>
 
-          {postProps.nextPostId ? (
-            <button onClick={handleNext} className="explore-button">
-              Next
-            </button>
-          ) : (
-            <></>
-          )}
+          <button
+            onClick={handleNext}
+            className={`explore-button ${
+              !postProps.nextPostId && 'opacity-30 pointer-events-none'
+            }`}
+            disabled={!postProps.nextPostId}
+          >
+            Next
+          </button>
         </div>
       </>
     </div>

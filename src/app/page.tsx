@@ -32,14 +32,22 @@ export default function Home() {
             </button>
             <button
               onClick={() => setActiveView('explore')}
-              className="nav-button"
+              className={`nav-button ${
+                activeView === 'explore' && 'opacity-30'
+              }`}
             >
               Explore
             </button>
-            <button onClick={() => setActiveView('new')} className="nav-button">
+            <button
+              onClick={() => setActiveView('new')}
+              className={`nav-button ${activeView === 'new' && 'opacity-30'}`}
+            >
               New
             </button>
-            <button onClick={() => setActiveView('all')} className="nav-button">
+            <button
+              onClick={() => setActiveView('all')}
+              className={`nav-button ${activeView === 'all' && 'opacity-30'}`}
+            >
               All
             </button>
           </nav>
