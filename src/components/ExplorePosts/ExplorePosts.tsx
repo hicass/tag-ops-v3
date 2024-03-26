@@ -36,7 +36,7 @@ export default function ExplorePosts() {
   return (
     <div className="flex flex-col items-center w-1/2 pt-20">
       <>
-        <p>{moment(post?.taggedDate).format('MMMM Do YYYY')}</p>
+        <p>{moment(post?.taggedDate).format('MMMM Do, YYYY')}</p>
         <p className="mt-10 p-4 w-full post">{post?.content}</p>
 
         <div className="flex justify-between w-full my-10">

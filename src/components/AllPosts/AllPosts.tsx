@@ -12,30 +12,52 @@ export type PostsBatchProps = {
 
 export default function AllPosts() {
   const [postsBatchProps, setPostsBatchProps] = useState<PostsBatchProps>({});
-  const [cursorId, setCursorId] = useState<number>();
+  const [prevCursorId, setPrevCursorId] = useState<number>();
+  const [nextCursorId, setNextCursorId] = useState<number>();
   const postsFeed = postsBatchProps.postsBatch!;
 
+  const cursorGenerator = (postsBatchArr: PostsBatchProps['postsBatch']) => {
+    const lastPostIdx = postsBatchArr!.length - 1;
+    const cursorIds = {
+      prev: postsBatchArr![lastPostIdx].id,
+      next: postsBatchArr![0].id,
+    };
+
+    return cursorIds;
+  };
+
   useEffect(() => {
-    async function fetchProps() {
+    async function initProps() {
       const postsBatchProps = await postHandler.getBatchOfPosts();
-      setCursorId(postsBatchProps.postsBatch[4].id);
+      const cursorIds = cursorGenerator(postsBatchProps.postsBatch);
+
+      setPrevCursorId(cursorIds.prev);
+      setNextCursorId(cursorIds.next);
       setPostsBatchProps(postsBatchProps);
     }
-    fetchProps();
+
+    initProps();
   }, []);
 
   const handlePrev = async () => {
-    const prevPostsBatchProps = await postHandler.getPrevBatchProps(cursorId);
-    const lastBatchIdx = prevPostsBatchProps.postsBatch.length - 1;
-    const newCursorId = prevPostsBatchProps.postsBatch[lastBatchIdx].id;
-    setCursorId(newCursorId);
+    const prevPostsBatchProps = await postHandler.getPrevBatchProps(
+      prevCursorId
+    );
+    const cursorIds = cursorGenerator(prevPostsBatchProps.postsBatch);
+
+    setPrevCursorId(cursorIds.prev);
+    setNextCursorId(cursorIds.next);
     setPostsBatchProps(prevPostsBatchProps);
   };
 
   const handleNext = async () => {
-    const nextPostsBatchProps = await postHandler.getNextBatchProps(cursorId);
-    const newCursorId = nextPostsBatchProps.postsBatch[0].id;
-    setCursorId(newCursorId);
+    const nextPostsBatchProps = await postHandler.getNextBatchProps(
+      nextCursorId
+    );
+    const cursorIds = cursorGenerator(nextPostsBatchProps.postsBatch);
+
+    setPrevCursorId(cursorIds.prev);
+    setNextCursorId(cursorIds.next);
     setPostsBatchProps(nextPostsBatchProps);
   };
 
@@ -45,8 +67,8 @@ export default function AllPosts() {
         <div className="w-full">
           {postsFeed.map((post, idx) => (
             <div key={idx}>
-              <p>{moment(post?.taggedDate).format('MMMM Do YYYY')}</p>
-              <p className="mb-8 p-4 post max-h-20 overflow-hidden text-ellipsis">
+              <p>{moment(post?.taggedDate).format('MMMM Do, YYYY')}</p>
+              <p className="mb-8 p-4 post max-h-20 overflow-hidden truncate">
                 {post.content}
               </p>
             </div>

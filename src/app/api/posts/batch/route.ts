@@ -3,7 +3,6 @@ import { PostsBatchProps } from '@/components/AllPosts/AllPosts';
 import prisma from '@/database/prisma';
 
 export async function GET(req: NextRequest) {
-  console.log('batch route initiated...');
   const today = new Date();
   const url = new URL(req.url);
   const cursorId = url.searchParams.get('cursorId');
@@ -29,7 +28,7 @@ export async function GET(req: NextRequest) {
           },
         },
         orderBy: {
-          taggedDate: 'desc',
+          taggedDate: 'asc',
         },
       });
 
@@ -81,8 +80,8 @@ export async function GET(req: NextRequest) {
     });
 
     const postBatchProps: PostsBatchProps = {
-      postsBatch: postBatch,
       prevPostId: prevPost?.id,
+      postsBatch: postBatch,
     };
 
     return NextResponse.json(postBatchProps, { status: 201 });
