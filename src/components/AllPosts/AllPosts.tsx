@@ -1,6 +1,6 @@
 'use client';
 import * as postHandler from '../../utilities/post-handler';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, FormEvent } from 'react';
 import { Post } from '@prisma/client';
 import moment from 'moment';
 
@@ -10,13 +10,21 @@ export type PostsBatchProps = {
   nextPostId?: number;
 };
 
+type CursorIds = {
+  prev: number;
+  next: number;
+};
+
 export default function AllPosts() {
   const [postsBatchProps, setPostsBatchProps] = useState<PostsBatchProps>({});
-  const [prevCursorId, setPrevCursorId] = useState<number>();
-  const [nextCursorId, setNextCursorId] = useState<number>();
+  const [prevCursorId, setPrevCursorId] = useState<CursorIds['prev']>();
+  const [nextCursorId, setNextCursorId] = useState<CursorIds['next']>();
+  const [filterDate, setFilterDate] = useState('');
   const postsFeed = postsBatchProps.postsBatch!;
 
-  const cursorGenerator = (postsBatchArr: PostsBatchProps['postsBatch']) => {
+  const cursorGenerator = (
+    postsBatchArr: PostsBatchProps['postsBatch']
+  ): CursorIds => {
     const lastPostIdx = postsBatchArr!.length - 1;
     const cursorIds = {
       prev: postsBatchArr![lastPostIdx].id,
@@ -26,43 +34,67 @@ export default function AllPosts() {
     return cursorIds;
   };
 
+  const setState = async (props: PostsBatchProps) => {
+    const { prev, next } = cursorGenerator(props.postsBatch);
+
+    setPrevCursorId(prev);
+    setNextCursorId(next);
+    setPostsBatchProps(props);
+  };
+
   useEffect(() => {
     async function initProps() {
       const postsBatchProps = await postHandler.getBatchOfPosts();
-      const cursorIds = cursorGenerator(postsBatchProps.postsBatch);
 
-      setPrevCursorId(cursorIds.prev);
-      setNextCursorId(cursorIds.next);
-      setPostsBatchProps(postsBatchProps);
+      setState(postsBatchProps);
     }
 
     initProps();
   }, []);
 
+  const filterPosts = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const filteredPostsBatchProps = await postHandler.getFilteredBatchProps(filterDate);
+    console.log(filteredPostsBatchProps);
+
+    setState(filteredPostsBatchProps);
+  }
+
   const handlePrev = async () => {
     const prevPostsBatchProps = await postHandler.getPrevBatchProps(
       prevCursorId
     );
-    const cursorIds = cursorGenerator(prevPostsBatchProps.postsBatch);
 
-    setPrevCursorId(cursorIds.prev);
-    setNextCursorId(cursorIds.next);
-    setPostsBatchProps(prevPostsBatchProps);
+    setState(prevPostsBatchProps);
   };
 
   const handleNext = async () => {
     const nextPostsBatchProps = await postHandler.getNextBatchProps(
       nextCursorId
     );
-    const cursorIds = cursorGenerator(nextPostsBatchProps.postsBatch);
 
-    setPrevCursorId(cursorIds.prev);
-    setNextCursorId(cursorIds.next);
-    setPostsBatchProps(nextPostsBatchProps);
+    setState(nextPostsBatchProps);
   };
 
   return (
     <div className="flex flex-col items-center w-1/2 pt-20">
+      <form className="mb-6" onSubmit={filterPosts}>
+        <label className="pr-2">Showing from</label>
+        <input
+          autoFocus
+          type="text"
+          className="p-2"
+          placeholder="All time..."
+          value={filterDate}
+          onChange={(e) =>
+            setFilterDate(e.target.value)
+          }
+        />
+        <button type="submit" className="form-button">
+          Search
+        </button>
+      </form>
+
       {postsFeed?.length ? (
         <div className="w-full">
           {postsFeed.map((post, idx) => (

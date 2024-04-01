@@ -10,6 +10,10 @@ export async function getBatchOfPosts() {
   return sendRequest(`${BASE_URL}/batch`, 'GET');
 }
 
+export async function getFilteredBatchProps(filter: string) {
+  return sendRequest(`${BASE_URL}/batch?filter=${filter}`, 'GET');
+}
+
 export async function getNextBatchProps(id: number | undefined) {
   return sendRequest(`${BASE_URL}/batch?cursorId=${id}&action=next`, 'GET');
 }

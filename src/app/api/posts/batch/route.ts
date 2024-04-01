@@ -7,6 +7,7 @@ export async function GET(req: NextRequest) {
   const url = new URL(req.url);
   const cursorId = url.searchParams.get('cursorId');
   const action = url.searchParams.get('action');
+  const filter = url.searchParams.get('filter');
 
   if (action) {
     try {
@@ -58,11 +59,18 @@ export async function GET(req: NextRequest) {
   try {
     const postBatch = await prisma.post.findMany({
       take: 5,
-      where: {
-        taggedDate: {
-          lt: today,
-        },
-      },
+      where: filter
+        ? {
+            taggedDate: {
+              gte: new Date(`${filter}-01-01`),
+              lt: new Date(`${parseInt(filter!) + 1}-01-01`),
+            },
+          }
+        : {
+            taggedDate: {
+              lt: today,
+            },
+          },
       orderBy: {
         taggedDate: 'desc',
       },

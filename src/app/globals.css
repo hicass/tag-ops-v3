@@ -38,7 +38,7 @@ body {
   background: var(--black);
 }
 
-form, .post {
+.form, .post {
   border: 0.05rem solid var(--grey-2);
   background-color: var(--grey-5);
   border-radius: 0.3rem;
@@ -53,6 +53,11 @@ textarea {
 
 textarea:focus {
   border: 0.05rem solid var(--grey-1);
+}
+
+input {
+  background-color: var(--black);
+  outline: none;
 }
 
 .form-button, .explore-button {

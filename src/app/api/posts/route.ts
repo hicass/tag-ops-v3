@@ -58,6 +58,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
     const result = await prisma.post.create({
       data: {
         content: trimmedContent,
+        taggedDate: new Date('2021-07-24'),
         author: { connect: { email: session!.user!.email! } },
       },
     });
