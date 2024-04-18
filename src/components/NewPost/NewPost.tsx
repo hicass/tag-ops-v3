@@ -1,43 +1,23 @@
 'use client';
-import { useState, FormEvent } from 'react';
-import * as postHandler from '../../utilities/post-handler';
+import { useState } from 'react';
+import TextEditor from '../TextEditor/TextEditor';
 
 export default function NewPost({ setActiveView }: any) {
   const [postData, setPostData] = useState({
     content: '',
+    taggedDate: new Date(),
   });
-
-  const submitPost = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const createdPost = await postHandler.submitPost(postData);
-    console.log('Post created: ', createdPost);
-    setActiveView('all');
-  };
+  const [dirty, setDirty] = useState(false);
 
   return (
-    <div className="flex flex-col items-center w-1/2 pt-20">
-      <form
-        onSubmit={submitPost}
-        className="flex flex-col my-10 w-full p-4 form  m-3"
-      >
-        <textarea
-          autoFocus
-          className="p-2 mb-6"
-          value={postData.content}
-          onChange={(e) =>
-            setPostData({ ...postData, content: e.target.value })
-          }
-        />
-
-        <div className="flex justify-between">
-          <button type="submit" className="form-button">
-            Draft
-          </button>
-          <button type="submit" className="form-button">
-            Publish
-          </button>
-        </div>
-      </form>
+    <div className="flex flex-col items-center mt-20 w-3/4 sm:w-3/4 sm:max-w-none lg:w-1/2 lg:max-w-1/2 2xl:w-1/3">
+      <TextEditor
+        action='post'
+        postData={postData}
+        setActiveView={setActiveView}
+        dirty={dirty}
+        setDirty={setDirty}
+      />
     </div>
   );
 }

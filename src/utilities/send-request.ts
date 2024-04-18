@@ -25,7 +25,6 @@ export default async function sendRequest(
 
     const res = await fetch(url, {
       method: method,
-      mode: 'no-cors',
       body: JSON.stringify(body),
       signal: controller.signal,
       headers: {
@@ -38,6 +37,7 @@ export default async function sendRequest(
   } catch (error) {
     console.log(error);
     throw new Error('Bad Request');
+    
   } finally {
     clearTimeout(timeoutId);
   }

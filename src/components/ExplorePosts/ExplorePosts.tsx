@@ -2,7 +2,8 @@
 import * as postHandler from '../../utilities/post-handler';
 import { useEffect, useState } from 'react';
 import { Post } from '@prisma/client';
-import moment from 'moment';
+import React from 'react';
+import PostComponent from '../PostComponent/PostComponent';
 
 export type ExplorePostsProps = {
   currentPost?: Post;
@@ -12,6 +13,7 @@ export type ExplorePostsProps = {
 
 export default function ExplorePosts() {
   const [postProps, setPostProps] = useState<ExplorePostsProps>({});
+  const [disableButtons, setDisableButtons] = useState(false);
   const post = postProps.currentPost;
 
   useEffect(() => {
@@ -32,35 +34,40 @@ export default function ExplorePosts() {
     const nextPostsProps = await postHandler.findPost(postProps.nextPostId);
     setPostProps(nextPostsProps);
   };
-
+  
   return (
-    <div className="flex flex-col items-center w-1/2 pt-20">
-      <>
-        <p>{moment(post?.taggedDate).format('MMMM Do, YYYY')}</p>
-        <p className="mt-10 p-4 w-full post">{post?.content}</p>
+    <>
+      {post ? (
+        <div className="flex flex-col items-center mt-20 max-w-xs sm:w-3/4 sm:max-w-none lg:w-1/2 lg:max-w-1/2 2xl:w-1/3">
+          <PostComponent post={post} setDisableButtons={setDisableButtons} setPostProps={setPostProps} />
 
-        <div className="flex justify-between w-full my-10">
-          <button
-            onClick={handlePrev}
-            className={`explore-button ${
-              !postProps.prevPostId && 'opacity-30 pointer-events-none'
-            }`}
-            disabled={!postProps.prevPostId}
-          >
-            Previous
-          </button>
+          <div className="flex justify-between w-full my-10">
+            <button
+              onClick={handlePrev}
+              className={`explore-button ${
+                (!postProps.prevPostId && 'opacity-30 pointer-events-none') ||
+                (disableButtons && 'opacity-30 pointer-events-none')
+              }`}
+              disabled={!postProps.prevPostId && disableButtons}
+            >
+              Previous
+            </button>
 
-          <button
-            onClick={handleNext}
-            className={`explore-button ${
-              !postProps.nextPostId && 'opacity-30 pointer-events-none'
-            }`}
-            disabled={!postProps.nextPostId}
-          >
-            Next
-          </button>
+            <button
+              onClick={handleNext}
+              className={`explore-button ${
+                (!postProps.nextPostId && 'opacity-30 pointer-events-none') ||
+                (disableButtons && 'opacity-30 pointer-events-none')
+              }`}
+              disabled={!postProps.nextPostId && disableButtons}
+            >
+              Next
+            </button>
+          </div>
         </div>
-      </>
-    </div>
+      ) : (
+        <p>No Posts...</p>
+      )}
+    </>
   );
 }

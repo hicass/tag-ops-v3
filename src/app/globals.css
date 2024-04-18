@@ -3,34 +3,19 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-  --white: #f5f5f5;
-  --grey-1: #ebebeb;
-  --grey-2: #818181;
-  --grey-3: #525252;
-  --black: #494949;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-    --white: #e8e8e8;
-    --grey-1: #787878;
-    --grey-2: #3a3a3a;
-    --grey-3: #292929;
-    --grey-4: #262626;
-    --grey-5: #222222;
-    --black: #1f1f1f;
-  }
+  --white: #e8e8e8;
+  --grey-1: #787878;
+  --grey-15: #505050;
+  --grey-2: #3a3a3a;
+  --grey-3: #292929;
+  --grey-4: #262626;
+  --grey-5: #222222;
+  --black: #1f1f1f;
+  --red: #e44a4a;
 }
 
 * {
   letter-spacing: 0.065em;
-  transition: all 0.2s ease-in-out;
   color: var(--white);
 }
 
@@ -38,11 +23,46 @@ body {
   background: var(--black);
 }
 
-.form, .post {
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1.2em;
+}
+
+h4 {
+  font-size: 1em;
+}
+
+h5 {
+  font-size: 0.8em;
+}
+
+h6 {
+  font-size: 0.6em;
+}
+
+p {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.smooth {
+  transition: all 0.2s ease-in-out;
+}
+
+.form,
+.post {
   border: 0.05rem solid var(--grey-2);
   background-color: var(--grey-5);
   border-radius: 0.3rem;
   border-top: 0.05rem solid var(--grey-1);
+  z-index: 1;
 }
 
 textarea {
@@ -60,13 +80,17 @@ input {
   outline: none;
 }
 
-.form-button, .explore-button {
+.form-button,
+.explore-button,
+.edit-modal {
   border: 0.05rem solid var(--grey-2);
   border-radius: 0.2rem;
   padding: 0.5em 1em;
+  transition: all 0.2s ease-in-out;
 }
 
-.form-button:hover, .explore-button:hover {
+.form-button:hover,
+.explore-button:hover {
   background-color: var(--grey-2);
   border-top: 0.05rem solid var(--grey-1);
 }
@@ -75,6 +99,32 @@ input {
   background-color: var(--grey-4);
 }
 
+.edit-modal {
+  top: 1rem;
+  right: 1rem;
+  border: 0.05rem solid var(--grey-2);
+  border-top: 0.05rem solid var(--grey-1);
+  background-color: var(--grey-3);
+  z-index: 2;
+}
+
+.edit-modal-btn {
+  display: flex;
+  justify-content: space-between;
+  margin: 1.5rem, 0, 5rem;
+}
+
+.red {
+  color: var(--red);
+}
+
+.red-border {
+  border: 1px solid red;
+}
+
+.green-border {
+  border: 1px solid green;
+}
 
 @layer utilities {
   .text-balance {

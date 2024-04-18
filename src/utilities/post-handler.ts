@@ -26,6 +26,23 @@ export async function findPost(id: number | undefined) {
   return sendRequest(`${BASE_URL}/${id}`, 'GET');
 }
 
-export async function submitPost(postData: { content: string }) {
+export async function submitPost(postData: {
+  content: string;
+  taggedDate: Date;
+}) {
   return sendRequest(`${BASE_URL}`, 'POST', postData);
+}
+
+export async function updatePost(
+  postData: { content: string; taggedDate: Date },
+  id: number
+) {
+  return sendRequest(`${BASE_URL}/${id}`, 'PUT', postData);
+}
+
+export async function setPublished(
+  id: number | undefined,
+  publishStatus: boolean | undefined
+) {
+  return sendRequest(`${BASE_URL}/${id}?togglePublished=true`, 'PUT', publishStatus);
 }

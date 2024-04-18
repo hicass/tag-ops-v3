@@ -3,6 +3,7 @@ import * as postHandler from '../../utilities/post-handler';
 import { useEffect, useState, FormEvent } from 'react';
 import { Post } from '@prisma/client';
 import moment from 'moment';
+import PostComponent from '../PostComponent/PostComponent';
 
 export type PostsBatchProps = {
   prevPostId?: number;
@@ -54,11 +55,13 @@ export default function AllPosts() {
 
   const filterPosts = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const filteredPostsBatchProps = await postHandler.getFilteredBatchProps(filterDate);
+    const filteredPostsBatchProps = await postHandler.getFilteredBatchProps(
+      filterDate
+    );
     console.log(filteredPostsBatchProps);
 
     setState(filteredPostsBatchProps);
-  }
+  };
 
   const handlePrev = async () => {
     const prevPostsBatchProps = await postHandler.getPrevBatchProps(
@@ -86,9 +89,7 @@ export default function AllPosts() {
           className="p-2"
           placeholder="All time..."
           value={filterDate}
-          onChange={(e) =>
-            setFilterDate(e.target.value)
-          }
+          onChange={(e) => setFilterDate(e.target.value)}
         />
         <button type="submit" className="form-button">
           Search
@@ -98,12 +99,7 @@ export default function AllPosts() {
       {postsFeed?.length ? (
         <div className="w-full">
           {postsFeed.map((post, idx) => (
-            <div key={idx}>
-              <p>{moment(post?.taggedDate).format('MMMM Do, YYYY')}</p>
-              <p className="mb-8 p-4 post max-h-20 overflow-hidden truncate">
-                {post.content}
-              </p>
-            </div>
+            <PostComponent key={idx} post={post} truncate={true} />
           ))}
 
           <div className="flex justify-between w-full my-10">

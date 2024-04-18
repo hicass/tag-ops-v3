@@ -2,6 +2,7 @@ import { ExplorePostsProps } from '@/components/ExplorePosts/ExplorePosts';
 import { authOptions } from '../auth/[...nextauth]/route';
 import { NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
+import PostService from '../../../../prisma/services/PostService';
 import prisma from '@/database/prisma';
 
 export async function GET() {
@@ -55,15 +56,25 @@ export async function POST(req: NextRequest, res: NextResponse) {
       );
     }
 
-    const result = await prisma.post.create({
+    const newPost = await prisma.post.create({
       data: {
         content: trimmedContent,
-        taggedDate: new Date('2021-07-24'),
+        taggedDate: body.taggedDate,
         author: { connect: { email: session!.user!.email! } },
       },
     });
 
-    return NextResponse.json(result, { status: 201 });
+    const decoratedPost = new PostService(newPost!);
+    const prevPost = await decoratedPost.prevPost();
+    const nextPost = await decoratedPost.nextPost();
+
+    const postProps: ExplorePostsProps = {
+      currentPost: newPost!,
+      prevPostId: prevPost?.id,
+      nextPostId: nextPost?.id,
+    };
+
+    return NextResponse.json(postProps, { status: 201 });
   } else {
     return NextResponse.json({ error: 'Unauthorized action' }, { status: 401 });
   }

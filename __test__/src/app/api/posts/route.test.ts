@@ -1,8 +1,13 @@
+import { prismaMock } from '../../../../utilities/mocks/mockPrisma';
 import { POST } from '../../../../../src/app/api/posts/route';
+
+import {
+  invalidSession,
+  validSession,
+} from '../../../../utilities/fixtures/session';
 import { getServerSession } from 'next-auth';
+
 import { NextRequest, NextResponse } from 'next/server';
-import { prismaMock } from '../../../../utilities/mocks/mockPrisma.ts';
-import { invalidSession, validSession } from '../../../../utilities/fixtures/session.ts';
 
 jest.mock('next-auth');
 
@@ -104,10 +109,12 @@ describe('POST function', () => {
         const responseBody = await response.json();
 
         expect(responseBody).toEqual({
-          ...prismaResponse,
-          createdAt: date.toISOString(),
-          updatedAt: date.toISOString(),
-          taggedDate: date.toISOString(),
+          currentPost: {
+            ...prismaResponse,
+            createdAt: date.toISOString(),
+            updatedAt: date.toISOString(),
+            taggedDate: date.toISOString(),
+          },
         });
       });
     });
@@ -115,7 +122,7 @@ describe('POST function', () => {
     describe('and a post has no content', () => {
       const emptyBody = { content: '' };
 
-      it("the create method shouldn't be called", async () => {
+      it("shouldn't call the create method", async () => {
         const mockPostCreate = jest.spyOn(prismaMock.post, 'create');
 
         const req = new Request('https://localhost:3000/api/post', {
@@ -131,7 +138,7 @@ describe('POST function', () => {
         expect(mockPostCreate.mock.calls.length).toBe(0);
       });
 
-      it('will return an error', async () => {
+      it('should return an error', async () => {
         const req = new Request('https://localhost:3000/api/post', {
           body: JSON.stringify(emptyBody),
           method: 'POST',

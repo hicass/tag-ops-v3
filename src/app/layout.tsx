@@ -19,11 +19,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-        <Provider session={session}>
-          <body suppressHydrationWarning={true} className={inter.className}>
-            {children}
-          </body>
-        </Provider>
+      <Provider session={session}>
+        <body suppressHydrationWarning={true} className={inter.className}>
+          {children}
+        </body>
+      </Provider>
     </html>
   );
 }
