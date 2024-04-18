@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 :root {
-  --white: #e8e8e8;
   --grey-1: #787878;
   --grey-15: #505050;
   --grey-2: #3a3a3a;
@@ -14,9 +13,46 @@
   --red: #e44a4a;
 }
 
+@font-face {
+  font-family: 'Onyxia';
+  src: url('/fonts/Onyxia.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Bigger-Display';
+  src: url('/fonts/Bigger-Display.otf') format('opentype');
+  font-weight: bold;
+  font-style: bold;
+}
+
+@font-face {
+  font-family: 'Sentient-Light';
+  src: url('/fonts/Sentient-Light.otf') format('opentype');
+  font-weight: light;
+  font-style: normal;
+}
+
+#header-h1 {
+  font-size: 4em;
+  font-family: 'Bigger-Display', sans-serif;
+  letter-spacing: 0.15em;
+  color: var(--white-2);
+}
+
+#header-h2 {
+  font-family: 'Onyxia', sans-serif;
+  letter-spacing: 0.2em;
+  font-size: 1em;
+  color: var(--grey-1);
+  margin-top: -2%;
+}
+
 * {
   letter-spacing: 0.065em;
   color: var(--white);
+  font-family: 'Sentient-Light', sans-serif;
 }
 
 body {
