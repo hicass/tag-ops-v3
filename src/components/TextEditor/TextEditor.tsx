@@ -1,14 +1,17 @@
-import { useEffect, useState, FormEvent, useRef } from 'react';
-import * as postHandler from '../../utilities/post-handler';
-import { Editor } from '@tinymce/tinymce-react';
-import DatePickerComponent from '../DatePickerComponent/DatePickerComponent';
-import moment from 'moment';
+import { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
+
+import * as postHandler from '../../utilities/post-handler';
+import DatePickerComponent from '../DatePickerComponent/DatePickerComponent';
+
+import { Editor } from '@tinymce/tinymce-react';
+import moment from 'moment';
 
 export default function TextEditor({
   action,
   postData,
   setPostProps,
+  setDisableButtons,
   setTxtEditorActive,
   setActiveView,
   dirty,
@@ -53,6 +56,11 @@ export default function TextEditor({
     }
   };
 
+  const closeEditor = () => {
+    setDisableButtons(false);
+    setTxtEditorActive(false)
+  }
+
   return (
     <>
       <DatePickerComponent
@@ -60,9 +68,9 @@ export default function TextEditor({
         setNewTaggedDate={setNewTaggedDate}
       />
 
-      <div className="form flex flex-col my-6 p-4 w-full gap-2">
+      <div className="form flex flex-col my-2 p-4 w-full gap-2">
         {action === 'update' ? (
-          <button className="w-full flex justify-end" onClick={() => setTxtEditorActive(false)}>
+          <button className="w-full flex justify-end" onClick={closeEditor}>
             {' '}
             <Image src="/icons/x.svg" alt="Edit Icon" width={20} height={20} />
           </button>
@@ -102,13 +110,13 @@ export default function TextEditor({
         />
 
         {action === 'update' ? (
-          <div className="mt-5 flex justify-end">
+          <div className="mt-2 flex justify-end">
             <button onClick={submit} type="submit" className="form-button">
               Submit
             </button>
           </div>
         ) : (
-          <div className="mt-5 flex justify-between">
+          <div className="mt-4 flex justify-between">
             <button onClick={submit} type="submit" className="form-button">
               Draft
             </button>

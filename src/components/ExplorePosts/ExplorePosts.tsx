@@ -1,9 +1,11 @@
 'use client';
-import * as postHandler from '../../utilities/post-handler';
+
 import { useEffect, useState } from 'react';
-import { Post } from '@prisma/client';
-import React from 'react';
+
+import * as postHandler from '../../utilities/post-handler';
 import PostComponent from '../PostComponent/PostComponent';
+
+import { Post } from '@prisma/client';
 
 export type ExplorePostsProps = {
   currentPost?: Post;

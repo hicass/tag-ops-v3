@@ -1,12 +1,15 @@
 'use client';
-import { useSession, signOut } from 'next-auth/react';
+
 import { useState } from 'react';
-import { LocalizationProvider } from '@mui/x-date-pickers';
-import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
+import { useSession, signOut } from 'next-auth/react';
+
 import Header from '../components/Header/Header';
 import ExplorePosts from '../components/ExplorePosts/ExplorePosts';
 import NewPost from '../components/NewPost/NewPost';
 import AllPosts from '../components/AllPosts/AllPosts';
+
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 
 export default function Home() {
   const { data: session } = useSession();
@@ -30,26 +33,26 @@ export default function Home() {
         {session ? (
           <>
             <nav className="absolute top-10 left-10 flex flex-col items-start">
-              <button onClick={() => signOut()} className="nav-button">
+              <button onClick={() => signOut()} className="nav-button opacity-30">
                 Logout
               </button>
               <button
                 onClick={() => setActiveView('explore')}
                 className={`nav-button ${
-                  activeView === 'explore' && 'opacity-30'
+                  activeView === 'explore' ? 'opacity-100' : 'opacity-40'
                 }`}
               >
                 Explore
               </button>
               <button
                 onClick={() => setActiveView('new')}
-                className={`nav-button ${activeView === 'new' && 'opacity-30'}`}
+                className={`nav-button ${activeView === 'new' ? 'opacity-100' : 'opacity-40'}`}
               >
                 New
               </button>
               <button
                 onClick={() => setActiveView('all')}
-                className={`nav-button ${activeView === 'all' && 'opacity-30'}`}
+                className={`nav-button ${activeView === 'all' ? 'opacity-100' : 'opacity-40'}`}
               >
                 All
               </button>

@@ -1,8 +1,9 @@
-import Image from 'next/image';
 import { useEffect, useRef } from 'react';
+import Image from 'next/image';
 
 export default function EditModal({
   post,
+  setDisableButtons,
   editModalActive,
   setEditModalActive,
   setTxtEditorActive,
@@ -32,6 +33,7 @@ export default function EditModal({
   }, [editModalActive]);
 
   const handleEdit = () => {
+    setDisableButtons(true)
     setTxtEditorActive(true);
     setEditModalActive(false);
   }

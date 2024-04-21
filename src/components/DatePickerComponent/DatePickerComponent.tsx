@@ -1,6 +1,7 @@
 import { outlinedInputClasses } from '@mui/material/OutlinedInput';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+
 import moment from 'moment';
 
 export default function DatePickerComponent({
@@ -18,6 +19,9 @@ export default function DatePickerComponent({
         primary: {
           main: '#787878',
         },
+      },
+      typography: {
+        fontFamily: ['Sentient-Light', 'sans-serif'].join(','),
       },
       components: {
         MuiDateCalendar: {
@@ -55,7 +59,7 @@ export default function DatePickerComponent({
             },
             root: {
               color: 'var(--white)',
-              backgroundColor: 'var(--grey-3)',
+              backgroundColor: 'var(--grey-5)',
               [`&:hover .${outlinedInputClasses.notchedOutline}`]: {
                 border: '0.05rem solid var(--grey-2)',
               },
@@ -73,8 +77,8 @@ export default function DatePickerComponent({
   return (
     <ThemeProvider theme={newTheme(theme)}>
       <DatePicker
-        slotProps={{ popper: { placement: 'bottom' }}}
         value={date}
+        slotProps={{ popper: { placement: 'bottom' } }}
         onChange={(newDate) => setNewTaggedDate(newDate?.toDate())}
       />
     </ThemeProvider>
