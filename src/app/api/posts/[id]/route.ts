@@ -204,4 +204,3 @@ export async function DELETE(
     return NextResponse.json({ error: 'Unauthorized action' }, { status: 401 });
   }
 }
-
