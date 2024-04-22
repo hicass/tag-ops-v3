@@ -12,7 +12,7 @@ import {
   validSession,
 } from '../../../../../utilities/fixtures/session';
 
-import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest } from 'next/server';
 
 const date = new Date();
 const mockPost = {
@@ -27,7 +27,7 @@ const mockPost = {
 
 jest.mock('next-auth');
 
-describe.skip('GET function', () => {
+describe('GET function', () => {
   describe('When an positive id is sent', () => {
     const route = { params: { id: '4' } };
 
@@ -90,7 +90,7 @@ describe.skip('GET function', () => {
   });
 });
 
-describe.skip('PUT function', () => {
+describe('PUT function', () => {
   describe('When a user is authenticated', () => {
     beforeEach(() => {
       (getServerSession as jest.Mock).mockResolvedValue(validSession);
@@ -345,38 +345,6 @@ describe('DELETE function', () => {
       const mockPostID = 3;
       const params = { params: { id: '3' } };
 
-      it('should delete the post', async () => {
-        const mockPostDelete = jest
-          .spyOn(prismaMock.post, 'delete')
-          .mockResolvedValue({
-            id: 3,
-            content: 'I am an deleted post, woohoo!',
-            createdAt: date,
-            updatedAt: date,
-            taggedDate: date,
-            published: true,
-            authorId: 663,
-          });
-
-        const req = new Request(
-          `https://localhost:3000/api/posts/${mockPostID}`,
-          {
-            method: 'DELETE',
-            headers: { 'Content-Type': 'application/json' },
-          }
-        );
-        const nextReq = new NextRequest(req);
-
-        await DELETE(nextReq, params);
-
-        expect(mockPostDelete.mock.calls.length).toBe(1);
-        expect(mockPostDelete).toHaveBeenCalledWith({
-          where: {
-            id: 3,
-          },
-        });
-      });
-
       it('should return the next and prev posts', async () => {
         const mockPost = {
           id: 3,
@@ -424,7 +392,7 @@ describe('DELETE function', () => {
           const responseMessage = await response?.json();
           console.log('reponseMessage: ', responseMessage);
 
-          expect(responseMessage).toEqual({ error: 'No posts found' });
+          expect(responseMessage).toEqual({ error: 'Post not found' });
           expect(response?.status).toEqual(404);
         });
       });

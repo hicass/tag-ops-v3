@@ -38,6 +38,22 @@ export default class Posts {
     });
   }
 
+  async delete(): Promise<Post | undefined> {
+    console.log('delete service called')
+    console.log(this);
+    try {
+      const deletedPost = await prisma.post.delete({
+        where: {
+          id: this._post?.id,
+        },
+      });
+
+      return deletedPost;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   async update(
     postData: Pick<Post, 'taggedDate' | 'content' | 'published'>
   ): Promise<Post | undefined> {
