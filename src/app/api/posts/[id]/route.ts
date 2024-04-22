@@ -24,7 +24,7 @@ const buildPostProps = async (post: Post) => {
 };
 
 export async function GET(req: NextRequest, route: { params: { id: string } }) {
-  const postId = parseInt(route.params.id);
+  const postId = parseFloat(route.params.id);
 
   if (postId < 1 || postId % 1 !== 0) {
     return NextResponse.json({ error: 'Invalid Id' }, { status: 400 });
@@ -71,7 +71,7 @@ export async function PUT(
   route: { params: { id: string; togglePublished: boolean } }
 ) {
   const body = await req.json();
-  const postId = parseInt(route.params.id);
+  const postId = parseFloat(route.params.id);
 
   const url = new URL(req.url);
   const togglePublished = url.searchParams.get('togglePublished');
@@ -127,6 +127,76 @@ export async function PUT(
       return NextResponse.json(postProps, { status: 201 });
     } catch (error) {
       console.log(error);
+    }
+  } else {
+    return NextResponse.json({ error: 'Unauthorized action' }, { status: 401 });
+  }
+}
+
+export async function DELETE(
+  req: NextRequest,
+  route: { params: { id: string } }
+) {
+  const today = new Date();
+  const postId = parseFloat(route.params.id);
+  console.log(postId);
+  const session = await getServerSession(authOptions);
+
+  if (session) {
+    if (postId < 1 || postId % 1 !== 0) {
+      return NextResponse.json({ error: 'Invalid Id' }, { status: 400 });
+    }
+    
+    try {
+      const deletedPost = await prisma.post.delete({
+        where: {
+          id: postId,
+        },
+      });
+      console.log('deletedPost', deletedPost)
+  
+      const nextPost = await prisma.post.findFirst({
+        where: {
+          taggedDate: {
+            gt: deletedPost?.taggedDate,
+          },
+        },
+        orderBy: {
+          taggedDate: 'asc',
+        },
+      });
+      console.log('nextPost', nextPost)
+  
+      // If the next post exists
+      if (nextPost) {
+        const postProps = await buildPostProps(nextPost);
+        console.log('accurate postProps', postProps);
+  
+        return NextResponse.json(postProps, { status: 200 });
+        // If the next post doesn't exist return the latest one
+      } else {
+        const latestPost = await prisma.post.findFirst({
+          where: {
+            taggedDate: {
+              lt: today,
+            },
+          },
+          orderBy: {
+            taggedDate: 'desc',
+          },
+        });
+  
+        if (latestPost) {
+          const postProps = await buildPostProps(latestPost);
+          console.log('latestPostProps', postProps);
+          return NextResponse.json(postProps, { status: 200 });
+          // If the latest post doesn't exist return and error
+        } else {
+          return NextResponse.json({ error: 'No posts found' }, { status: 404 });
+        }
+      }
+    } catch (error) {
+      console.log('error', error);
     }
   } else {
     return NextResponse.json({ error: 'Unauthorized action' }, { status: 401 });
