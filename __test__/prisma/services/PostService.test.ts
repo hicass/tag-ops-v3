@@ -1,6 +1,5 @@
 import PostService from '../../../prisma/services/PostService';
 import { prismaMock } from '../../utilities/mocks/mockPrisma';
-import { Post } from '@prisma/client';
 
 const mockPosts = [
   {
@@ -76,6 +75,24 @@ describe('nextPost method', () => {
         },
       });
       expect(nextPost).toEqual(mockPosts[2]);
-    })
-  })
-})
+    });
+  });
+});
+
+describe('delete method', () => {
+  describe('when given a post', () => {
+    it('should delete the post', async () => {
+      const decoratedPost = new PostService(mockPosts[1]);
+      await decoratedPost.delete();
+
+      const mockPostDelete = jest.spyOn(prismaMock.post, 'delete');
+
+      expect(mockPostDelete.mock.calls.length).toBe(1);
+      expect(mockPostDelete).toHaveBeenCalledWith({
+        where: {
+          id: mockPosts[1].id,
+        },
+      });
+    });
+  });
+});
