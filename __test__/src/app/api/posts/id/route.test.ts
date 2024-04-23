@@ -390,7 +390,6 @@ describe('DELETE function', () => {
 
           const response = await DELETE(nextReq, params);
           const responseMessage = await response?.json();
-          console.log('reponseMessage: ', responseMessage);
 
           expect(responseMessage).toEqual({ error: 'Post not found' });
           expect(response?.status).toEqual(404);
