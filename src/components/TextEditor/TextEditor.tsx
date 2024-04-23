@@ -22,10 +22,6 @@ export default function TextEditor({
 
   useEffect(() => setDirty(false), [postData.content]);
 
-  useEffect(() => {
-    console.log(moment(newTaggedDate).format('MMMM Do, YYYY'));
-  }, [newTaggedDate]);
-
   const submit = async () => {
     if (editorRef.current) {
       const content = editorRef.current.getContent();
@@ -49,7 +45,6 @@ export default function TextEditor({
           newPostData,
           postData.id
         );
-        console.log(updatedPostProps);
         setPostProps(updatedPostProps);
         setTxtEditorActive(false);
       }
@@ -58,8 +53,8 @@ export default function TextEditor({
 
   const closeEditor = () => {
     setDisableButtons(false);
-    setTxtEditorActive(false)
-  }
+    setTxtEditorActive(false);
+  };
 
   return (
     <>

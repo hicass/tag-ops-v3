@@ -139,15 +139,12 @@ export async function DELETE(
 ) {
   const today = new Date();
   const postId = parseFloat(route.params.id);
-  console.log('postID', postId);
   const session = await getServerSession(authOptions);
 
   if (session) {
     if (postId < 1 || postId % 1 !== 0) {
       return NextResponse.json({ error: 'Invalid Id' }, { status: 400 });
     }
-
-    console.log('entering logic');
 
     try {
       const post = await prisma.post.findUnique({
@@ -159,13 +156,11 @@ export async function DELETE(
       if (post) {
         const decoratedPost = new PostService(post);
         const nextPost = await decoratedPost.nextPost();
-        console.log('nextPost from postService', nextPost);
 
         await decoratedPost.delete();
         // If the next post exists
         if (nextPost) {
           const postProps = await buildPostProps(nextPost);
-          console.log('accurate postProps', postProps);
 
           return NextResponse.json(postProps, { status: 200 });
           // Load the latest post
@@ -183,7 +178,6 @@ export async function DELETE(
 
           if (latestPost) {
             const postProps = await buildPostProps(latestPost);
-            console.log('latestPostProps', postProps);
 
             return NextResponse.json(postProps, { status: 200 });
             // If the latest post doesn't exist
