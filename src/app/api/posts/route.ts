@@ -1,7 +1,10 @@
-import { ExplorePostsProps } from '@/components/ExplorePosts/ExplorePosts';
-import { authOptions } from '../auth/[...nextauth]/route';
 import { NextRequest, NextResponse } from 'next/server';
+
 import { getServerSession } from 'next-auth';
+import { authOptions } from '../auth/[...nextauth]/route';
+
+import { ExplorePostsProps } from '@/components/ExplorePosts/ExplorePosts';
+
 import PostService from '../../../../prisma/services/PostService';
 import prisma from '@/database/prisma';
 

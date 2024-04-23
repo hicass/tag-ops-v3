@@ -39,8 +39,6 @@ export default class Posts {
   }
 
   async delete(): Promise<Post | undefined> {
-    console.log('delete service called')
-    console.log(this);
     try {
       const deletedPost = await prisma.post.delete({
         where: {
