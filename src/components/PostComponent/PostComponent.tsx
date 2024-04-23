@@ -8,7 +8,12 @@ import EditModal from '../EditModal/EditModal';
 import parse from 'html-react-parser';
 import moment from 'moment';
 
-export default function PostComponent({ post, truncate, setPostProps, setDisableButtons }: any) {
+export default function PostComponent({
+  post,
+  truncate,
+  setPostProps,
+  setDisableButtons,
+}: any) {
   const [postContent, setPostContent] = useState<any>();
   const [txtEditorActive, setTxtEditorActive] = useState(false);
   const [editModalActive, setEditModalActive] = useState(false);
@@ -85,6 +90,7 @@ export default function PostComponent({ post, truncate, setPostProps, setDisable
                 <EditModal
                   post={post}
                   setDisableButtons={setDisableButtons}
+                  setPostProps={setPostProps}
                   editModalActive={editModalActive}
                   setEditModalActive={setEditModalActive}
                   txtEditorActive={txtEditorActive}

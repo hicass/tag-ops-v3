@@ -1,9 +1,12 @@
 import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 
+import { deletePost } from '../../utilities/post-handler';
+
 export default function EditModal({
   post,
   setDisableButtons,
+  setPostProps,
   editModalActive,
   setEditModalActive,
   setTxtEditorActive,
@@ -33,20 +36,23 @@ export default function EditModal({
   }, [editModalActive]);
 
   const handleEdit = () => {
-    setDisableButtons(true)
+    setDisableButtons(true);
     setTxtEditorActive(true);
     setEditModalActive(false);
-  }
+  };
+
+  const handleDelete = async () => {
+    const nextPostProps = await deletePost(post.id);
+    setEditModalActive(false);
+    setPostProps(nextPostProps);
+  };
 
   return (
     <div
       className="w-1/3 flex flex-col justify-end absolute edit-modal gap-1"
       ref={modalRef}
     >
-      <button
-        className="edit-modal-btn"
-        onClick={handleEdit}
-      >
+      <button className="edit-modal-btn" onClick={handleEdit}>
         Edit
         <Image src="/icons/edit.svg" alt="Edit Icon" width={20} height={20} />
       </button>
@@ -70,7 +76,7 @@ export default function EditModal({
         )}
       </button>
 
-      <button className="edit-modal-btn red">
+      <button className="edit-modal-btn red" onClick={handleDelete}>
         Delete{' '}
         <Image src="/icons/trash.svg" alt="Edit Icon" width={20} height={20} />
       </button>

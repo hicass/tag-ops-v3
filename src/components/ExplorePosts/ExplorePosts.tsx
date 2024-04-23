@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-import * as postHandler from '../../utilities/post-handler';
+import { getLatest, findPost } from '../../utilities/post-handler';
 import PostComponent from '../PostComponent/PostComponent';
 
 import { Post } from '@prisma/client';
@@ -20,7 +20,7 @@ export default function ExplorePosts() {
 
   useEffect(() => {
     async function fetchProps() {
-      const postProps = await postHandler.getLatest();
+      const postProps = await getLatest();
       setPostProps(postProps);
     }
 
@@ -28,20 +28,24 @@ export default function ExplorePosts() {
   }, []);
 
   const handlePrev = async () => {
-    const previousPostsProps = await postHandler.findPost(postProps.prevPostId);
+    const previousPostsProps = await findPost(postProps.prevPostId);
     setPostProps(previousPostsProps);
   };
 
   const handleNext = async () => {
-    const nextPostsProps = await postHandler.findPost(postProps.nextPostId);
+    const nextPostsProps = await findPost(postProps.nextPostId);
     setPostProps(nextPostsProps);
   };
-  
+
   return (
     <>
       {post ? (
         <div className="flex flex-col items-center mt-20 max-w-xs sm:w-3/4 sm:max-w-none lg:w-1/2 lg:max-w-1/2 2xl:w-1/3">
-          <PostComponent post={post} setDisableButtons={setDisableButtons} setPostProps={setPostProps} />
+          <PostComponent
+            post={post}
+            setDisableButtons={setDisableButtons}
+            setPostProps={setPostProps}
+          />
 
           <div className="flex justify-between w-full my-10">
             <button

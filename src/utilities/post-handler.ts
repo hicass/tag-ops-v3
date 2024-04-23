@@ -46,3 +46,7 @@ export async function setPublished(
 ) {
   return sendRequest(`${BASE_URL}/${id}?togglePublished=true`, 'PUT', publishStatus);
 }
+
+export async function deletePost(id: number | undefined) {
+  return sendRequest(`${BASE_URL}/${id}`, 'DELETE');
+}
