@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import TextEditor from '../TextEditor/TextEditor';
 
-export default function NewPost({ setActiveView }: any) {
+export default function NewPost({ setActiveView, setExplorePostProps }: any) {
   const [postData, setPostData] = useState({
     content: '',
     taggedDate: new Date(),
@@ -15,6 +15,7 @@ export default function NewPost({ setActiveView }: any) {
         action='post'
         postData={postData}
         setActiveView={setActiveView}
+        setExplorePostProps={setExplorePostProps}
         dirty={dirty}
         setDirty={setDirty}
       />

@@ -1,40 +1,22 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
-import { getLatest, findPost } from '../../utilities/post-handler';
+import { findPost } from '../../utilities/post-handler';
 import PostComponent from '../PostComponent/PostComponent';
 
-import { Post } from '@prisma/client';
-
-export type ExplorePostsProps = {
-  currentPost?: Post;
-  prevPostId?: number;
-  nextPostId?: number;
-};
-
-export default function ExplorePosts() {
-  const [postProps, setPostProps] = useState<ExplorePostsProps>({});
+export default function ExplorePosts({ explorePostProps, setExplorePostProps }: any) {
   const [disableButtons, setDisableButtons] = useState(false);
-  const post = postProps?.currentPost;
-
-  useEffect(() => {
-    async function fetchProps() {
-      const postProps = await getLatest();
-      setPostProps(postProps);
-    }
-
-    fetchProps();
-  }, []);
+  const post = explorePostProps?.currentPost;
 
   const handlePrev = async () => {
-    const previousPostsProps = await findPost(postProps.prevPostId);
-    setPostProps(previousPostsProps);
+    const previousPostsProps = await findPost(explorePostProps.prevPostId);
+    setExplorePostProps(previousPostsProps);
   };
 
   const handleNext = async () => {
-    const nextPostsProps = await findPost(postProps.nextPostId);
-    setPostProps(nextPostsProps);
+    const nextPostsProps = await findPost(explorePostProps.nextPostId);
+    setExplorePostProps(nextPostsProps);
   };
 
   return (
@@ -44,17 +26,17 @@ export default function ExplorePosts() {
           <PostComponent
             post={post}
             setDisableButtons={setDisableButtons}
-            setPostProps={setPostProps}
+            setPostProps={setExplorePostProps}
           />
 
           <div className="flex justify-between w-full my-10">
             <button
               onClick={handlePrev}
               className={`explore-button ${
-                (!postProps.prevPostId && 'opacity-30 pointer-events-none') ||
+                (!explorePostProps.prevPostId && 'opacity-30 pointer-events-none') ||
                 (disableButtons && 'opacity-30 pointer-events-none')
               }`}
-              disabled={!postProps.prevPostId && disableButtons}
+              disabled={!explorePostProps.prevPostId && disableButtons}
             >
               Previous
             </button>
@@ -62,10 +44,10 @@ export default function ExplorePosts() {
             <button
               onClick={handleNext}
               className={`explore-button ${
-                (!postProps.nextPostId && 'opacity-30 pointer-events-none') ||
+                (!explorePostProps.nextPostId && 'opacity-30 pointer-events-none') ||
                 (disableButtons && 'opacity-30 pointer-events-none')
               }`}
-              disabled={!postProps.nextPostId && disableButtons}
+              disabled={!explorePostProps.nextPostId && disableButtons}
             >
               Next
             </button>
