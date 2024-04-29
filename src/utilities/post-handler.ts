@@ -29,6 +29,7 @@ export async function findPost(id: number | undefined) {
 export async function submitPost(postData: {
   content: string;
   taggedDate: Date;
+  published: boolean;
 }) {
   return sendRequest(`${BASE_URL}`, 'POST', postData);
 }

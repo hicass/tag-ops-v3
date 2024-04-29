@@ -4,7 +4,7 @@ import { Post } from '@prisma/client';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '../../auth/[...nextauth]/route';
 
-import { ExplorePostsProps } from '@/components/ExplorePosts/ExplorePosts';
+import { ExplorePostsProps } from '@/app/page';
 import PostService from '../../../../../prisma/services/PostService';
 
 import { NextRequest, NextResponse } from 'next/server';

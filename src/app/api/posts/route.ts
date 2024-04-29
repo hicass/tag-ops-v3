@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '../auth/[...nextauth]/route';
 
-import { ExplorePostsProps } from '@/components/ExplorePosts/ExplorePosts';
+import { ExplorePostsProps } from '@/app/page';
 
 import PostService from '../../../../prisma/services/PostService';
 import prisma from '@/database/prisma';
@@ -64,6 +64,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
       data: {
         content: trimmedContent,
         taggedDate: body.taggedDate,
+        published: body.published,
         author: { connect: { email: session!.user!.email! } },
       },
     });
