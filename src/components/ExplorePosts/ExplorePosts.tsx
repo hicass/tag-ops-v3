@@ -16,7 +16,7 @@ export type ExplorePostsProps = {
 export default function ExplorePosts() {
   const [postProps, setPostProps] = useState<ExplorePostsProps>({});
   const [disableButtons, setDisableButtons] = useState(false);
-  const post = postProps.currentPost;
+  const post = postProps?.currentPost;
 
   useEffect(() => {
     async function fetchProps() {
