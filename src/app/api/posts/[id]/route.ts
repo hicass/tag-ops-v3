@@ -9,6 +9,8 @@ import PostService from '../../../../../prisma/services/PostService';
 
 import { NextRequest, NextResponse } from 'next/server';
 
+const today = new Date();
+
 const buildPostProps = async (post: Post) => {
   const decoratedPost = new PostService(post);
   const prevPost = await decoratedPost.prevPost();
@@ -21,6 +23,34 @@ const buildPostProps = async (post: Post) => {
   };
 
   return postProps;
+};
+
+const setPublished = async (postId: number, status: boolean) => {
+  const updatedPost = await prisma.post.update({
+    where: {
+      id: postId,
+    },
+    data: {
+      published: !status,
+    },
+  });
+
+  return updatedPost;
+};
+
+const getLatestPost = async () => {
+  const latestPost = await prisma.post.findFirst({
+    where: {
+      taggedDate: {
+        lt: today,
+      },
+    },
+    orderBy: {
+      taggedDate: 'desc',
+    },
+  });
+
+  return latestPost;
 };
 
 export async function GET(req: NextRequest, route: { params: { id: string } }) {
@@ -41,18 +71,7 @@ export async function GET(req: NextRequest, route: { params: { id: string } }) {
       const postProps = await buildPostProps(currentPost);
       return NextResponse.json(postProps, { status: 201 });
     } else {
-      const today = new Date();
-
-      const latestPost = await prisma.post.findFirst({
-        where: {
-          taggedDate: {
-            lt: today,
-          },
-        },
-        orderBy: {
-          taggedDate: 'desc',
-        },
-      });
+      const latestPost = await getLatestPost();
 
       if (latestPost !== null) {
         const postProps = await buildPostProps(latestPost);
@@ -78,6 +97,7 @@ export async function PUT(
 
   const session = await getServerSession(authOptions);
 
+  // TODO: Add auth wrapper method  :)
   if (session) {
     if (postId < 1 || postId % 1 !== 0) {
       return NextResponse.json({ error: 'Invalid Id' }, { status: 400 });
@@ -85,15 +105,7 @@ export async function PUT(
     // Checking to see if the desired action is to toggle the publish status
     if (togglePublished) {
       try {
-        const updatedPost = await prisma.post.update({
-          where: {
-            id: postId,
-          },
-          data: {
-            published: !body,
-          },
-        });
-
+        const updatedPost = await setPublished(postId, body);
         const postProps = await buildPostProps(updatedPost);
 
         return NextResponse.json(postProps, { status: 201 });
@@ -137,7 +149,6 @@ export async function DELETE(
   req: NextRequest,
   route: { params: { id: string } }
 ) {
-  const today = new Date();
   const postId = parseFloat(route.params.id);
   const session = await getServerSession(authOptions);
 
@@ -153,6 +164,7 @@ export async function DELETE(
         },
       });
 
+      // TODO: Abstract logic for getting the next post
       if (post) {
         const decoratedPost = new PostService(post);
         const nextPost = await decoratedPost.nextPost();
@@ -165,16 +177,7 @@ export async function DELETE(
           return NextResponse.json(postProps, { status: 200 });
           // Load the latest post
         } else {
-          const latestPost = await prisma.post.findFirst({
-            where: {
-              taggedDate: {
-                lt: today,
-              },
-            },
-            orderBy: {
-              taggedDate: 'desc',
-            },
-          });
+          const latestPost = await getLatestPost();
 
           if (latestPost) {
             const postProps = await buildPostProps(latestPost);
