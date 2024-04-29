@@ -53,6 +53,29 @@ const getLatestPost = async () => {
   return latestPost;
 };
 
+const getNextOrLatestPost = async (decoratedPost: PostService) => {
+  const nextPost = await decoratedPost.nextPost();
+
+  if (nextPost) {
+    return nextPost;
+  } else {
+    const latestPost = getLatestPost();
+    return latestPost;
+  }
+};
+
+const unauthorizedResponse = () => {
+  return NextResponse.json({ error: 'Unauthorized action' }, { status: 401 });
+}
+
+const invalidIdResponse = () => {
+  return NextResponse.json({ error: 'Invalid Id' }, { status: 400 });
+}
+
+const postNotFoundResponse = () => {
+  return NextResponse.json({ error: 'Post not found' }, { status: 404 });
+}
+
 export async function GET(req: NextRequest, route: { params: { id: string } }) {
   const postId = parseFloat(route.params.id);
 
@@ -154,7 +177,7 @@ export async function DELETE(
 
   if (session) {
     if (postId < 1 || postId % 1 !== 0) {
-      return NextResponse.json({ error: 'Invalid Id' }, { status: 400 });
+      return invalidIdResponse();
     }
 
     try {
@@ -164,40 +187,26 @@ export async function DELETE(
         },
       });
 
-      // TODO: Abstract logic for getting the next post
       if (post) {
         const decoratedPost = new PostService(post);
-        const nextPost = await decoratedPost.nextPost();
-
         await decoratedPost.delete();
-        // If the next post exists
+
+        const nextPost = await getNextOrLatestPost(decoratedPost);
+
         if (nextPost) {
           const postProps = await buildPostProps(nextPost);
 
           return NextResponse.json(postProps, { status: 200 });
-          // Load the latest post
         } else {
-          const latestPost = await getLatestPost();
-
-          if (latestPost) {
-            const postProps = await buildPostProps(latestPost);
-
-            return NextResponse.json(postProps, { status: 200 });
-            // If the latest post doesn't exist
-          } else {
-            return NextResponse.json(
-              { error: 'Post not found' },
-              { status: 404 }
-            );
-          }
+          return postNotFoundResponse();
         }
       } else {
-        return NextResponse.json({ error: 'Post not found' }, { status: 404 });
+        return postNotFoundResponse();
       }
     } catch (error) {
-      console.log(error);
+      return NextResponse.json({ error: `${error}` }, { status: 400 });
     }
   } else {
-    return NextResponse.json({ error: 'Unauthorized action' }, { status: 401 });
+    return unauthorizedResponse();
   }
 }
