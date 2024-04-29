@@ -42,6 +42,7 @@ export async function GET() {
     return NextResponse.json(postProps, { status: 201 });
   } catch (error) {
     console.log(error);
+    return NextResponse.json({ error: `${error}` })
   }
 }
 
