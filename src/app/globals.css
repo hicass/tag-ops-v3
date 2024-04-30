@@ -10,6 +10,20 @@
 }
 
 @font-face {
+  font-family: 'Manrope-SemiBold';
+  src: url('/fonts/Manrope/Manrope-SemiBold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Manrope-Bold';
+  src: url('/fonts/Manrope/Manrope-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'Kayak-Sans-Bold';
   src: url('/fonts/Kayak-Sans/Kayak-Sans-Bold.otf') format('opentype');
   font-weight: bold;
@@ -21,7 +35,10 @@
     --color-text: 48 27 89;
     --color-primary: 97 38 216;
     --color-secondary: 208 178 255;
+    --color-secondary-light: 231 216 255;
     --color-accent: 163 221 255;
+    --color-accent-light: 212 239 255;
+    --color-background: 255 255 255
   }
 }
 
@@ -29,7 +46,10 @@
   --text: rgb(48, 27, 89);
   --primary: rgb(97, 38, 216);
   --secondary: rgb(208, 178, 255);
+  --secondary-light: rgb(231, 216, 255);
   --accent: rgb(163, 221, 255);
+  --accent-light: rgb(212, 239, 255);
+  --background: rgb(255, 255, 255);
 }
 
 * {
@@ -37,8 +57,22 @@
   color: var(--text);
 }
 
-h1 {
+h1, h2 {
   font-family: 'Kayak-Sans-Bold', sans-serif;
+}
+
+.manrope-bold {
+  font-family: 'Manrope-Bold', sans-serif;
+}
+
+.manrope-semibold {
+  font-family: 'Manrope-SemiBold', sans-serif;
+}
+
+.button {
+  background-color: var(--accent);
+  padding: 0.7em;
+  border-radius: 10px;
 }
 
 .secret {
