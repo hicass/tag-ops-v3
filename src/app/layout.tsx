@@ -6,8 +6,9 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Mi Parcae',
-  description: "Because sometimes it feels like i'm cheating fate",
+  title: 'Tag Operations',
+  description:
+    'Simplify, Optimize, Scale with Tag Operations! Your tech forward, embedded, and flexible back office team!',
 };
 
 export default function RootLayout({

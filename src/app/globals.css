@@ -1,3 +1,48 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'Manrope-Regular';
+  src: url('/fonts/Manrope/Manrope-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Kayak-Sans-Bold';
+  src: url('/fonts/Kayak-Sans/Kayak-Sans-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@layer base {
+  :root {
+    --color-text: 48 27 89;
+    --color-primary: 97 38 216;
+    --color-secondary: 208 178 255;
+    --color-accent: 163 221 255;
+  }
+}
+
+:root {
+  --text: rgb(48, 27, 89);
+  --primary: rgb(97, 38, 216);
+  --secondary: rgb(208, 178, 255);
+  --accent: rgb(163, 221, 255);
+}
+
+* {
+  font-family: 'Manrope-Regular', sans-serif;
+  color: var(--text);
+}
+
+h1 {
+  font-family: 'Kayak-Sans-Bold', sans-serif;
+}
+
+.secret {
+  display: none;
+  position: absolute;
+  visibility: hidden;
+}
