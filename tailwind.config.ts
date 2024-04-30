@@ -11,7 +11,10 @@ const config: Config = {
       text: 'rgb(var(--color-text) / <alpha-value>)',
       primary: 'rgb(var(--color-primary) / <alpha-value>)',
       secondary: 'rgb(var(--color-secondary) / <alpha-value>)',
+      secondarylight: 'rgb(var(--color-secondary-light) / <alpha-value>)',
       accent: 'rgb(var(--color-accent) / <alpha-value>)',
+      accentlight: 'rgb(var(--color-accent-light) / <alpha-value>)',
+      background: 'rgb(var(--color-background) / <alpha-value>)',
     }
   },
   plugins: [],
