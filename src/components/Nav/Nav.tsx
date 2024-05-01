@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function Nav() {
   return (
-    <nav className="flex flex-row justify-between px-2 py-4">
+    <nav className="flex flex-row justify-between sticky top-0 px-2 py-4 bg-background drop-shadow-lg z-20">
       <Link href="/">
         <Image
           src="/logos/secondary-logo.svg"
@@ -14,18 +14,18 @@ export default function Nav() {
       </Link>
 
       <div className="flex items-center">
-        <ul className="flex flex-row items-center gap-2 ">
+        <ul className="flex flex-row items-center gap-3">
           <li>
-            <Link href="/about">About us</Link>
+            <Link href="/about" className="manrope-semibold">About us</Link>
           </li>
           <li>
-            <Link href="/services">Services</Link>
+            <Link href="/services" className="manrope-semibold">Services</Link>
           </li>
           <li>
-            <Link href="/blog">Blog</Link>
+            <Link href="/blog" className="manrope-semibold">Blog</Link>
           </li>
           <li>
-            <Link href="/contact">Contact</Link>
+            <Link href="/contact" className="manrope-semibold">Contact</Link>
           </li>
         </ul>
       </div>
