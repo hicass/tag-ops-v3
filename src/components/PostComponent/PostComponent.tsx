@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 import * as postHandler from '../../utilities/post-handler';
 import TextEditor from '../TextEditor/TextEditor';
-import EditModal from '../EditModal/EditModal';
+import EditModal from '../TextEditor/EditModal/EditModal';
 
 import parse from 'html-react-parser';
 import moment from 'moment';

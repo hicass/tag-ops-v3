@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 
 import * as postHandler from '../../utilities/post-handler';
-import DatePickerComponent from '../DatePickerComponent/DatePickerComponent';
+import DatePickerComponent from './DatePickerComponent/DatePickerComponent';
 
 import { Editor } from '@tinymce/tinymce-react';
 

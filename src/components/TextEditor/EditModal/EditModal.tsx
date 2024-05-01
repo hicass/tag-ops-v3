@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 
-import { deletePost } from '../../utilities/post-handler';
+import { deletePost } from '../../../utilities/post-handler';
 
 export default function EditModal({
   post,

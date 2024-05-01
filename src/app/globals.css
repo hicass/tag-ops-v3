@@ -32,7 +32,7 @@
 
 @layer base {
   :root {
-    --color-text: 48 27 89;
+    --color-text: 57 35 101;
     --color-primary: 97 38 216;
     --color-secondary: 208 178 255;
     --color-secondary-light: 231 216 255;
@@ -43,7 +43,7 @@
 }
 
 :root {
-  --text: rgb(48, 27, 89);
+  --text: rgb(57, 35, 101);
   --primary: rgb(97, 38, 216);
   --secondary: rgb(208, 178, 255);
   --secondary-light: rgb(231, 216, 255);
