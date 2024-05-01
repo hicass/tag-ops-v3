@@ -57,7 +57,7 @@
   color: var(--text);
 }
 
-h1, h2 {
+h1, h2, .button {
   font-family: 'Kayak-Sans-Bold', sans-serif;
 }
 
@@ -73,6 +73,12 @@ h1, h2 {
   background-color: var(--accent);
   padding: 0.7em;
   border-radius: 10px;
+  filter: drop-shadow(0 1px 2px rgb(0 0 0 / 0.1)) drop-shadow(0 1px 1px rgb(0 0 0 / 0.06));
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
 }
 
 .secret {

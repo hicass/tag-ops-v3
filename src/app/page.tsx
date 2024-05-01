@@ -25,7 +25,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="flex flex-col items-center p-6 bg-primary">
+        <section className="flex flex-col items-center p-6 bg-primary drop-shadow-md">
           <h2 className="text-3xl text-background">Our Solutions</h2>
 
           <div className="flex flex-col mt-4 gap-2">
@@ -85,7 +85,7 @@ export default function Home() {
           <h2 className="text-3xl">Our Flow</h2>
 
           <div className="w-full">
-            <div className="relative my-6 p-4 bg-secondarylight rounded-xl">
+            <div className="relative my-6 p-4 bg-secondarylight rounded-xl drop-shadow">
               <Image
                 src="/icons/compass.svg"
                 alt="Compass"
@@ -100,7 +100,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="relative my-6 p-4 bg-secondarylight rounded-xl">
+            <div className="relative my-6 p-4 bg-secondarylight rounded-xl drop-shadow">
               <Image
                 src="/icons/telescope.svg"
                 alt="Telescope"
@@ -115,7 +115,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="relative my-6 p-4 bg-secondarylight rounded-xl">
+            <div className="relative my-6 p-4 bg-secondarylight rounded-xl drop-shadow">
               <Image
                 src="/icons/rocket.svg"
                 alt="Rocket"
@@ -131,7 +131,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="relative my-6 p-4 bg-secondarylight rounded-xl">
+            <div className="relative my-6 p-4 bg-secondarylight rounded-xl drop-shadow">
               <Image
                 src="/icons/telescope.svg"
                 alt="Telescope"
@@ -145,7 +145,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="relative my-6 p-4 bg-secondarylight rounded-xl">
+            <div className="relative my-6 p-4 bg-secondarylight rounded-xl drop-shadow">
               <Image
                 src="/icons/calendar.svg"
                 alt="Calendar"
@@ -162,7 +162,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="relative my-6 p-4 bg-secondarylight rounded-xl">
+            <div className="relative my-6 p-4 bg-secondarylight rounded-xl drop-shadow">
               <Image
                 src="/icons/bulb.svg"
                 alt="Light Bulb"
@@ -176,7 +176,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="relative my-6 p-4 bg-secondarylight rounded-xl">
+            <div className="relative my-6 p-4 bg-secondarylight rounded-xl drop-shadow">
               <Image
                 src="/icons/telescope.svg"
                 alt="Telescope"
@@ -193,7 +193,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="relative my-6 p-4 bg-secondarylight rounded-xl">
+            <div className="relative my-6 p-4 bg-secondarylight rounded-xl drop-shadow">
               <Image
                 src="/icons/user.svg"
                 alt="Person"
@@ -217,7 +217,7 @@ export default function Home() {
           <h2 className="text-3xl">See what our clients are saying...</h2>
 
           <div>
-            <div className="bg-accentlight rounded-xl my-6 p-4">
+            <div className="bg-accentlight rounded-xl my-6 p-4 drop-shadow">
               <div>
                 <p className="text-lg manrope-bold">Riece Keck</p>
                 <p className="manrope-semibold">
@@ -236,7 +236,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="bg-accentlight rounded-xl my-6 p-4">
+            <div className="bg-accentlight rounded-xl my-6 p-4 drop-shadow drop-shadow">
               <div>
                 <p className="text-lg manrope-bold">Jolie Curran</p>
                 <p className="manrope-semibold">Head of Operations, Ejento</p>
@@ -251,7 +251,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="bg-accentlight rounded-xl my-6 p-4">
+            <div className="bg-accentlight rounded-xl my-6 p-4  drop-shadow">
               <div>
                 <p className="text-lg manrope-bold">David Milner</p>
                 <p className="manrope-semibold">Head of IT, Celsius Network</p>
@@ -268,6 +268,10 @@ export default function Home() {
               </p>
             </div>
           </div>
+
+          <Link href="/contact" className="button mt-4 text-2xl">
+            Lets Talk!
+          </Link>
         </section>
       </main>
     </LocalizationProvider>
