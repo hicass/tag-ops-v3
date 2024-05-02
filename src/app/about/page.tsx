@@ -7,7 +7,7 @@ export default function AboutPage() {
       <section className="w-full flex flex-col items-center my-8 p-6">
         <h1 className="secret">About Us</h1>
         <h1 className="text-center text-5xl text-primary">Hello!</h1>
-        <h2>We are your partner in operational excellence.</h2>
+        <h2 className="text-center text-xl">We are your partner in operational excellence.</h2>
 
         <p className="mt-4">
           Every business, regardless of size, deserves tailored support to
