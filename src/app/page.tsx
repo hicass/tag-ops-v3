@@ -236,7 +236,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="bg-accentlight rounded-xl my-6 p-4 drop-shadow drop-shadow">
+            <div className="bg-accentlight rounded-xl my-6 p-4 drop-shadow">
               <div>
                 <p className="text-lg manrope-bold">Jolie Curran</p>
                 <p className="manrope-semibold">Head of Operations, Ejento</p>

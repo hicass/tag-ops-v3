@@ -28,10 +28,10 @@ export default function AboutPage() {
       </section>
 
       <section className="w-full flex flex-col items-center my-8 p-6">
-        <h1 className="flex flex-row items-center gap-2 text-3xl text-primary">
+        <h2 className="flex flex-row items-center gap-2 text-3xl text-primary">
           Our Story
           <Image src="icons/book.svg" alt="Book" width={40} height={40} />
-        </h1>
+        </h2>
 
         <p className="mt-4">
           Tag Ops was founded on the principle that high-quality operational
