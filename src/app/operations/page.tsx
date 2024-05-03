@@ -22,7 +22,7 @@ export default function OperationsPage() {
               width={30}
               height={30}
             />
-            <h2 className="text-center text-xl">Did you know? </h2>
+            <h2 className="text-center text-xl">Did you know?</h2>
           </div>
 
           <p className="w-full justify-start manrope-semibold mt-2">
