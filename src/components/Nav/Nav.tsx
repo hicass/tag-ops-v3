@@ -19,7 +19,7 @@ export default function Nav() {
             <Link href="/about" className="manrope-semibold">About us</Link>
           </li>
           <li>
-            <Link href="/finance" className="manrope-semibold">Services</Link>
+            <Link href="/human-resources" className="manrope-semibold">Services</Link>
           </li>
           <li>
             <Link href="/blog" className="manrope-semibold">Blog</Link>
