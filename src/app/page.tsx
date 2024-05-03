@@ -45,35 +45,44 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col w-full mt-4">
-            <div className="flex flex-row items-center py-4 gap-2">
+            <Link
+              href="/operations"
+              className="flex flex-row items-center py-4 gap-2"
+            >
               <Image
                 src="/icons/settings.svg"
                 alt="Gear"
                 width={30}
                 height={30}
               />
-              <h3 className="text-2xl text-background">Operations</h3>
-            </div>
+              <h3 className="link text-2xl text-background">Operations</h3>
+            </Link>
 
-            <div className="flex flex-row items-center py-4 gap-2">
+            <Link
+              href="/finance"
+              className="flex flex-row items-center py-4 gap-2"
+            >
               <Image
                 src="/icons/report-money.svg"
                 alt="Money"
                 width={30}
                 height={30}
               />
-              <h3 className="text-2xl text-background">Finance</h3>
-            </div>
+              <h3 className="link text-2xl text-background">Finance</h3>
+            </Link>
 
-            <div className="flex flex-row items-center py-4 gap-2">
+            <Link
+              href="/finance"
+              className="flex flex-row items-center py-4 gap-2"
+            >
               <Image
                 src="/icons/heart-handshake.svg"
                 alt="Hanshake in the shape of a heart"
                 width={30}
                 height={30}
               />
-              <h3 className="text-2xl text-background">Human Resources</h3>
-            </div>
+              <h3 className="link text-2xl text-background">Human Resources</h3>
+            </Link>
           </div>
 
           <Link href="/services" className="button mt-4 text-lg">
@@ -210,6 +219,27 @@ export default function Home() {
                 out the project.
               </p>
             </div>
+          </div>
+
+          <h3 className="text-center mt-4 text-xl manrope-semibold">
+            Analytics Empowerment
+          </h3>
+
+          <div className="flex flex-col mt-4 gap-4">
+            <Image
+              src="/images/dashboard.png"
+              alt="Teamwork Dashboard"
+              width={100}
+              height={100}
+              layout="responsive"
+            />
+
+            <p>
+              Our project management software empowers your business with
+              analytics, not only on tasks and project budgets but also a
+              breakdown of how much time is spent on any specific task within
+              any division (Finance, HR, Ops) every quarter.
+            </p>
           </div>
         </section>
 
