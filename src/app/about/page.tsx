@@ -7,7 +7,9 @@ export default function AboutPage() {
       <section className="w-full flex flex-col items-center my-8 p-6">
         <h1 className="secret">About Us</h1>
         <h1 className="text-center text-5xl text-primary">Hello!</h1>
-        <h2 className="text-center text-xl">We are your partner in operational excellence.</h2>
+        <h2 className="text-center text-xl">
+          We are your partner in operational excellence.
+        </h2>
 
         <p className="mt-4">
           Every business, regardless of size, deserves tailored support to
@@ -60,13 +62,16 @@ export default function AboutPage() {
         <div className="w-full">
           <div className="relative my-6 p-4 bg-secondarylight rounded-xl drop-shadow">
             <div className="flex gap-2">
-              <Image
-                src="/images/courtney-profile.jpeg"
-                alt="Smiling filipina woman"
-                className="rounded-xl drop-shadow"
-                width={80}
-                height={80}
-              />
+              <div className="w-1/3">
+                <Image
+                  src="/images/courtney-walters.jpeg"
+                  alt="Smiling filipina woman"
+                  className="rounded-xl drop-shadow"
+                  width={80}
+                  height={80}
+                />
+              </div>
+
               <div>
                 <p className="text-lg manrope-bold">Courtney Walters</p>
                 <p className="manrope-semibold">
@@ -90,61 +95,57 @@ export default function AboutPage() {
 
           <div className="relative my-6 p-4 bg-secondarylight rounded-xl drop-shadow">
             <div className="flex gap-2">
-              <Image
-                src="/images/courtney-profile.jpeg"
-                alt="Smiling filipina woman"
-                className="rounded-xl drop-shadow"
-                width={80}
-                height={80}
-              />
+              <div className="w-1/3">
+                <Image
+                  src="/images/cass-walters.jpg"
+                  alt="Smiling filipina woman"
+                  className="rounded-xl drop-shadow"
+                  width={80}
+                  height={80}
+                />
+              </div>
               <div>
-                <p className="text-lg manrope-bold">Courtney Walters</p>
+                <p className="text-lg manrope-bold">Cass Walters</p>
                 <p className="manrope-semibold">
-                  Founder & Operations Consultant
+                  Business Operations Developer
                 </p>
               </div>
             </div>
 
             <p className="pt-2">
-              I founded Tag Ops after 8 years of working in Operations in the
-              San Francisco startup sphere. From Accounting & HR SaaS companies,
-              to FinTech and Cryptocurrency, to Recruiting. Regardless of the
-              industry, I'm incredibly adaptable, enjoy learning, and love
-              problem solving. I have a fiery passion for helping small
-              companies strategize and stay organized amongst the chaos of
-              scaling. In my spare time, I enjoy hiking around the Bay Area,
-              playing dnd and strategy-based RPGs, and spending time with my
-              family, friends, and partner.
+              As a coder and artist, I'm driven by the fusion of creativity and
+              technology. With a passion for both coding and artistic
+              expression, I find fulfillment in crafting elegant and efficient
+              solutions that seamlessly marries functionality with aesthetics. I
+              thrive on the exhilaration of exploring cutting-edge tools and
+              frameworks, constantly expanding my skill set. Beyond the code, I
+              am a gamer, hiker, and dog parent!
             </p>
           </div>
 
           <div className="relative my-6 p-4 bg-secondarylight rounded-xl drop-shadow">
             <div className="flex gap-2">
-              <Image
-                src="/images/courtney-profile.jpeg"
-                alt="Smiling filipina woman"
-                className="rounded-xl drop-shadow"
-                width={80}
-                height={80}
-              />
+              <div className="w-1/3">
+                <Image
+                  src="/images/daniel-soyinka.png"
+                  alt="Smiling filipina woman"
+                  className="rounded-xl drop-shadow"
+                  width={80}
+                  height={80}
+                />
+              </div>
               <div>
-                <p className="text-lg manrope-bold">Courtney Walters</p>
-                <p className="manrope-semibold">
-                  Founder & Operations Consultant
-                </p>
+                <p className="text-lg manrope-bold">Daniel Soyinka</p>
+                <p className="manrope-semibold">Bookkeeping Consultant</p>
               </div>
             </div>
 
             <p className="pt-2">
-              I founded Tag Ops after 8 years of working in Operations in the
-              San Francisco startup sphere. From Accounting & HR SaaS companies,
-              to FinTech and Cryptocurrency, to Recruiting. Regardless of the
-              industry, I'm incredibly adaptable, enjoy learning, and love
-              problem solving. I have a fiery passion for helping small
-              companies strategize and stay organized amongst the chaos of
-              scaling. In my spare time, I enjoy hiking around the Bay Area,
-              playing dnd and strategy-based RPGs, and spending time with my
-              family, friends, and partner.
+              With a degree in Accounting, I have gained experience across
+              various roles in different companies, from internee to CEO. I have
+              been helping numerous small and medium-size businesses grow by
+              serving as a remote Bookkeeper. I possess comprehensive expertise
+              in all aspects of Accounting and Bookkeeping.
             </p>
           </div>
         </div>
