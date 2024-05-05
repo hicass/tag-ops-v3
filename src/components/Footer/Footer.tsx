@@ -9,7 +9,7 @@ export default function Footer() {
         <ul>
           <li>
             <Link
-              href="/services/#operations"
+              href="/operations"
               className="text-secondarylight hover:text-background"
             >
               Operations
@@ -17,7 +17,7 @@ export default function Footer() {
           </li>
           <li>
             <Link
-              href="/services/#finance"
+              href="/finance"
               className="text-secondarylight hover:text-background"
             >
               Finance
@@ -25,10 +25,10 @@ export default function Footer() {
           </li>
           <li>
             <Link
-              href="/services/#finance"
+              href="/finance"
               className="text-secondarylight hover:text-background"
             >
-              Human resources
+              Human Resources
             </Link>
           </li>
         </ul>
@@ -62,6 +62,16 @@ export default function Footer() {
             </Link>
           </li>
         </ul>
+      </div>
+
+      <div className="flex w-1/2 my-6">
+        <Image 
+          src="/logos/main-logo-white.svg"
+          alt="Tag Operations Finance Human Resources"
+          layout="responsive"
+          width={100}
+          height={100}
+        />
       </div>
 
       <div className="flex flex-row justify-between items-end mt-6">

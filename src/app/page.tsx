@@ -229,9 +229,9 @@ export default function Home() {
             <Image
               src="/images/dashboard.png"
               alt="Teamwork Dashboard"
+              layout="responsive"
               width={100}
               height={100}
-              layout="responsive"
             />
 
             <p>
