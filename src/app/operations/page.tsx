@@ -15,33 +15,42 @@ export default function OperationsPage() {
 
       <section className="flex flex-col items-center mt-4">
         <div className="p-6 bg-secondarylight">
-          <div className="flex flex-row justify-start items-end gap-2 w-full">
-            <Image
-              src="/icons/bulb.svg"
-              alt="Light Bulb"
-              width={30}
-              height={30}
-            />
-            <h2 className="text-center text-xl">Did you know?</h2>
+            <h2 className="flex flex-row items-center gap-2 w-full text-xl">
+              <Image
+                src="/icons/bulb.svg"
+                alt="Light Bulb"
+                width={50}
+                height={50}
+              />
+              What are the costs of operational Inefficiencies?
+            </h2>
+
+          <div className="mt-2">
+            <h3 className="manrope-semibold">Financial Impact</h3>
+            <p className="text-sm">
+              Inefficient processes drain revenue and hinder success, especially
+              for small- to medium-sized businesses with narrow margins.
+              External factors like competition and market changes exacerbate
+              the impact. Handling all back-office tasks internally is costly
+              and time-consuming, undermining profitability.
+            </p>
           </div>
-
-          <p className="w-full justify-start manrope-semibold mt-2">
-            With a recent statistic showing that the Fortune 500 companies had
-            an estimated <span className="manrope-bold">$480 billion</span>{' '}
-            'lost' in inefficiencies from back office processes, taking the
-            small steps to counter this loss is very important.
-          </p>
-
-          <div className="flex justify-end mt-2">
-            <p className="manrope-semibold">
-              - The Shared Services & Outsourcing Network Editor,{' '}
-              <Link
-                href="https://www.ssonetwork.com/business-process-outsourcing/whitepapers/workforce-optimization-in-business-process-outsour"
-                target="_blank"
-                className="text-primary hover:text-text underline underline-offset-2"
-              >
-                Report
-              </Link>
+          <div className="mt-2">
+            <h3 className="manrope-semibold">Time Consumption</h3>
+            <p className="text-sm">
+              Outdated systems lead to prolonged tasks, impeding productivity.
+              Manual processes slow down operations compared to automated ones,
+              putting companies at a disadvantage. Complex procedures result in
+              employees spending more time navigating them, reducing their
+              actual productive hours.
+            </p>
+          </div>
+          <div className="mt-2">
+            <h3 className="manrope-semibold">Impact on Work Quality</h3>
+            <p className="text-sm">
+              Efficient operations uphold work quality, while inefficiencies
+              lead to errors and reduced morale. Automation minimizes mistakes
+              and opens up resources for other goals.
             </p>
           </div>
         </div>
@@ -57,31 +66,28 @@ export default function OperationsPage() {
             <h4 className="text-lg manrope-bold">
               Establishing Interdepartmental Processes/Policies
             </h4>
-
             <p className="pt-2">
-              We specialize in establishing interdepartmental processes and
-              policies, ensuring cohesive workflows that drive efficiency and
-              unity across your entire business.
+              Tag Ops specializes in establishing interdepartmental processes
+              and policies, ensuring cohesive workflows that drive efficiency
+              and unity across your business.
             </p>
           </div>
 
           <div className="rounded-xl my-6 p-4 border-2 border-accent bg-background drop-shadow">
             <h4 className="text-lg manrope-bold">Software Strategization</h4>
-
             <p className="pt-2">
-              We scout, implement, and train on cutting-edge software that fuels
-              your company's growth, helping you thrive in the ever-evolving
-              tech landscape.
+              Thrive in the ever-evolving tech landscape with our knowledge in
+              scouting, implementing, and training on cutting-edge software that
+              fuels your company's growth.
             </p>
           </div>
 
           <div className="rounded-xl my-6 p-4 border-2 border-accent bg-background drop-shadow">
             <h4 className="text-lg manrope-bold">Inventory Management</h4>
-
             <p className="pt-2">
-              We optimize processes, implement robust systems, and provide
-              tailored solutions to ensure your inventory is efficiently
-              managed.
+              Optimize your processes with Tag Ops' expertise in implementing
+              robust systems and providing tailored solutions to ensure your
+              inventory is managed efficiently.
             </p>
           </div>
 
@@ -89,10 +95,9 @@ export default function OperationsPage() {
             <h4 className="text-lg manrope-bold">
               Information/Change Management
             </h4>
-
             <p className="pt-2">
-              We elevate your internal communication and collaboration with our
-              expertise in building customized intranet solutions. We specialize
+              Upgrade your internal communication and collaboration with our
+              mastery in building customized intranet solutions. We specialize
               in implementing user-friendly platforms that enhance team
               connectivity, streamline information sharing, and foster a
               collaborative work environment.
@@ -101,19 +106,19 @@ export default function OperationsPage() {
 
           <div className="rounded-xl my-6 p-4 border-2 border-accent bg-background drop-shadow">
             <h4 className="text-lg manrope-bold">General Project Management</h4>
-
             <p className="pt-2">
               Optimize your project endeavors with our specialized project
-              management assistance. We bring expertise in planning, execution,
-              and monitoring to ensure your projects are delivered on time and
-              within scope.
+              management assistance. Tag Ops brings expertise in planning,
+              execution, and monitoring to ensure your projects are delivered on
+              time and within scope.
             </p>
           </div>
         </div>
 
         <p>
           Let us help you standardize, optimize, and document your back office
-          processes!
+          processes. For more information and pricing details, get in touch with
+          us to craft the ideal solution for your business.
         </p>
 
         <Link href="/contact" className="button mt-4 text-2xl">

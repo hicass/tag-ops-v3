@@ -15,32 +15,44 @@ export default function FinancePage() {
 
       <section className="flex flex-col items-center mt-4">
         <div className="p-6 bg-secondarylight">
-          <div className="flex flex-row justify-start items-end gap-2 w-full">
+          <h2 className="flex flex-row items-center gap-2 w-full text-xl">
             <Image
               src="/icons/bulb.svg"
               alt="Light Bulb"
-              width={30}
-              height={30}
+              width={50}
+              height={50}
             />
-            <h2 className="text-center text-xl">Did you know? </h2>
+            What are the leading Causes of Financial Inefficiencies?
+          </h2>
+
+          <div className="mt-2">
+            <h3 className="manrope-semibold">Bottlenecks</h3>
+            <p className="text-sm">
+              Bottlenecks are major obstacles that hinder robust financial
+              health. Identifying and tracking these bottlenecks is crucial. By
+              doing so, you can pinpoint the specific areas impeding the entire
+              workflow and take effective measures to eliminate them.
+            </p>
           </div>
-
-          <p className="w-full justify-start manrope-semibold mt-2">
-            Inefficiencies cost many organizations as much as{' '}
-            <span className="manrope-bold">20 to 30 percent</span> of their
-            revenue each year.
-          </p>
-
-          <div className="flex justify-end mt-2">
-            <p className="manrope-semibold">
-              - Stampli,{' '}
-              <Link
-                href="https://www.stampli.com/blog/accounts-payable/inefficient-back-office"
-                target="_blank"
-                className="text-primary hover:text-text underline underline-offset-2"
-              >
-                Blog
-              </Link>
+          <div className="mt-2">
+            <h3 className="manrope-semibold">
+              Lack of Technological Integration
+            </h3>
+            <p className="text-sm">
+              Failure to leverage financial technology tools further compounds
+              these inefficiencies, as streamlined processes are not utilized to
+              their full potential.
+            </p>
+          </div>
+          <div className="mt-2">
+            <h3 className="manrope-semibold">
+              Absence of Standardized Processes
+            </h3>
+            <p className="text-sm">
+              Neglecting to standardize financial processes often results in
+              inefficiencies within an organization. Without clear guidelines in
+              place, confusion reigns, leading to non-compliance, errors, and
+              miscommunication.
             </p>
           </div>
         </div>
@@ -54,70 +66,64 @@ export default function FinancePage() {
         <div>
           <div className="rounded-xl my-6 p-4 border-2 border-accent bg-background drop-shadow">
             <h4 className="text-lg manrope-bold">Bookkeeping</h4>
-
             <p className="pt-2">
-              Tag Ops simplifies your financial processes with our bookkeeping
-              expertise. We assist in meticulous financial record-keeping,
-              ensuring accuracy and compliance. With our bookkeeping services,
-              you can focus on your core business while we handle the numbers,
-              providing you with peace of mind and financial insight.
+              Simplify your financial processes with our bookkeeping expertise.
+              We specialize in meticulous financial record-keeping, ensuring
+              accuracy and compliance. With our bookkeeping services, you can
+              focus on your core business while we handle the numbers, providing
+              you with peace of mind and financial insight.
             </p>
           </div>
 
           <div className="rounded-xl my-6 p-4 border-2 border-accent bg-background drop-shadow">
             <h4 className="text-lg manrope-bold">AP/AR Management</h4>
-
             <p className="pt-2">
-              Tag Ops optimizes cash flow, ensuring timely payments, and
-              maintains strong relationships with vendors and clients. With our
-              tailored solutions, you can enhance efficiency, reduce risks, and
-              maintain financial stability.
+              Optimize your cash flow, ensure timely payments, and maintain
+              strong relationships with vendors and clients with our tailored
+              solutions. We will help your company enhance efficiency, reduce
+              risks, and maintain financial stability.
             </p>
           </div>
 
           <div className="rounded-xl my-6 p-4 border-2 border-accent bg-background drop-shadow">
             <h4 className="text-lg manrope-bold">Commission Calculation</h4>
-
             <p className="pt-2">
-              Tag Ops offers tailored solutions to streamline the process of
-              calculating commissions, ensuring precision and fairness. With our
-              assistance, you can navigate the complexities of commission
-              calculations effortlessly, fostering a results-driven and
-              motivated sales environment.
+              Streamline calculating commissions with our expertise, ensuring
+              precision and fairness. With our assistance, you can navigate the
+              complexities of commission calculations and effortlessly foster a
+              results-driven and motivated sales environment.
             </p>
           </div>
 
           <div className="rounded-xl my-6 p-4 border-2 border-accent bg-background drop-shadow">
             <h4 className="text-lg manrope-bold">Financial Health Reporting</h4>
-
             <p className="pt-2">
-              Tag Ops enhances your financial transparency and strategic
-              decision-making with our knowledge in financial reporting. We
-              specialize in creating comprehensive reports that provide a clear
-              snapshot of your financial health. With our assistance, you can
-              gain a deeper understanding of your finances, track key
+              Unlock a deeper understanding of your finances, track key
               performance indicators, and communicate your financial story
-              effectively to stakeholders.
+              effectively to stakeholders with our knowledge of financial
+              reporting. Tag Ops will enhance your financial clarity and create
+              comprehensive reports that provide a clear snapshot of your
+              financial health.
             </p>
           </div>
 
           <div className="rounded-xl my-6 p-4 border-2 border-accent bg-background drop-shadow">
             <h4 className="text-lg manrope-bold">Payroll</h4>
-
             <p className="pt-2">
-              Simplify your payroll processes with our specialized expertise. We
-              offer comprehensive payroll solutions tailored to your business
-              needs, ensuring accuracy and compliance with regulations. With our
-              payroll services, you can streamline administrative tasks, reduce
-              errors, and ensure timely and accurate compensation for your
-              workforce.
+              Tag Ops offers comprehensive payroll solutions tailored to your
+              business needs, guaranteeing accuracy and compliance with
+              regulations. With our payroll services, you can streamline
+              administrative tasks, reduce errors, and ensure timely and
+              accurate compensation for your workforce.
             </p>
           </div>
         </div>
 
         <p>
-          Let us help you standardize, optimize, and document your back office
-          processes!
+          Let us improve your financial efficiency, provide you with data, and
+          help you make decisions that cut costs. For more information and
+          pricing details, get in touch with us to craft the ideal solution for
+          your business.
         </p>
 
         <Link href="/contact" className="button mt-4 text-2xl">

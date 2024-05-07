@@ -36,21 +36,35 @@ export default function AboutPage() {
         </h2>
 
         <p className="mt-4">
-          Tag Ops was founded on the principle that high-quality operational
-          support is crucial for every business. We recognize that not all
-          companies require a dedicated Operations leader to oversee extensive
-          back-office projects or managing routine tasks like payroll and
-          invoicing.
+          Our journey began in late 2022 when our founder, Courtney Walters,
+          recognized a critical gap in the business landscape. Having worked
+          extensively within San Francisco's startup ecosystem, it became
+          evident that while front-office functions like customer success and
+          marketing received ample attention, back-office operations were often
+          overlooked. This disparity stemmed from the misconception that
+          operations lacked direct revenue generation potential.
         </p>
         <p className="mt-4">
-          Our approach at Tag Ops is different. We provide a customizable model
-          designed to meet you where you are in your business journey while
-          offering the flexibility to scale as needed. We take the time to
-          understand your unique requirements, conducting in-depth research to
-          identify the most cost-effective tools, processes, and policies. Our
-          goal is to dig deep with our clients, assisting in the establishment
-          of a robust infrastructure that ensures your company runs smoothly
-          without exhausting your resources.
+          Drawing from firsthand experiences, Courtney realized the
+          transformative power hidden within back-office optimization and
+          embarked on a mission to help businesses achieve operational
+          excellence. From automating processes to integrating sophisticated
+          software solutions, the right approach drives scalability and unlocks
+          significant cost savings.
+        </p>
+        <p className="mt-4">
+          We believe that high-quality operational support is indispensable for
+          every business regardless of its size, and understand that not all
+          companies require a dedicated operations leader. We offer a holistic,
+          flexible, customizable model to meet diverse needs. Our approach is
+          rooted in collaboration, where we work closely with clients to craft
+          tailored solutions that optimize efficiency without draining
+          resources.
+        </p>
+        <p className="mt-4">
+          At Tag Operations, we're not just another operations support company –
+          we're partners dedicated to empowering businesses to thrive through
+          efficient and effective back-office strategies.
         </p>
       </section>
 
