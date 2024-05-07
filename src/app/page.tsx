@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 export default function Home() {
   const { data: session } = useSession();

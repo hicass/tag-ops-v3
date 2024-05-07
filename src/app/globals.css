@@ -57,7 +57,7 @@
   color: var(--text);
 }
 
-h1, h2, .button {
+h1, h2, .kayak-bold, .button {
   font-family: 'Kayak-Sans-Bold', sans-serif;
 }
 
