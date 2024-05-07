@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 
 import * as postHandler from '../../utilities/post-handler';
 import DatePickerComponent from './DatePickerComponent/DatePickerComponent';

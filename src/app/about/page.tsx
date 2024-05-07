@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import Link from 'next/link';
 
 export default function AboutPage() {
@@ -34,7 +34,7 @@ export default function AboutPage() {
       <section className="w-full flex flex-col items-center my-8 p-6 md:w-2/3">
         <h2 className="flex flex-row items-center gap-2 text-3xl manrope-bold text-primary md:text-4xl">
           Our Story
-          <Image src="icons/book.svg" alt="Book" width={40} height={40} />
+          <Image src="/icons/book.svg" alt="Book" width={40} height={40} />
         </h2>
 
         <div className="flex flex-col gap-4 mt-6">

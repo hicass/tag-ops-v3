@@ -1,5 +1,5 @@
 import { useEffect, useState, Fragment } from 'react';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 
 import * as postHandler from '../../utilities/post-handler';
 import TextEditor from '../TextEditor/TextEditor';

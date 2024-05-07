@@ -1,77 +1,85 @@
 import Link from 'next/link';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 
 export default function Footer() {
   return (
-    <footer className="flex flex-col p-6 bg-primary">
-      <div>
-        <h3 className="text-lg manrope-semibold text-background">Services</h3>
-        <ul>
-          <li>
-            <Link
-              href="/operations"
-              className="text-secondarylight hover:text-background"
-            >
-              Operations
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/finance"
-              className="text-secondarylight hover:text-background"
-            >
-              Finance
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/finance"
-              className="text-secondarylight hover:text-background"
-            >
-              Human Resources
-            </Link>
-          </li>
-        </ul>
-      </div>
+    <footer className="flex flex-col p-6 bg-primary sm:p-4">
+      <div className="sm:flex sm:flex-row-reverse sm:justify-end sm:gap-8">
+        <div className='sm:flex sm:flex-row sm:w-1/2 sm:justify-between sm:mt-4 sm:gap-4 lg:w-1/3 lg:items-center'>
+          <div>
+            <h3 className="text-lg manrope-semibold text-background lg:text-2xl">
+              Services
+            </h3>
+            <ul>
+              <li>
+                <Link
+                  href="/operations"
+                  className="text-secondarylight hover:text-background lg:text-lg"
+                >
+                  Operations
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/finance"
+                  className="text-secondarylight hover:text-background lg:text-lg"
+                >
+                  Finance
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/finance"
+                  className="text-secondarylight hover:text-background lg:text-lg"
+                >
+                  Human Resources
+                </Link>
+              </li>
+            </ul>
+          </div>
 
-      <div className="mt-4">
-        <h3 className="text-lg manrope-semibold text-background">Company</h3>
-        <ul>
-          <li>
-            <Link
-              href="/about"
-              className="text-secondarylight hover:text-background"
-            >
-              About Us
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/contact"
-              className="text-secondarylight hover:text-background"
-            >
-              Contact
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="mailto: tag@tagoperations.com"
-              className="text-secondarylight hover:text-background"
-            >
-              tag@tagoperations.com
-            </Link>
-          </li>
-        </ul>
-      </div>
+          <div className="mt-4 sm:mt-0">
+            <h3 className="text-lg manrope-semibold text-background lg:text-2xl">
+              Company
+            </h3>
+            <ul>
+              <li>
+                <Link
+                  href="/about"
+                  className="text-secondarylight hover:text-background lg:text-lg"
+                >
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/contact"
+                  className="text-secondarylight hover:text-background lg:text-lg"
+                >
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="mailto: tag@tagoperations.com"
+                  className="text-secondarylight hover:text-background lg:text-lg"
+                >
+                  tag@tagoperations.com
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
 
-      <div className="flex w-1/2 my-6">
-        <Image 
-          src="/logos/main-logo-white.svg"
-          alt="Tag Operations Finance Human Resources"
-          layout="responsive"
-          width={100}
-          height={100}
-        />
+        <div className="w-1/2 sm:w-1/5 md:w-40">
+          <Image
+            src="/logos/main-logo-white.svg"
+            alt="Tag Operations Finance Human Resources"
+            layout="responsive"
+            width={100}
+            height={100}
+          />
+        </div>
       </div>
 
       <div className="flex flex-row justify-between items-end mt-6">
@@ -86,7 +94,7 @@ export default function Footer() {
             height={30}
           />
         </Link>
-        <p className="text-secondary">
+        <p className="text-secondary lg:text-lg">
           &copy; {new Date().getFullYear()} Tag Operations
         </p>
       </div>
