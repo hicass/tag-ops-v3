@@ -111,157 +111,160 @@ export default function ContactForm() {
   };
 
   return (
-    <section className="w-full flex flex-col items-center p-6">
+    <section className="w-full flex flex-col items-center p-6 sm:w-2/3 md:w-1/3">
       <div id="confirmation-msg">
         <span className="place-holder">p</span>
 
         {formSubmitted && <p>{confirmationMessage}</p>}
       </div>
 
-      <form ref={form} onSubmit={sendEmail} noValidate className="w-full">
-        <div className="space-y-12">
-          <div className="pb-12">
-            <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-              <div className="col-span-full">
-                <label className="block text-lg manrope-semibold leading-6">
-                  Name
-                </label>
-                <div className="mt-2">
-                  <input
-                    type="text"
-                    name="from_name"
-                    value={formValues.name}
-                    onChange={(e) =>
-                      setFormValues({ ...formValues, name: e.target.value })
-                    }
-                    required
-                    className="w-full flex p-1.5 rounded-md outline-none shadow-sm ring-1 ring-inset ring-accentlight focus-within:ring-2 focus-within:ring-inset focus-within:ring-accent sm:max-w-m"
-                    placeholder="Jane Smith"
-                  />
-                </div>
+      <form
+        ref={form}
+        onSubmit={sendEmail}
+        noValidate
+        className="w-full md:mt-16"
+      >
+        <div className="pb-12">
+          <div className="grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6">
+            <div className="col-span-full">
+              <label className="block text-lg manrope-semibold leading-6">
+                Name
+              </label>
+              <div className="mt-2">
+                <input
+                  type="text"
+                  name="from_name"
+                  value={formValues.name}
+                  onChange={(e) =>
+                    setFormValues({ ...formValues, name: e.target.value })
+                  }
+                  required
+                  className="w-full flex p-1.5 rounded-md outline-none shadow-sm ring-1 ring-inset ring-accentlight focus-within:ring-2 focus-within:ring-inset focus-within:ring-accent sm:max-w-m"
+                  placeholder="Jane Smith"
+                />
               </div>
+            </div>
 
-              <div className="col-span-full">
-                <label className="block text-lg manrope-semibold leading-6">
-                  Email
-                </label>
-                <div className="mt-2">
-                  <input
-                    type="email"
-                    name="from_email"
-                    value={formValues.email}
-                    onChange={(e) => handleEmail(e)}
-                    required
-                    className="w-full flex p-1.5 rounded-md outline-none shadow-sm ring-1 ring-inset ring-accentlight focus-within:ring-2 focus-within:ring-inset focus-within:ring-accent sm:max-w-m"
-                    placeholder="janesmith@email.com"
-                  />
-                  <p className="text-sm">
-                    {emailMessage}
-                    <span className="place-holder">p</span>
-                  </p>
-                </div>
+            <div className="col-span-full">
+              <label className="block text-lg manrope-semibold leading-6">
+                Email
+              </label>
+              <div className="mt-2">
+                <input
+                  type="email"
+                  name="from_email"
+                  value={formValues.email}
+                  onChange={(e) => handleEmail(e)}
+                  required
+                  className="w-full flex p-1.5 rounded-md outline-none shadow-sm ring-1 ring-inset ring-accentlight focus-within:ring-2 focus-within:ring-inset focus-within:ring-accent sm:max-w-m"
+                  placeholder="janesmith@email.com"
+                />
+                <p className="text-sm">
+                  {emailMessage}
+                  <span className="place-holder">p</span>
+                </p>
               </div>
+            </div>
 
-              <div className="col-span-full -mt-6">
-                <label className="block text-lg manrope-semibold leading-6">
-                  Company Name
-                </label>
-                <div className="mt-2">
-                  <input
-                    type="text"
-                    name="from_company"
-                    value={formValues.company}
-                    onChange={(e) =>
-                      setFormValues({ ...formValues, company: e.target.value })
-                    }
-                    required
-                    className="w-full flex p-1.5 rounded-md outline-none shadow-sm ring-1 ring-inset ring-accentlight focus-within:ring-2 focus-within:ring-inset focus-within:ring-accent sm:max-w-m"
-                    placeholder="Jane Smith LLC"
-                  />
-                </div>
+            <div className="col-span-full -mt-4">
+              <label className="block text-lg manrope-semibold leading-6">
+                Company Name
+              </label>
+              <div className="mt-2">
+                <input
+                  type="text"
+                  name="from_company"
+                  value={formValues.company}
+                  onChange={(e) =>
+                    setFormValues({ ...formValues, company: e.target.value })
+                  }
+                  required
+                  className="w-full flex p-1.5 rounded-md outline-none shadow-sm ring-1 ring-inset ring-accentlight focus-within:ring-2 focus-within:ring-inset focus-within:ring-accent sm:max-w-m"
+                  placeholder="Jane Smith LLC"
+                />
               </div>
+            </div>
 
-              <div className="mt-2 space-y-4">
-                <label className="block text-xl manrope-semibold leading-6">
-                  Service
-                </label>
+            <div className="col-span-full space-y-2">
+              <label className="block text-lg manrope-semibold leading-6">
+                Service
+              </label>
 
-                <fieldset>
-                  <div className="mt-2 space-y-6">
-                    <div className="relative flex gap-x-3">
-                      <div className="flex h-6 items-center">
-                        <input
-                          name="selected_service"
-                          value=" Operations"
-                          type="checkbox"
-                          checked={isOpsChecked}
-                          onChange={() => handleCheck('ops')}
-                          className="h-4 w-4 rounded border-accentlight text-accent focus:ring-accent"
-                        />
-                      </div>
-                      <div className="text-sm leading-6">
-                        <label className="text-base">Operations</label>
-                      </div>
+              <fieldset>
+                <div className="space-y-2">
+                  <div className="relative flex gap-x-3">
+                    <div className="flex h-6 items-center">
+                      <input
+                        name="selected_service"
+                        value=" Operations"
+                        type="checkbox"
+                        checked={isOpsChecked}
+                        onChange={() => handleCheck('ops')}
+                        className="h-4 w-4 rounded border-accentlight text-accent focus:ring-accent"
+                      />
                     </div>
-                    <div className="relative flex gap-x-3">
-                      <div className="flex h-6 items-center">
-                        <input
-                          name="selected_service"
-                          value=" Finance"
-                          type="checkbox"
-                          checked={isFinChecked}
-                          onChange={() => handleCheck('fin')}
-                          className="h-4 w-4 rounded border-accentlight text-accent focus:ring-accent"
-                        />
-                      </div>
-                      <div className="text-sm leading-6">
-                        <label className="text-base">Finance</label>
-                      </div>
-                    </div>
-                    <div className="relative flex gap-x-3">
-                      <div className="flex h-6 items-center">
-                        <input
-                          name="selected_service"
-                          value=" Human Resources"
-                          type="checkbox"
-                          checked={isHRChecked}
-                          onChange={() => handleCheck('hr')}
-                          className="h-4 w-4 rounded border-accentlight text-accent focus:ring-accent"
-                        />
-                      </div>
-                      <div className="text-sm leading-6">
-                        <label className="text-base">Human Resources</label>
-                      </div>
+                    <div className="text-sm leading-6">
+                      <label className="text-base">Operations</label>
                     </div>
                   </div>
-                </fieldset>
-              </div>
-
-              <div className="col-span-full">
-                <label className="block text-lg manrope-semibold leading-6">
-                  Message
-                </label>
-                <div className="mt-2">
-                  <textarea
-                    id="about"
-                    name="message"
-                    rows={3}
-                    value={formValues.message}
-                    onChange={(e) =>
-                      setFormValues({ ...formValues, message: e.target.value })
-                    }
-                    className="w-full flex p-1.5 rounded-md outline-none shadow-sm ring-1 ring-inset ring-accentlight focus-within:ring-2 focus-within:ring-inset focus-within:ring-accent sm:max-w-m"
-                    defaultValue={''}
-                  />
+                  <div className="relative flex gap-x-3">
+                    <div className="flex h-6 items-center">
+                      <input
+                        name="selected_service"
+                        value=" Finance"
+                        type="checkbox"
+                        checked={isFinChecked}
+                        onChange={() => handleCheck('fin')}
+                        className="h-4 w-4 rounded border-accentlight text-accent focus:ring-accent"
+                      />
+                    </div>
+                    <div className="text-sm leading-6">
+                      <label className="text-base">Finance</label>
+                    </div>
+                  </div>
+                  <div className="relative flex gap-x-3">
+                    <div className="flex h-6 items-center">
+                      <input
+                        name="selected_service"
+                        value=" Human Resources"
+                        type="checkbox"
+                        checked={isHRChecked}
+                        onChange={() => handleCheck('hr')}
+                        className="h-4 w-4 rounded border-accentlight text-accent focus:ring-accent"
+                      />
+                    </div>
+                    <div className="text-sm leading-6">
+                      <label className="text-base w-full">Human Resources</label>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              </fieldset>
             </div>
 
-            <div className="mt-6 flex items-center justify-end text-lg">
-              <button type="submit" className="button">
-                Send
-              </button>
+            <div className="col-span-full">
+              <label className="block text-lg manrope-semibold leading-6">
+                Message
+              </label>
+              <div className="mt-2">
+                <textarea
+                  id="about"
+                  name="message"
+                  rows={3}
+                  value={formValues.message}
+                  onChange={(e) =>
+                    setFormValues({ ...formValues, message: e.target.value })
+                  }
+                  className="w-full flex p-1.5 rounded-md outline-none shadow-sm ring-1 ring-inset ring-accentlight focus-within:ring-2 focus-within:ring-inset focus-within:ring-accent sm:max-w-m"
+                  defaultValue={''}
+                />
+              </div>
             </div>
+          </div>
+
+          <div className="mt-6 flex items-center justify-end text-lg">
+            <button type="submit" className="button">
+              Send
+            </button>
           </div>
         </div>
       </form>
