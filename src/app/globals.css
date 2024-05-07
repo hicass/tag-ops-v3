@@ -86,3 +86,7 @@ h1, h2, .kayak-bold, .button {
   position: absolute;
   visibility: hidden;
 }
+
+.place-holder {
+  visibility: hidden;
+}
