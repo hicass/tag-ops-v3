@@ -20,7 +20,12 @@ export default function NotFound() {
           What your looking for doesn't exist
         </h2>
         <p className="md:text-lg">Could not find requested resource</p>
-        <Link href="/" className='mt-4 underline underline-offset-2 hover:text-primary md:text-lg'>Return Home</Link>
+        <Link
+          href="/"
+          className="mt-4 underline underline-offset-2 hover:text-primary md:text-lg"
+        >
+          Return Home
+        </Link>
       </section>
     </main>
   );
