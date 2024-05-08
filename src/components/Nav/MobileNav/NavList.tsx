@@ -75,8 +75,8 @@ const buttonVars = {
 export default function NavList({toggleOpen}: any) {
   const MobileNavLink = ({ title, href, style }: any) => {
     return (
-      <motion.div variants={mobileLinkVars} className={`${style}`} key={title}>
-        <Link href={href} onClick={() => setTimeout(() => toggleOpen(), 600)}>
+      <motion.div variants={mobileLinkVars} key={title}>
+        <Link href={href} onClick={() => setTimeout(() => toggleOpen(), 600)} className={`hover:text-primary ${style}`}>
           {title}
         </Link>
       </motion.div>
@@ -117,7 +117,7 @@ export default function NavList({toggleOpen}: any) {
                       <MobileNavLink
                         title={'Operations'}
                         href={'/operations'}
-                        style={'text-2xl'}
+                        style={'text-2xl font-semibold'}
                       />
                     </div>
 
@@ -125,7 +125,7 @@ export default function NavList({toggleOpen}: any) {
                       <MobileNavLink
                         title={'Finance'}
                         href={'/finance'}
-                        style={'text-2xl'}
+                        style={'text-2xl font-semibold'}
                       />
                     </div>
 
@@ -133,7 +133,7 @@ export default function NavList({toggleOpen}: any) {
                       <MobileNavLink
                         title={'Human Resources'}
                         href={'/human-resources'}
-                        style={'text-2xl'}
+                        style={'text-2xl font-semibold'}
                       />
                     </div>
                   </motion.div>
@@ -155,11 +155,11 @@ export default function NavList({toggleOpen}: any) {
                   />
                 </div>
 
-                <div className="mt-10 mb-4">
+                <div className="mt-8 mb-10">
                   <motion.div variants={buttonVars}>
                     <Link
                       href="/contact"
-                      className="button mt-4 text-2xl"
+                      className="contact-button mt-4 text-2xl kayak-bold"
                       onClick={() => setTimeout(() => toggleOpen(), 600)}
                     >
                       Lets Talk!
