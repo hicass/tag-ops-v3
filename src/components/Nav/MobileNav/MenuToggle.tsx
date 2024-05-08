@@ -13,8 +13,8 @@ const Path = (props: any) => (
 export default function MenuToggle({ toggle, isOpen }: any) {
   return (
     <motion.div initial={false} animate={isOpen ? 'open' : 'closed'}>
-      <button onClick={toggle}>
-        <svg width="35" height="35" viewBox="0 0 22 22">
+      <button onClick={toggle} className='flex'>
+        <svg width="35" height="35" viewBox="0 0 22 20">
           <Path
             variants={{
               closed: { d: 'M 2 2.5 L 20 2.5' },
