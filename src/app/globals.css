@@ -81,6 +81,46 @@ h1, h2, .kayak-bold, .button {
   filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
 }
 
+.blob-front, .blob-back {
+  height: 15vw;
+  width: 42vw;
+  top: 0;
+  position: absolute;
+}
+
+.blob-front {
+  margin-top: -5%;
+  z-index: -10;
+  background-color: var(--primary);
+}
+
+.blob-back {
+  margin-top: -7%;
+  z-index: -20;
+  background-color: var(--accent);
+}
+
+.blob-left {
+  left: -5%;
+}
+
+.blob-middle {
+  left: 30%;
+}
+
+.blob-right {
+  right: -5%;
+}
+
+
+.blue-blob {
+  background: var(--accent);
+}
+
+.purple-blob {
+  background: var(--primary);
+}
+
 .secret {
   display: none;
   position: absolute;
