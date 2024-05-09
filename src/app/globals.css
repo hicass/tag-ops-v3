@@ -71,6 +71,7 @@ h1, h2, .kayak-bold, .button {
 
 .contact-button {
   background-color: var(--accent);
+  font-family: 'Kayak-Sans-Bold', sans-serif;
   padding: 0.7em;
   border-radius: 10px;
   filter: drop-shadow(0 1px 2px rgb(0 0 0 / 0.1)) drop-shadow(0 1px 1px rgb(0 0 0 / 0.06));
@@ -86,6 +87,22 @@ h1, h2, .kayak-bold, .button {
   width: 42vw;
   top: 0;
   position: absolute;
+}
+
+.blob-top-small, .blob-bot-small {
+  height: 15vw;
+  width: 55vw;
+  z-index: -10;
+  position: absolute;
+  background-color: var(--accent);
+}
+
+.blob-top-small {
+  top: 0;
+}
+
+.blob-bot-small {
+  bottom: 0;
 }
 
 .blob-front {
@@ -111,7 +128,6 @@ h1, h2, .kayak-bold, .button {
 .blob-right {
   right: -5%;
 }
-
 
 .blue-blob {
   background: var(--accent);
