@@ -1,12 +1,13 @@
 'use client';
 
 import { useSession, signOut } from 'next-auth/react';
-import Image from "next/legacy/image";
+import Image from 'next/legacy/image';
 
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+
+import Blob from '@/components/Blob/Blob';
 
 export default function Home() {
   const { data: session } = useSession();
@@ -26,69 +27,84 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="flex flex-col items-center p-6 bg-primary drop-shadow-md">
-          <h2 className="text-3xl text-background">Our Solutions</h2>
+        <section className="mt-28 relative">
+          <div className="flex flex-col items-center p-6 bg-primary drop-shadow-md z-10">
+            <h2 className="text-3xl text-background">Our Solutions</h2>
 
-          <div className="flex flex-col mt-4 gap-2">
-            <p className="text-background">
-              Staffing your back office with a{' '}
-              <span className="text-accent">full-time</span> Operations,
-              Finance, and HR leader can cost you over{' '}
-              <span className="text-accent">$7,000</span> per month per role,
-              totaling <span className="text-accent">$63,000</span> per quarter.
-            </p>
-            <p className="text-background">
-              We work with you to gain insights into your back office workload
-              and tailor your back office people costs to{' '}
-              <span className="text-accent">fit your needs</span> as a business,{' '}
-              <span className="text-accent">saving</span> you as much as we can.
-            </p>
+            <div className="flex flex-col mt-4 gap-2">
+              <p className="text-background">
+                Staffing your back office with a{' '}
+                <span className="text-accent">full-time</span> Operations,
+                Finance, and HR leader can cost you over{' '}
+                <span className="text-accent">$7,000</span> per month per role,
+                totaling <span className="text-accent">$63,000</span> per
+                quarter.
+              </p>
+              <p className="text-background">
+                We work with you to gain insights into your back office workload
+                and tailor your back office people costs to{' '}
+                <span className="text-accent">fit your needs</span> as a
+                business, <span className="text-accent">saving</span> you as
+                much as we can.
+              </p>
+            </div>
+
+            <div className="flex flex-col w-full mt-4">
+              <Link
+                href="/operations"
+                className="flex flex-row items-center py-4 gap-2"
+              >
+                <Image
+                  src="/icons/settings.svg"
+                  alt="Gear"
+                  width={30}
+                  height={30}
+                />
+                <h3 className="link text-2xl text-background">Operations</h3>
+              </Link>
+
+              <Link
+                href="/finance"
+                className="flex flex-row items-center py-4 gap-2"
+              >
+                <Image
+                  src="/icons/report-money.svg"
+                  alt="Money"
+                  width={30}
+                  height={30}
+                />
+                <h3 className="link text-2xl text-background">Finance</h3>
+              </Link>
+
+              <Link
+                href="/finance"
+                className="flex flex-row items-center py-4 gap-2"
+              >
+                <Image
+                  src="/icons/heart-handshake.svg"
+                  alt="Hanshake in the shape of a heart"
+                  width={30}
+                  height={30}
+                />
+                <h3 className="link text-2xl text-background">
+                  Human Resources
+                </h3>
+              </Link>
+            </div>
+
+            <Link href="/services" className="contact-button mt-4 text-lg">
+              Learn More!
+            </Link>
           </div>
 
-          <div className="flex flex-col w-full mt-4">
-            <Link
-              href="/operations"
-              className="flex flex-row items-center py-4 gap-2"
-            >
-              <Image
-                src="/icons/settings.svg"
-                alt="Gear"
-                width={30}
-                height={30}
-              />
-              <h3 className="link text-2xl text-background">Operations</h3>
-            </Link>
-
-            <Link
-              href="/finance"
-              className="flex flex-row items-center py-4 gap-2"
-            >
-              <Image
-                src="/icons/report-money.svg"
-                alt="Money"
-                width={30}
-                height={30}
-              />
-              <h3 className="link text-2xl text-background">Finance</h3>
-            </Link>
-
-            <Link
-              href="/finance"
-              className="flex flex-row items-center py-4 gap-2"
-            >
-              <Image
-                src="/icons/heart-handshake.svg"
-                alt="Hanshake in the shape of a heart"
-                width={30}
-                height={30}
-              />
-              <h3 className="link text-2xl text-background">Human Resources</h3>
-            </Link>
+          <div>
+            <Blob positionX={'left'} positionY={'back'} />
+            <Blob positionX={'middle'} positionY={'back'} />
+            <Blob positionX={'right'} positionY={'back'} />
+            <Blob positionX={'left'} positionY={'front'} />
+            <Blob positionX={'middle'} positionY={'front'} />
+            <Blob positionX={'right'} positionY={'front'} />
           </div>
-
-          <Link href="/services" className="button mt-4 text-lg">
-            Learn More!
-          </Link>
         </section>
 
         <section className="flex flex-col items-center mt-4 p-6">

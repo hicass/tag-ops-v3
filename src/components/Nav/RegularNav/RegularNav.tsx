@@ -119,7 +119,7 @@ function useMenuAnimation(isOpen: boolean) {
       {
         type: 'spring',
         bounce: 0,
-        duration: 0.5,
+        duration: 0.2,
       }
     );
 
