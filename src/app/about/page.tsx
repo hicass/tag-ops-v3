@@ -6,7 +6,7 @@ import Blob from '@/components/Blob/Blob';
 
 export default function AboutPage() {
   return (
-    <main className="flex flex-col items-center">
+    <main className="flex flex-col items-center overflow-hidden">
       <section className="w-full flex flex-col items-center my-8 p-6 md:w-2/3">
         <h1 className="secret">About Us</h1>
         <h1 className="text-center text-5xl text-primary">Hello!</h1>
@@ -199,7 +199,7 @@ export default function AboutPage() {
               various roles in different companies, from internee to CEO. I have
               been helping numerous small and medium-size businesses grow by
               serving as a remote Bookkeeper. I possess comprehensive expertise
-              in all aspects of Accounting and Bookkeeping.""
+              in all aspects of Accounting and Bookkeeping."
             </p>
           </div>
         </div>

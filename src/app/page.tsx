@@ -8,31 +8,64 @@ import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import Link from 'next/link';
 
 import Blob from '@/components/Blob/Blob';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
   const { data: session } = useSession();
+  const [isMobileScreen, setIsMobileScreen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobileScreen(window.innerWidth < 768);
+    };
+
+    setIsMobileScreen(window.innerWidth < 768);
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   return (
     <LocalizationProvider dateAdapter={AdapterMoment}>
-      <main>
-        <section className="w-full flex flex-col items-center my-8 p-6">
+      <main className="flex flex-col items-center overflow-hidden">
+        <section className="w-full flex flex-col items-center mt-12 p-6 md:h-96 sm:my-28 lg:border-none lg:flex-row lg:gap-16 lg:w-3/4">
           <h1 className="secret">Tag Ops</h1>
-          <div className="flex flex-col gap-4">
-            <h1 className="text-center text-5xl text-primary">
-              Simplify, Optimize, Scale with Tag Operations!
+          <div className="flex flex-col gap-4 md:w-full">
+            <h1 className="text-center text-5xl sm:text-6xl text-primary">
+              Simplify, Optimize, Scale
             </h1>
-            <p className="text-center text-lg py-2">
+            <h1 className="text-center text-5xl sm:text-6xl  text-primary">
+              with Tag Operations!
+            </h1>
+            <p className="text-center text-lg py-2 md:text-2xl">
               Your tech forward, embedded, and flexible back office team!
             </p>
           </div>
+
+          {!isMobileScreen && (
+            <div className="w-1/3">
+              <Image
+                src="/logos/main-logo.svg"
+                alt="Tag Operations Finance Human Resources"
+                layout="responsive"
+                width={100}
+                height={100}
+              />
+            </div>
+          )}
         </section>
 
-        <section className="mt-28 relative">
-          <div className="flex flex-col items-center p-6 bg-primary drop-shadow-md z-10">
-            <h2 className="text-3xl text-background">Our Solutions</h2>
+        <section className="w-full mt-14 sm:mt-28 relative">
+          <div className="flex flex-col items-center p-6 bg-primary drop-shadow-md z-10 sm:py-24">
+            <h2 className="text-3xl text-background sm:text-5xl">
+              Our Solutions
+            </h2>
 
-            <div className="flex flex-col mt-4 gap-2">
-              <p className="text-background">
+            <div className="flex flex-col mt-4 gap-2 sm:mt-10 md:w-2/3">
+              <p className="text-background sm:text-xl">
                 Staffing your back office with a{' '}
                 <span className="text-accent">full-time</span> Operations,
                 Finance, and HR leader can cost you over{' '}
@@ -40,7 +73,7 @@ export default function Home() {
                 totaling <span className="text-accent">$63,000</span> per
                 quarter.
               </p>
-              <p className="text-background">
+              <p className="text-background sm:text-xl sm:mt-4">
                 We work with you to gain insights into your back office workload
                 and tailor your back office people costs to{' '}
                 <span className="text-accent">fit your needs</span> as a
@@ -49,7 +82,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="flex flex-col w-full mt-4">
+            <div className="flex flex-col w-full mt-4  md:w-2/3">
               <Link
                 href="/operations"
                 className="flex flex-row items-center py-4 gap-2"
@@ -92,7 +125,10 @@ export default function Home() {
               </Link>
             </div>
 
-            <Link href="/services" className="contact-button mt-4 text-lg">
+            <Link
+              href="/contact"
+              className="contact-button mt-4 text-2xl md:mt-10"
+            >
               Learn More!
             </Link>
           </div>
@@ -105,82 +141,102 @@ export default function Home() {
             <Blob positionX={'middle'} positionY={'front'} />
             <Blob positionX={'right'} positionY={'front'} />
           </div>
+
+          <div className='bg-accent w-full h-6'>
+
+          </div>
         </section>
 
-        <section className="flex flex-col items-center mt-4 p-6">
-          <h2 className="text-3xl">Our Flow</h2>
+        <section className="flex flex-col items-center mt-4 p-6 sm:mt-16 md:w-2/3">
+          <h2 className="text-3xl sm:text-4xl">Our Flow</h2>
 
           <div className="w-full">
-            <div className="relative my-6 p-4 bg-secondarylight rounded-xl drop-shadow">
-              <Image
-                src="/icons/compass.svg"
-                alt="Compass"
-                className="absolute top-0 left-0 -ml-3 -mt-3"
-                width={30}
-                height={30}
-              />
-              <h3 className="text-lg manrope-semibold">1 Discovery</h3>
-              <p className="mt-2">
+            <div className="relative my-10 p-4 bg-secondarylight rounded-xl drop-shadow">
+              <div className="w-10 h-10 absolute top-0 left-0 -ml-5 -mt-5">
+                <Image
+                  src="/icons/compass.svg"
+                  alt="Compass"
+                  width={100}
+                  height={100}
+                  layout="responsive"
+                />
+              </div>
+              <h3 className="text-lg sm:text-xl manrope-semibold">1 • Discovery</h3>
+              <p className="mt-2 sm:text-lg">
                 We jump on a discovery call to discuss your back-office needs
                 and how Tag Ops can help.
               </p>
             </div>
 
-            <div className="relative my-6 p-4 bg-secondarylight rounded-xl drop-shadow">
-              <Image
-                src="/icons/telescope.svg"
-                alt="Telescope"
-                className="absolute top-0 left-0 -ml-3 -mt-3"
-                width={30}
-                height={30}
-              />
-              <h3 className="text-lg manrope-semibold">2 Initial Scope</h3>
-              <p className="mt-2">
+            <div className="relative my-10 p-4 bg-secondarylight rounded-xl drop-shadow">
+              <div className="w-10 h-10 absolute top-0 left-0 -ml-5 -mt-5">
+                <Image
+                  src="/icons/telescope.svg"
+                  alt="Telescope"
+                  width={100}
+                  height={100}
+                  layout="responsive"
+                />
+              </div>
+
+              <h3 className="text-lg sm:text-xl manrope-semibold">2 • Initial Scope</h3>
+              <p className="mt-2 sm:text-lg">
                 We create an initial scope for the first quarter of our
                 partnership.
               </p>
             </div>
 
-            <div className="relative my-6 p-4 bg-secondarylight rounded-xl drop-shadow">
-              <Image
-                src="/icons/rocket.svg"
-                alt="Rocket"
-                className="absolute top-0 left-0 -ml-3 -mt-3"
-                width={30}
-                height={30}
-              />
-              <h3 className="text-lg manrope-semibold">3 Kickoff</h3>
-              <p className="mt-2">
+            <div className="relative my-10 p-4 bg-secondarylight rounded-xl drop-shadow">
+              <div className="w-10 h-10 absolute top-0 left-0 -ml-5 -mt-5">
+                <Image
+                  src="/icons/rocket.svg"
+                  alt="Rocket"
+                  width={100}
+                  height={100}
+                  layout="responsive"
+                />
+              </div>
+
+              <h3 className="text-lg sm:text-xl manrope-semibold">3 • Kickoff</h3>
+              <p className="mt-2 sm:text-lg">
                 You approve the scope, and we kick off the project. You'll
                 receive access to our project management dashboard, enabling
                 collaboration and visibility into the progress.
               </p>
             </div>
 
-            <div className="relative my-6 p-4 bg-secondarylight rounded-xl drop-shadow">
-              <Image
-                src="/icons/telescope.svg"
-                alt="Telescope"
-                className="absolute top-0 left-0 -ml-3 -mt-3"
-                width={30}
-                height={30}
-              />
-              <h3 className="text-lg manrope-semibold">4 Scope In Progress</h3>
-              <p className="mt-2">
+            <div className="relative my-10 p-4 bg-secondarylight rounded-xl drop-shadow">
+              <div className="w-10 h-10 absolute top-0 left-0 -ml-5 -mt-5">
+                <Image
+                  src="/icons/telescope.svg"
+                  alt="Telescope"
+                  width={100}
+                  height={100}
+                  layout="responsive"
+                />
+              </div>
+
+              <h3 className="text-lg sm:text-xl manrope-semibold">
+                4 • Scope In Progress
+              </h3>
+              <p className="mt-2 sm:text-lg">
                 We complete the project as determined in the scope.
               </p>
             </div>
 
-            <div className="relative my-6 p-4 bg-secondarylight rounded-xl drop-shadow">
-              <Image
-                src="/icons/calendar.svg"
-                alt="Calendar"
-                className="absolute top-0 left-0 -ml-3 -mt-3"
-                width={30}
-                height={30}
-              />
-              <h3 className="text-lg manrope-semibold">5 Quarterly Review</h3>
-              <p className="mt-2">
+            <div className="relative my-10 p-4 bg-secondarylight rounded-xl drop-shadow">
+              <div className="w-10 h-10 absolute top-0 left-0 -ml-5 -mt-5">
+                <Image
+                  src="/icons/calendar.svg"
+                  alt="Calendar"
+                  width={100}
+                  height={100}
+                  layout="responsive"
+                />
+              </div>
+
+              <h3 className="text-lg sm:text-xl manrope-semibold">5 • Quarterly Review</h3>
+              <p className="mt-2 sm:text-lg">
                 At the end of the quarter, you will receive a report on time and
                 cost regarding the tasks in each division (Ops, Finance, Human
                 Resources), enabling data-driven decisions around your workforce
@@ -188,70 +244,82 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="relative my-6 p-4 bg-secondarylight rounded-xl drop-shadow">
-              <Image
-                src="/icons/bulb.svg"
-                alt="Light Bulb"
-                className="absolute top-0 left-0 -ml-3 -mt-3"
-                width={30}
-                height={30}
-              />
-              <h3 className="text-lg manrope-semibold">6 Decision</h3>
-              <p className="mt-2">
+            <div className="relative my-10 p-4 bg-secondarylight rounded-xl drop-shadow">
+              <div className="w-10 h-10 absolute top-0 left-0 -ml-5 -mt-5">
+                <Image
+                  src="/icons/bulb.svg"
+                  alt="Light Bulb"
+                  width={100}
+                  height={100}
+                  layout="responsive"
+                />
+              </div>
+
+              <h3 className="text-lg sm:text-xl manrope-semibold">6 • Decision</h3>
+              <p className="mt-2 sm:text-lg">
                 You determine whether you need ongoing support from us.
               </p>
             </div>
 
-            <div className="relative my-6 p-4 bg-secondarylight rounded-xl drop-shadow">
-              <Image
-                src="/icons/telescope.svg"
-                alt="Telescope"
-                className="absolute top-0 left-0 -ml-3 -mt-3"
-                width={30}
-                height={30}
-              />
+            <div className="relative my-10 p-4 bg-secondarylight rounded-xl drop-shadow">
+              <div className="w-10 h-10 absolute top-0 left-0 -ml-5 -mt-5">
+                <Image
+                  src="/icons/telescope.svg"
+                  alt="Telescope"
+                  width={100}
+                  height={100}
+                  layout="responsive"
+                />
+              </div>
+
               <h3 className="text-lg manrope-semibold">
-                <span className="text-inherit manrope-semibold">If Yes:</span>{' '}
+                <span className="text-inherit sm:text-xl manrope-semibold">If Yes:</span>{' '}
                 New Scope
               </h3>
-              <p className="mt-2">
+              <p className="mt-2 sm:text-lg">
                 We create a new scope for the upcoming quarter.
               </p>
             </div>
 
-            <div className="relative my-6 p-4 bg-secondarylight rounded-xl drop-shadow">
-              <Image
-                src="/icons/user.svg"
-                alt="Person"
-                className="absolute top-0 left-0 -ml-3 -mt-3"
-                width={30}
-                height={30}
-              />
+            <div className="relative my-10 p-4 bg-secondarylight rounded-xl drop-shadow">
+              <div className="w-10 h-10 absolute top-0 left-0 -ml-5 -mt-5">
+                <Image
+                  src="/icons/user.svg"
+                  alt="Person"
+                  width={100}
+                  height={100}
+                  layout="responsive"
+                />
+              </div>
+
               <h3 className="text-lg manrope-semibold">
-                <span className="text-inherit manrope-semibold">If No:</span>{' '}
+                <span className="text-inherit sm:text-xl manrope-semibold">If No:</span>{' '}
                 Transition
               </h3>
-              <p className="mt-2">
+              <p className="mt-2 sm:text-lg">
                 We help you recruit, fill the role, train as needed, and close
                 out the project.
               </p>
             </div>
           </div>
 
-          <h3 className="text-center mt-4 text-xl manrope-semibold">
+          <h3 className="text-center mt-4 text-3xl sm:text-4xl lg:mt-10 manrope-semibold">
             Analytics Empowerment
           </h3>
 
-          <div className="flex flex-col mt-4 gap-4">
-            <Image
-              src="/images/dashboard.png"
-              alt="Teamwork Dashboard"
-              layout="responsive"
-              width={100}
-              height={100}
-            />
+          <div className="flex flex-col items-center mt-4 md:mt-6 lg:mt-6 gap-4">
+            <div className="w-full sm:w-2/3 md:w-2/3 lg:w-1/2 mt-6">
+              <Image
+                src="/images/dashboard.png"
+                alt="Teamwork Dashboard"
+                layout="responsive"
+                objectFit="cover"
+                width={1010}
+                height={638}
+              />
+            </div>
 
-            <p>
+            <p className="mt-4 sm:text-lg">
               Our project management software empowers your business with
               analytics, not only on tasks and project budgets but also a
               breakdown of how much time is spent on any specific task within
@@ -260,19 +328,19 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="flex flex-col items-center p-6">
-          <h2 className="text-3xl">See what our clients are saying...</h2>
+        <section className="flex flex-col items-center p-6 sm:mt-16 md:w-2/3">
+          <h2 className="text-3xl sm:text-4xl">See what our clients are saying...</h2>
 
           <div>
-            <div className="bg-accentlight rounded-xl my-6 p-4 drop-shadow">
+            <div className="bg-accentlight rounded-xl my-10 p-4 drop-shadow">
               <div>
-                <p className="text-lg manrope-bold">Riece Keck</p>
-                <p className="manrope-semibold">
+                <p className="text-lg sm:text-xl manrope-bold">Riece Keck</p>
+                <p className="sm:text-lg manrope-semibold">
                   Founder & CEO, Vault Recruiting
                 </p>
               </div>
 
-              <p className="pt-2">
+              <p className="pt-2 sm:text-lg">
                 "Courtney, in short, has transformed the back-end operations of
                 our business. She started with bare bones and made an immediate,
                 dramatic impact. She documented processes that improved
@@ -283,13 +351,13 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="bg-accentlight rounded-xl my-6 p-4 drop-shadow">
+            <div className="bg-accentlight rounded-xl my-10 p-4 drop-shadow">
               <div>
-                <p className="text-lg manrope-bold">Jolie Curran</p>
-                <p className="manrope-semibold">Head of Operations, Ejento</p>
+                <p className="text-lg sm:text-xl manrope-bold">Jolie Curran</p>
+                <p className="sm:text-lg manrope-semibold">Head of Operations, Ejento</p>
               </div>
 
-              <p className="pt-2">
+              <p className="pt-2 sm:text-lg">
                 "It is rare to find a talent like Courtney. She is intelligent,
                 proactive, and professional. She tackles projects through
                 thoughtful planning and then executes projects flawlessly. If
@@ -298,13 +366,13 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="bg-accentlight rounded-xl my-6 p-4  drop-shadow">
+            <div className="bg-accentlight rounded-xl my-10 p-4  drop-shadow">
               <div>
-                <p className="text-lg manrope-bold">David Milner</p>
-                <p className="manrope-semibold">Head of IT, Celsius Network</p>
+                <p className="text-lg sm:text-xl manrope-bold">David Milner</p>
+                <p className="sm:text-lg manrope-semibold">Head of IT, Celsius Network</p>
               </div>
 
-              <p className="pt-2">
+              <p className="pt-2 sm:text-lg">
                 "Working with Courtney was an absolute pleasure. She helped the
                 IT team greatly in our interactions and took responsibility even
                 for items that were not in her field of responsibility and
@@ -316,7 +384,7 @@ export default function Home() {
             </div>
           </div>
 
-          <Link href="/contact" className="button mt-4 text-2xl">
+          <Link href="/contact" className="contact-button my-4 text-2xl md:text-3xl">
             Lets Talk!
           </Link>
         </section>
