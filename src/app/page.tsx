@@ -31,7 +31,7 @@ export default function Home() {
   return (
     <LocalizationProvider dateAdapter={AdapterMoment}>
       <main className="flex flex-col items-center overflow-hidden">
-        <section className="w-full flex flex-col items-center mt-12 p-6 md:h-96 sm:my-28 lg:border-none lg:flex-row lg:gap-16 lg:w-3/4">
+        <section className="w-full flex flex-col items-center mt-12 p-6 md:h-96 sm:my-28 lg:flex-row lg:gap-16 lg:w-3/4">
           <h1 className="secret">Tag Ops</h1>
           <div className="flex flex-col gap-4 md:w-full">
             <h1 className="text-center text-5xl sm:text-6xl text-primary">
@@ -59,7 +59,7 @@ export default function Home() {
         </section>
 
         <section className="w-full mt-14 sm:mt-28 relative">
-          <div className="flex flex-col items-center p-6 bg-primary drop-shadow-md z-10 sm:py-24">
+          <div className="flex flex-col items-center p-6 bg-primary drop-shadow-md z-10 py-14 sm:py-24">
             <h2 className="text-3xl text-background sm:text-5xl">
               Our Solutions
             </h2>
