@@ -84,9 +84,9 @@ export default function AboutPage() {
               {' '}
               holistic, flexible, customizable
             </span>{' '}
-            model to meet diverse needs. Our approach is rooted in
-            collaboration, where we work closely with clients to craft tailored
-            solutions that optimize efficiency without draining resources.
+            model to meet your unique needs. Our approach is rooted in
+            collaboration, where we work closely with you to craft tailored
+            solutions that optimize your back-office without draining resources.
           </p>
           <p className="md:text-lg">
             At{' '}
