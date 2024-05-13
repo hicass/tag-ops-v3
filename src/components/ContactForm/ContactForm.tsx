@@ -24,13 +24,15 @@ export default function ContactForm() {
   const sendEmail = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
 
+    console.log(formValues)
+
     try {
       emailjs
         .sendForm(
           'contact_service',
           'contact_form',
           form.current!,
-          process.env.REACT_APP_EMAIL_KEY
+          process.env.NEXT_PUBLIC_EMAIL_KEY
         )
         .then(
           (result) => {
@@ -112,10 +114,10 @@ export default function ContactForm() {
 
   return (
     <section className="w-full flex flex-col items-center p-6 sm:w-2/3 md:w-1/3">
-      <div id="confirmation-msg">
+      <div className='relative w-full flex items-center'>
         <span className="place-holder">p</span>
 
-        {formSubmitted && <p>{confirmationMessage}</p>}
+        {formSubmitted && <p className='sm:text-lg absolute top-0'>{confirmationMessage}</p>}
       </div>
 
       <form
@@ -166,7 +168,7 @@ export default function ContactForm() {
               </div>
             </div>
 
-            <div className="col-span-full -mt-4">
+            <div className="col-span-full -mt-2">
               <label className="block text-lg manrope-semibold leading-6">
                 Company Name
               </label>
@@ -262,7 +264,7 @@ export default function ContactForm() {
           </div>
 
           <div className="mt-6 flex items-center justify-end text-lg">
-            <button type="submit" className="button">
+            <button type="submit" className="contact-button">
               Send
             </button>
           </div>

@@ -1,37 +1,59 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align='center'>
+    <Img alt='Logo' src='./public/logos/main-logo.svg' width='120px'/>
+</div>
+<h1 align='center'>
+  tagoperations.com - v3
+</h1>
 
-## Getting Started
+<p align='center'>
+  The third version of <a href='https://www.tagoperations.com/' target='_blank'>tagoperations.com</a> built with <a href='https://nextjs.org/' target='_blank'>Next.js</a>, designed and developed by me.
+</p>
 
-First, run the development server:
+<p align='center'>
+    Tag Ops is a dynamic operational support company that offers a versatile range of services to businesses of all sizes. With a client-centric approach, Tag Ops simplifies intricate operational processes, optimizes resources, and enhances efficiency. This enables businesses to focus on growth and innovation while Tag Ops manages the operational backbone. With a commitment to flexibility and innovation, Tag Ops crafts tailored solutions to meet the diverse needs of its clients, ensuring sustainable success in today's competitive landscape.
+</p>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+<div align='center'>
+    <Img alt='App Screen Shot' src='./public/images/readme.png'>
+</div>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+**Client:** 
+- [Next.js](https://nextjs.org/)
+- [Tailwind.css](https://tailwindcss.com/)
+- [Framer Motion](https://www.framer.com/motion/)
+- [Email.JS](https://www.emailjs.com/)
 
-## Learn More
+**Server:** 
+- [Heroku](https://www.heroku.com/home)
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Features
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- A landing page that provides an engaging introduction to the business.
+- Navigation links at the top of the website ensure easy navigation, and a services section activates a drop-down menu upon hovering, optimizing screen space efficiency.
+- A visually appealing "About Us" page that offers clients a glimpse into the Tag Operations company's story.
+- A contact page designed to encourage potential clients to get in touch, featuring a user-friendly contact form.
+- Links for convenient access to the contact page from various sections of the website.
+- A footer that offers additional navigation options for the website.
+- A beautiful, modern, and engaging design that aligns perfectly with the company's personality.
+- Utilized [Email.JS](https://www.emailjs.com/) for the contact form to enable customization of received emails and their layout, tailored to the business's preferences.
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Color Reference
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-# private-blog
+| Color             | Hex                                                                |
+| ----------------- | ------------------------------------------------------------------ |
+| Text | ![#392365](https://via.placeholder.com/10/392365?text=+) #392365|
+| Primary | ![#6126d8](https://via.placeholder.com/10/6126d8?text=+) #6126d8 |
+| Secondary| ![#d0b2ff](https://via.placeholder.com/10/d0b2ff?text=+) #d0b2ff |
+| Secondary Light| ![#e7d8ff](https://via.placeholder.com/10/e7d8ff?text=+) #e7d8ff |
+| Accent | ![#a3ddff](https://via.placeholder.com/10/a3ddff?text=+) #a3ddff |
+| Accent Light | ![#d4efff](https://via.placeholder.com/10/d4efff?text=+) #d4efff |
+| Background| ![#ffffff](https://via.placeholder.com/10/ffffff?text=+) #ffffff |
+
+# Roadmap
+
+- A blog feature that allows the business owner to log in and create blog posts, which will be displayed on a dedicated blog page in the future.

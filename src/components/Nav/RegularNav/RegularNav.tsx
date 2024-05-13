@@ -58,7 +58,7 @@ export default function RegularNav() {
                 pointerEvents: isOpen ? 'auto' : 'none',
                 clipPath: 'inset(10% 50% 90% 50% round 10px)',
               }}
-              className="flex flex-col items-center absolute gap-2 bg-background border-t-4 border-secondarylight top-2/3 -ml-2 w-26 p-4 z-40 drop-shadow-lg"
+              className="flex flex-col items-center absolute gap-2 bg-background border-t-4 border-secondarylight top-2/3 -ml-2 -mt-1 w-26 p-4 z-40 drop-shadow-lg"
             >
               <li className="manrope-semibold w-full text-center hover:text-primary pb-2 border-b border-secondarylight">
                 <Link
