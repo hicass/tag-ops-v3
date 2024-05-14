@@ -319,6 +319,21 @@ export default function LandingPageContent() {
               width={1010}
               height={638}
             />
+            <p className="flex flex-row items-center gap-2 sm:text-lg">
+              Powered By:{' '}
+              <div className="w-1/3">
+                <Link href="https://www.teamwork.com/" target="_blank">
+                  <Image
+                    src="/images/teamwork-logo.png"
+                    alt="Teamwork Logo"
+                    layout="responsive"
+                    objectFit="cover"
+                    width={1920}
+                    height={248}
+                  />
+                </Link>
+              </div>
+            </p>
           </div>
 
           <p className="mt-4 sm:text-lg">

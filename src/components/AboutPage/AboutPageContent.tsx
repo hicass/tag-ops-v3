@@ -82,7 +82,7 @@ export default function AboutPageContent() {
             leader. We offer a
             <span className="manrope-semibold">
               {' '}
-              holistic, flexible, customizable
+              holistic, flexible, and customizable
             </span>{' '}
             model to meet your unique needs. Our approach is rooted in
             collaboration, where we work closely with you to craft tailored
