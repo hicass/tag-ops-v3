@@ -5,7 +5,7 @@ import { authOptions } from '../auth/[...nextauth]/route';
 
 import { ExplorePostsProps } from '@/app/page';
 
-import PostService from '../../../../prisma/services/PostService';
+import PostService from '../../../../prisma/services/PostServices';
 import prisma from '@/database/prisma';
 
 export async function GET() {

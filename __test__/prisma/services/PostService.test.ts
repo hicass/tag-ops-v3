@@ -1,5 +1,5 @@
 import { prismaMock } from '../../utilities/mocks/mockPrisma';
-import PostService from '../../../prisma/services/PostService';
+import PostService from '../../../prisma/services/PostServices';
 
 const mockPosts = [
   {

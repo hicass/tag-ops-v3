@@ -27,7 +27,7 @@
 - [Email.JS](https://www.emailjs.com/)
 
 **Server:** 
-- [Heroku](https://www.heroku.com/home)
+- [Vercel](https://vercel.com/)
 
 
 # Features
