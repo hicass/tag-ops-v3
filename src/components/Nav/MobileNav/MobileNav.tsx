@@ -20,6 +20,7 @@ export default function Nav() {
             width={100}
             height={100}
             layout="responsive"
+            priority
           />
         </Link>
       </div>

@@ -12,7 +12,7 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'Tag Operations',
   description:
-    'Simplify, Optimize, Scale with Tag Operations! Your tech forward, embedded, and flexible back office team!',
+    'Tag Operations: Empowering Businesses with Comprehensive Back-Office Solutions. From HR, to Operations, to Finance, we optimize your back-office for efficiency and growth. Customizable support tailored to your needs. Partner with us for scalable, cost-saving strategies.',
 };
 
 export default function RootLayout({
