@@ -42,7 +42,7 @@ export default function RegularNav(): JSX.Element {
           delay: isOpen ? staggerMenuItems : 0,
         }
       );
-    }, [isOpen, animate, staggerMenuItems]);
+    }, [isOpen, animate]);
 
     return scope;
   }
