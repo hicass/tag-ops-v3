@@ -319,8 +319,8 @@ export default function LandingPageContent() {
               width={1010}
               height={638}
             />
-            <p className="flex flex-row items-center gap-2 sm:text-lg">
-              Powered By:{' '}
+            <div className="flex flex-row items-center gap-2">
+              <p className="sm:text-lg">Powered By: </p>
               <div className="w-1/3">
                 <Link href="https://www.teamwork.com/" target="_blank">
                   <Image
@@ -333,7 +333,7 @@ export default function LandingPageContent() {
                   />
                 </Link>
               </div>
-            </p>
+            </div>
           </div>
 
           <p className="mt-4 sm:text-lg">
