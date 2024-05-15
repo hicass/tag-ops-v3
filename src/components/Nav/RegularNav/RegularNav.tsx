@@ -8,6 +8,43 @@ export default function RegularNav() {
   const [isOpen, setIsOpen] = useState(false);
   const scope = useMenuAnimation(isOpen);
 
+  const staggerMenuItems = stagger(0.1, { startDelay: 0.15 });
+
+  function useMenuAnimation(isOpen: boolean) {
+    const [scope, animate] = useAnimate();
+
+    useEffect(() => {
+      animate('.arrow', { rotate: isOpen ? 180 : 0 }, { duration: 0.2 });
+
+      animate(
+        'ul',
+        {
+          clipPath: isOpen
+            ? 'inset(0% 0% 0% 0% round 10px)'
+            : 'inset(10% 50% 90% 50% round 10px)',
+        },
+        {
+          type: 'spring',
+          bounce: 0,
+          duration: 0.2,
+        }
+      );
+
+      animate(
+        'li',
+        isOpen
+          ? { opacity: 1, scale: 1, filter: 'blur(0px)' }
+          : { opacity: 0, scale: 0.3, filter: 'blur(20px)' },
+        {
+          duration: 0.2,
+          delay: isOpen ? staggerMenuItems : 0,
+        }
+      );
+    }, [isOpen]);
+
+    return scope;
+  }
+
   return (
     <div className="flex flex-row justify-between items-center px-6 bg-background drop-shadow-lg">
       <div className="link w-24">
@@ -42,7 +79,9 @@ export default function RegularNav() {
           >
             <motion.button
               whileTap={{ scale: 0.97 }}
-              className={`flex items-center gap-2 manrope-semibold text-lg ${isOpen && 'text-primary'}`}
+              className={`flex items-center gap-2 manrope-semibold text-lg ${
+                isOpen && 'text-primary'
+              }`}
             >
               Services{' '}
               <div
@@ -100,41 +139,4 @@ export default function RegularNav() {
       </div>
     </div>
   );
-}
-
-const staggerMenuItems = stagger(0.1, { startDelay: 0.15 });
-
-function useMenuAnimation(isOpen: boolean) {
-  const [scope, animate] = useAnimate();
-
-  useEffect(() => {
-    animate('.arrow', { rotate: isOpen ? 180 : 0 }, { duration: 0.2 });
-
-    animate(
-      'ul',
-      {
-        clipPath: isOpen
-          ? 'inset(0% 0% 0% 0% round 10px)'
-          : 'inset(10% 50% 90% 50% round 10px)',
-      },
-      {
-        type: 'spring',
-        bounce: 0,
-        duration: 0.2,
-      }
-    );
-
-    animate(
-      'li',
-      isOpen
-        ? { opacity: 1, scale: 1, filter: 'blur(0px)' }
-        : { opacity: 0, scale: 0.3, filter: 'blur(20px)' },
-      {
-        duration: 0.2,
-        delay: isOpen ? staggerMenuItems : 0,
-      }
-    );
-  }, [isOpen]);
-
-  return scope;
 }
