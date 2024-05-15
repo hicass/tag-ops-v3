@@ -257,7 +257,6 @@ export default function ContactForm() {
                     setFormValues({ ...formValues, message: e.target.value })
                   }
                   className="w-full flex p-1.5 rounded-md outline-none shadow-sm ring-1 ring-inset ring-accentlight focus-within:ring-2 focus-within:ring-inset focus-within:ring-accent sm:max-w-m"
-                  defaultValue={''}
                 />
               </div>
             </div>
