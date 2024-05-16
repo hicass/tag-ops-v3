@@ -26,6 +26,7 @@ export default function LandingPageContent() {
 
   return (
     <main className="flex flex-col items-center overflow-hidden">
+      {/* Header */}
       <section className="w-full flex flex-col items-center mt-12 p-6 md:h-96 sm:my-28 lg:flex-row lg:gap-16 lg:w-3/4">
         <h1 className="secret">Tag Ops</h1>
         <div className="flex flex-col gap-4 md:w-full">
@@ -54,29 +55,35 @@ export default function LandingPageContent() {
         )}
       </section>
 
+      {/* Our Solutions */}
       <section className="w-full mt-14 sm:mt-28 relative">
         <div className="flex flex-col items-center p-6 bg-primary drop-shadow-md z-10 py-14 sm:py-24">
           <h2 className="text-3xl text-background sm:text-5xl">
             Our Solutions
           </h2>
 
-          <div className="flex flex-col mt-4 gap-2 sm:mt-10 md:w-2/3">
+          <div className="flex flex-col mt-4 gap-4 sm:mt-10 md:w-2/3 2xl:w-1/2">
             <p className="text-background sm:text-xl">
-              Staffing your back office with a{' '}
-              <span className="text-accent">full-time</span> Operations,
-              Finance, and HR leader can cost you over{' '}
-              <span className="text-accent">$7,000</span> per month per role,
-              totaling <span className="text-accent">$63,000</span> per quarter.
+              Did you know that businesses can save at least
+              <span className="text-accent"> 30% on back-office costs </span> by
+              leveraging fractional support? Not only do we offer tailored
+              back-office support services, but we also provide you with the
+              data behind our services. You’ll know how much time is spent on
+              your company's various back-office processes enabling you to
+              strategize scaling your company.
             </p>
-            <p className="text-background sm:text-xl sm:mt-4">
-              We work with you to gain insights into your back office workload
-              and tailor your back office people costs to{' '}
-              <span className="text-accent">fit your needs</span> as a business,{' '}
-              <span className="text-accent">saving</span> you as much as we can.
+            <p className="text-background sm:text-xl">
+              With the flexibility to adjust services as needed,
+              <span className="text-accent">
+                {' '}
+                we empower you to focus on what truly matters{' '}
+              </span>{' '}
+              – nurturing your business's growth and success - while being
+              efficient with your resources.
             </p>
           </div>
 
-          <div className="flex flex-col w-full mt-4  md:w-2/3">
+          <div className="flex flex-col w-full mt-4 md:w-2/3 2xl:w-1/2">
             <Link
               href="/operations"
               className="flex flex-row items-center py-4 gap-2"
@@ -137,12 +144,13 @@ export default function LandingPageContent() {
         <div className="bg-accent w-full h-6"></div>
       </section>
 
-      <section className="flex flex-col items-center mt-4 p-6 sm:mt-16 md:w-2/3">
+      {/* Our Flow */}
+      <section className="flex flex-col items-center gap-4 m4-4 p-6 sm:mt-16 md:w-2/3 2xl:w-1/2">
         <h2 className="text-3xl sm:text-4xl">Our Flow</h2>
 
         <div className="w-full">
-          <div className="relative my-10 p-4 bg-secondarylight rounded-xl drop-shadow">
-            <div className="w-10 h-10 absolute top-0 left-0 -ml-5 -mt-5">
+          <div className="relative my-10 p-6 bg-secondarylight rounded-xl drop-shadow">
+            <div className="w-10 h-10 absolute top-0 left-0 -ml-4 -mt-4">
               <Image
                 src="/icons/compass.svg"
                 alt="Compass"
@@ -160,8 +168,8 @@ export default function LandingPageContent() {
             </p>
           </div>
 
-          <div className="relative my-10 p-4 bg-secondarylight rounded-xl drop-shadow">
-            <div className="w-10 h-10 absolute top-0 left-0 -ml-5 -mt-5">
+          <div className="relative my-10 p-6 bg-secondarylight rounded-xl drop-shadow">
+            <div className="w-10 h-10 absolute top-0 left-0 -ml-4 -mt-4">
               <Image
                 src="/icons/telescope.svg"
                 alt="Telescope"
@@ -180,8 +188,8 @@ export default function LandingPageContent() {
             </p>
           </div>
 
-          <div className="relative my-10 p-4 bg-secondarylight rounded-xl drop-shadow">
-            <div className="w-10 h-10 absolute top-0 left-0 -ml-5 -mt-5">
+          <div className="relative my-10 p-6 bg-secondarylight rounded-xl drop-shadow">
+            <div className="w-10 h-10 absolute top-0 left-0 -ml-4 -mt-4">
               <Image
                 src="/icons/rocket.svg"
                 alt="Rocket"
@@ -199,8 +207,8 @@ export default function LandingPageContent() {
             </p>
           </div>
 
-          <div className="relative my-10 p-4 bg-secondarylight rounded-xl drop-shadow">
-            <div className="w-10 h-10 absolute top-0 left-0 -ml-5 -mt-5">
+          <div className="relative my-10 p-6 bg-secondarylight rounded-xl drop-shadow">
+            <div className="w-10 h-10 absolute top-0 left-0 -ml-4 -mt-4">
               <Image
                 src="/icons/telescope.svg"
                 alt="Telescope"
@@ -218,8 +226,8 @@ export default function LandingPageContent() {
             </p>
           </div>
 
-          <div className="relative my-10 p-4 bg-secondarylight rounded-xl drop-shadow">
-            <div className="w-10 h-10 absolute top-0 left-0 -ml-5 -mt-5">
+          <div className="relative my-10 p-6 bg-secondarylight rounded-xl drop-shadow">
+            <div className="w-10 h-10 absolute top-0 left-0 -ml-4 -mt-4">
               <Image
                 src="/icons/calendar.svg"
                 alt="Calendar"
@@ -240,8 +248,8 @@ export default function LandingPageContent() {
             </p>
           </div>
 
-          <div className="relative my-10 p-4 bg-secondarylight rounded-xl drop-shadow">
-            <div className="w-10 h-10 absolute top-0 left-0 -ml-5 -mt-5">
+          <div className="relative my-10 p-6 bg-secondarylight rounded-xl drop-shadow">
+            <div className="w-10 h-10 absolute top-0 left-0 -ml-4 -mt-4">
               <Image
                 src="/icons/bulb.svg"
                 alt="Light Bulb"
@@ -259,8 +267,8 @@ export default function LandingPageContent() {
             </p>
           </div>
 
-          <div className="relative my-10 p-4 bg-secondarylight rounded-xl drop-shadow">
-            <div className="w-10 h-10 absolute top-0 left-0 -ml-5 -mt-5">
+          <div className="relative my-10 p-6 bg-secondarylight rounded-xl drop-shadow">
+            <div className="w-10 h-10 absolute top-0 left-0 -ml-4 -mt-4">
               <Image
                 src="/icons/telescope.svg"
                 alt="Telescope"
@@ -281,8 +289,8 @@ export default function LandingPageContent() {
             </p>
           </div>
 
-          <div className="relative my-10 p-4 bg-secondarylight rounded-xl drop-shadow">
-            <div className="w-10 h-10 absolute top-0 left-0 -ml-5 -mt-5">
+          <div className="relative my-10 p-6 bg-secondarylight rounded-xl drop-shadow">
+            <div className="w-10 h-10 absolute top-0 left-0 -ml-4 -mt-4">
               <Image
                 src="/icons/user.svg"
                 alt="Person"
@@ -309,17 +317,21 @@ export default function LandingPageContent() {
           Analytics Empowerment
         </h3>
 
-        <div className="flex flex-col items-center mt-4 md:mt-6 lg:mt-6 gap-4">
-          <div className="w-full sm:w-2/3 md:w-2/3 lg:w-1/2 mt-6">
-            <Image
-              src="/images/dashboard.png"
-              alt="Teamwork Dashboard"
-              layout="responsive"
-              objectFit="cover"
-              width={1010}
-              height={638}
-            />
-            <div className="flex flex-row items-center gap-2">
+        <div className="flex flex-col items-center mt-4 gap-4">
+          <div className="flex flex-col gap-4 w-full sm:w-2/3 md:w-2/3 lg:w-1/2 mt-6">
+            <div className="border-4 border-secondarylight padding-2 rounded-xl drop-shadow">
+              <Image
+                src="/images/dashboard.png"
+                alt="Teamwork Dashboard"
+                layout="responsive"
+                className="rounded-xl"
+                objectFit="cover"
+                width={1010}
+                height={638}
+              />
+            </div>
+
+            <div className="flex w-full flex-row items-center gap-2">
               <p className="sm:text-lg">Powered By: </p>
               <div className="w-1/3">
                 <Link href="https://www.teamwork.com/" target="_blank">
@@ -336,7 +348,7 @@ export default function LandingPageContent() {
             </div>
           </div>
 
-          <p className="mt-4 sm:text-lg">
+          <p className="mt-6 sm:text-lg">
             Our project management software empowers your business with
             analytics, not only on tasks and project budgets but also a
             breakdown of how much time is spent on any specific task within any
@@ -345,7 +357,8 @@ export default function LandingPageContent() {
         </div>
       </section>
 
-      <section className="flex flex-col items-center p-6 sm:mt-16 md:w-2/3">
+      {/* Testimonials */}
+      <section className="flex flex-col items-center p-6 sm:mt-16 md:w-2/3 2xl:w-1/2">
         <h2 className="text-3xl sm:text-4xl">
           See what our clients are saying...
         </h2>
