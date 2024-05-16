@@ -13,7 +13,7 @@ export default function HumanResourcesPage() {
     name: 'Human Resources',
     description:
       'From benefits administration to recruiting, we offer expert solutions for your HR needs, ensuring seamless processes and the right people in your organization.',
-    question: 'What are the Impact of Inefficient HR Processes?',
+    question: 'What are the Impacts of Inefficient HR Processes?',
     inefficiencyCosts: [
       {
         title: 'Mismatched Hires',

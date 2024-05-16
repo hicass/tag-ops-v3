@@ -57,7 +57,10 @@
   color: var(--text);
 }
 
-h1, h2, .kayak-bold, .button {
+h1,
+h2,
+.kayak-bold,
+.button {
   font-family: 'Kayak-Sans-Bold', sans-serif;
 }
 
@@ -77,19 +80,22 @@ h1, h2, .kayak-bold, .button {
   filter: drop-shadow(0 1px 2px rgb(0 0 0 / 0.1)) drop-shadow(0 1px 1px rgb(0 0 0 / 0.06));
 }
 
-.contact-button:hover, .link:hover {
+.contact-button:hover,
+.link:hover {
   transform: translateY(-2px);
   filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
 }
 
-.blob-front, .blob-back {
+.blob-front,
+.blob-back {
   height: 15vw;
   width: 42vw;
   top: 0;
   position: absolute;
 }
 
-.blob-top-small, .blob-bot-small {
+.blob-top-small,
+.blob-bot-small {
   height: 15vw;
   width: 55vw;
   z-index: -10;
@@ -145,4 +151,12 @@ h1, h2, .kayak-bold, .button {
 
 .place-holder {
   visibility: hidden;
+}
+
+@media (min-width: 1544px) {
+
+  .blob-top-small,
+  .blob-bot-small {
+    height: 10vw;
+  }
 }

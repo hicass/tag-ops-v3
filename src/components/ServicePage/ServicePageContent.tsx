@@ -15,20 +15,22 @@ export default function SerivcePageContent({
 }: any) {
   return (
     <main className="flex flex-col items-center overflow-hidden">
+      {/* Header */}
       <section className="w-full bg-primary mb-8 drop-shadow-md">
         <div className="w-full flex flex-col items-center my-12 p-10">
           <h1 className="text-3xl text-background sm:text-5xl">
             {serviceName}
           </h1>
 
-          <p className="mt-4 text-lg text-background md:text-2xl md:text-center md:w-2/3">
+          <p className="mt-4 text-lg text-background md:text-2xl md:text-center md:w-2/3 2xl:w-1/2">
             {serviceDescription}
           </p>
         </div>
       </section>
 
+      {/* Inefficiencies */}
       <section className="flex flex-col items-center">
-        <div className="my-8 p-10 md:w-2/3">
+        <div className="my-8 p-10 md:w-2/3 2xl:w-1/2">
           <h2 className="flex flex-col items-center gap-6 w-full text-2xl sm:text-3xl">
             <div className="w-10 h-10">
               <Image
@@ -52,7 +54,8 @@ export default function SerivcePageContent({
         </div>
       </section>
 
-      <section className="w-full flex flex-col items-center mb-8 p-6 gap-2 md:w-2/3">
+      {/* Services */}
+      <section className="w-full flex flex-col items-center mb-8 p-6 gap-2 md:w-2/3 2xl:w-1/2">
         <h2 className="flex flex-row items-center text-3xl">
           How we can help:
         </h2>

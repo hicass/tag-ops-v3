@@ -7,7 +7,8 @@ import Blob from '@/components/Blob/Blob';
 export default function AboutPageContent() {
   return (
     <main className="flex flex-col items-center overflow-hidden">
-      <section className="w-full flex flex-col items-center my-8 p-6 md:w-2/3">
+      {/* Header */}
+      <section className="w-full flex flex-col items-center my-8 p-6 md:w-2/3 2xl:w-1/2">
         <h1 className="secret">About Us</h1>
         <h1 className="text-center text-5xl text-primary">Hello!</h1>
         <h2 className="mt-2 text-center text-xl md:text-2xl">
@@ -22,13 +23,14 @@ export default function AboutPageContent() {
         </p>
       </section>
 
-      <section className="relative">
+      {/* Mission */}
+      <section className="relative lg:w-full">
         <div className="w-full flex flex-col items-center my-8 p-10 bg-primary drop-shadow-md">
           <h1 className="text-center text-3xl text-background manrope-bold md:text-4xl">
             Our Mission
           </h1>
 
-          <p className="mt-4 text-background text-center md:text-2xl md:w-2/3">
+          <p className="mt-4 text-background text-center md:text-2xl md:w-2/3 2xl:w-1/2">
             We transform back offices with reliable systems, processes, and
             talent while empowering leadership with crucial insights into their
             operational costs.
@@ -41,7 +43,8 @@ export default function AboutPageContent() {
         </div>
       </section>
 
-      <section className="w-full flex flex-col items-center my-8 p-6 md:w-2/3">
+      {/* Story  */}
+      <section className="w-full flex flex-col items-center my-8 p-6 md:w-2/3 2xl:w-1/2">
         <h2 className="flex flex-row items-center gap-2 text-3xl manrope-bold text-primary md:text-4xl">
           Our Story
           <Image src="/icons/book.svg" alt="Book" width={40} height={40} />
@@ -100,7 +103,8 @@ export default function AboutPageContent() {
         </div>
       </section>
 
-      <section className="w-full flex flex-col items-center my-8 p-6 md:w-2/3">
+      {/* Team  */}
+      <section className="w-full flex flex-col items-center my-8 p-6 md:w-2/3 2xl:w-1/2">
         <h1 className="flex flex-row items-center gap-2 text-3xl text-primary manrope-bold md:text-4xl">
           Meet the team!
         </h1>
