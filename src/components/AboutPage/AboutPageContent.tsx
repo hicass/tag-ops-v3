@@ -1,8 +1,8 @@
 'use client';
 import Image from 'next/legacy/image';
-import Link from 'next/link';
 
 import Blob from '@/components/Blob/Blob';
+import ClientsServed from '../ClientsServed/ClientsServed';
 
 export default function AboutPageContent() {
   return (
@@ -209,14 +209,7 @@ export default function AboutPageContent() {
         </div>
       </section>
 
-      <section className="w-full flex flex-col items-center mb-10">
-        <Link
-          href="/contact"
-          className="contact-button mt-4 text-2xl md:text-3xl"
-        >
-          Lets Talk!
-        </Link>
-      </section>
+      <ClientsServed />
     </main>
   );
 }
