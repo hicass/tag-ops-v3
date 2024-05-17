@@ -11,37 +11,50 @@ export default function ClientsServed() {
           Trusted by businesses like you:
         </h2>
 
-        <div className="w-full flex flex-col gap-10 sm:flex-row items-center my-8">
+        <div className="w-2/3 sm:w-full flex flex-col gap-10 items-center sm:flex-row items-center my-8">
           <div>
             <Image
               src="/client-logos/allo-hire-logo.png"
               alt="Allo Hire"
               width="2500"
               height="447"
+              objectFit='contain'
             />
           </div>
           <div>
             <Image
               src="/client-logos/mend-logo.png"
               alt="Mend"
-              width="1200"
-              height="325"
+              width="1400"
+              height="525"
+              objectFit='contain'
             />
           </div>
-          <div className="w-2/3 sm:w-full">
+          <div className="w-1/2 sm:w-full">
             <Image
               src="/client-logos/pursuits-logo.png"
               alt="Nurture Source"
               width="410"
               height="500"
+              objectFit='contain'
             />
           </div>
           <div>
             <Image
               src="/client-logos/nurture-source-logo.png"
               alt="Nurture Source"
+              width="2700"
+              height="601"
+              objectFit='contain'
+            />
+          </div>
+          <div>
+            <Image
+              src="/client-logos/mind-hire-logo.png"
+              alt="Mind Hire"
               width="2500"
-              height="401"
+              height="501"
+              objectFit='contain'
             />
           </div>
         </div>
