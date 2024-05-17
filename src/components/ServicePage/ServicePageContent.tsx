@@ -4,6 +4,7 @@ import Link from 'next/link';
 
 import SolutionComponent from './SolutionComponent';
 import InefficiencyCostComponent from './InefficiencyCostComponent';
+import ClientsServed from '../ClientsServed/ClientsServed';
 
 export default function SerivcePageContent({
   serviceName,
@@ -71,14 +72,9 @@ export default function SerivcePageContent({
         </div>
 
         <p className="sm:text-lg md:text-2xl mb-6">{serviceEndingParagraph}</p>
-
-        <Link
-          href="/contact"
-          className="contact-button my-4 text-2xl md:text-3xl"
-        >
-          Lets Talk!
-        </Link>
       </section>
+
+      <ClientsServed />
     </main>
   );
 }

@@ -1,11 +1,11 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import Image from 'next/legacy/image';
-
 import Link from 'next/link';
 
 import Blob from '@/components/Blob/Blob';
-import { useEffect, useState } from 'react';
+import ClientsServed from '@/components/ClientsServed/ClientsServed';
 
 export default function LandingPageContent() {
   const [isMobileScreen, setIsMobileScreen] = useState(false);
@@ -417,14 +417,9 @@ export default function LandingPageContent() {
             </p>
           </div>
         </div>
-
-        <Link
-          href="/contact"
-          className="contact-button my-4 text-2xl md:text-3xl"
-        >
-          Lets Talk!
-        </Link>
       </section>
+
+      <ClientsServed />
     </main>
   );
 }
