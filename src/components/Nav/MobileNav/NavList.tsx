@@ -85,14 +85,6 @@ export default function NavList({ toggleOpen }: any) {
             />
           </div>
 
-          <div className="overflow-hidden pb-2">
-            <MobileNavLink
-              title={'Blog'}
-              href={'/blog'}
-              style={'text-4xl font-semibold'}
-            />
-          </div>
-
           <div className="mt-8 mb-10">
             <Link
               href="/contact"
