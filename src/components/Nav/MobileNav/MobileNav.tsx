@@ -2,7 +2,7 @@
 import Image from 'next/legacy/image';
 import Link from 'next/link';
 
-import { AnimatePresence, useCycle } from 'framer-motion';
+import { useCycle } from 'framer-motion';
 
 import MenuToggle from './MenuToggle';
 import NavList from './NavList';
