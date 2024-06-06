@@ -153,6 +153,16 @@ h2,
   visibility: hidden;
 }
 
+@media (max-width: 500px) {
+  .blob-top-small {
+    top: 0.8rem;
+  }
+
+  .blob-bot-small {
+    bottom: 0.8rem;
+  }
+}
+
 @media (min-width: 1544px) {
 
   .blob-top-small,
