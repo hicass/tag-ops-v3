@@ -46,7 +46,7 @@ export default function NavList({ toggleOpen }: any) {
       className="fixed left-0 top-20 w-full h-screen origin-top bg-background p-10 z-40"
     >
       <div className="overflow-hidden flex h-fit flex-col">
-        <div className="flex flex-col h-full gap-4 mt-8">
+        <div className="flex flex-col h-full gap-4">
           <div className="overflow-hidden">
             <div className="flex flex-col gap-4">
               <span className="text-4xl manrope-semibold">Services</span>
@@ -85,7 +85,7 @@ export default function NavList({ toggleOpen }: any) {
             />
           </div>
 
-          <div className="mt-8 mb-10">
+          <div className="mt-6 mb-10">
             <Link
               href="/contact"
               className="contact-button mt-4 text-2xl kayak-bold"
