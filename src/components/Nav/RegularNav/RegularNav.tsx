@@ -1,8 +1,10 @@
 'use client';
+
+import { useState, useEffect } from 'react';
+
 import Image from 'next/legacy/image';
 import Link from 'next/link';
 
-import { useState, useEffect } from 'react';
 import { useAnimate, stagger, motion } from 'framer-motion';
 
 const staggerMenuItems = stagger(0.1, { startDelay: 0.15 });

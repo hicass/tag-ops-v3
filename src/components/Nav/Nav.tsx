@@ -1,10 +1,11 @@
 'use client';
 
+import { FC, useEffect, useState } from 'react';
+
 import RegularNav from './RegularNav/RegularNav';
 import MobileNav from './MobileNav/MobileNav';
-import { useEffect, useState } from 'react';
 
-export default function Nav() {
+const Nav: FC = () => {
   const [isMobileScreen, setIsMobileScreen] = useState(false);
 
   useEffect(() => {
@@ -23,3 +24,5 @@ export default function Nav() {
 
   return <nav className='sticky top-0 z-20'>{isMobileScreen ? <MobileNav /> : <RegularNav />}</nav>;
 }
+
+export default Nav;

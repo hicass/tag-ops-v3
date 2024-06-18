@@ -1,5 +1,7 @@
 'use client';
 
+import { FC } from 'react';
+
 import Image from 'next/legacy/image';
 
 import { motion, Variants } from 'framer-motion';
@@ -9,23 +11,6 @@ type Card = {
   iconAlt: string;
   title: string;
   description: string;
-};
-
-const cardVariants: Variants = {
-  offscreen: {
-    y: 200,
-    opacity: 0,
-  },
-  onscreen: {
-    y: 0,
-    opacity: 1,
-    scale: 1,
-    transition: {
-      type: 'spring',
-      bounce: 0.4,
-      duration: 0.8,
-    },
-  },
 };
 
 const cards: Card[] = [
@@ -84,7 +69,24 @@ const cards: Card[] = [
   },
 ];
 
-export default function FlowCards() {
+const cardVariants: Variants = {
+  offscreen: {
+    y: 200,
+    opacity: 0,
+  },
+  onscreen: {
+    y: 0,
+    opacity: 1,
+    scale: 1,
+    transition: {
+      type: 'spring',
+      bounce: 0.4,
+      duration: 0.8,
+    },
+  },
+};
+
+const FlowCards: FC = () => {
   return (
     <>
       {cards.map((card, idx: number) => (
@@ -115,3 +117,5 @@ export default function FlowCards() {
     </>
   );
 }
+
+export default FlowCards;
