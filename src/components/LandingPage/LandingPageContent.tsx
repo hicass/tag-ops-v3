@@ -1,48 +1,65 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import Image from 'next/legacy/image';
 import Link from 'next/link';
+
+import { motion, Variants } from 'framer-motion';
 
 import Blob from '@/components/Blob/Blob';
 import ClientsServed from '@/components/ClientsServed/ClientsServed';
 
+import FlowCards from './FlowCards';
+
+const containerVariants: Variants = {
+  hidden: {
+    opacity: 1,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.5, // Delay between children animations
+    },
+  },
+};
+
+const linkVariants: Variants = {
+  hidden: {
+    y: -50,
+    opacity: 0,
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: 'spring',
+      stiffness: 100,
+    },
+  },
+  hover: {},
+};
+
 export default function LandingPageContent() {
-  const [isMobileScreen, setIsMobileScreen] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobileScreen(window.innerWidth < 768);
-    };
-
-    setIsMobileScreen(window.innerWidth < 768);
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
   return (
     <main className="flex flex-col items-center overflow-hidden">
       {/* Header */}
-      <section className="w-full flex flex-col items-center mt-12 p-6 md:h-96 sm:my-28 lg:flex-row lg:gap-16 lg:w-3/4">
-        <h1 className="secret">Tag Ops</h1>
-        <div className="flex flex-col gap-4 md:w-full">
-          <h1 className="text-center text-5xl sm:text-6xl text-primary">
-            Simplify, Optimize, Scale
+      <section className="w-full flex flex-col items-center my-12 md:h-96 sm:mb-40 sm:mt-24 lg:w-3/4">
+        <h1 className="secret">Tag Operations</h1>
+        <div className="flex flex-col sm:flex-row items-center justify-center sm:mt-10 sm:gap-12 lg:w-full">
+          <h1 className="text-center sm:mt-6 text-4xl sm:text-7xl text-primary">
+            Simplify, Optimize, <br /> Scale with...
           </h1>
-          <h1 className="text-center text-5xl sm:text-6xl  text-primary">
-            with Tag Operations!
-          </h1>
-          <p className="text-center text-lg py-2 md:text-2xl">
-            Your tech forward, embedded, and flexible back office team!
-          </p>
-        </div>
 
-        {!isMobileScreen && (
-          <div className="w-1/3">
+          <motion.div
+            animate={{
+              rotate: [2, 0, -2, 0, 2],
+              transition: {
+                duration: 2.8,
+                repeat: Infinity,
+                repeatType: 'loop',
+              },
+            }}
+            className="w-2/3 sm:w-1/4"
+          >
             <Image
               src="/logos/main-logo.svg"
               alt="Tag Operations Finance Human Resources"
@@ -51,8 +68,12 @@ export default function LandingPageContent() {
               width={100}
               height={100}
             />
-          </div>
-        )}
+          </motion.div>
+        </div>
+
+        <p className="text-center text-lg w-2/3 sm:w-full  sm:-mt-4 md:text-3xl">
+          Your tech forward, embedded, and flexible back office team!
+        </p>
       </section>
 
       {/* Our Solutions */}
@@ -62,7 +83,12 @@ export default function LandingPageContent() {
             Our Solutions
           </h2>
 
-          <div className="flex flex-col mt-4 gap-4 sm:mt-10 md:w-2/3 2xl:w-1/2">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className="flex flex-col mt-4 gap-8 sm:mt-10 md:w-2/3 2xl:w-1/2"
+          >
             <p className="text-background sm:text-xl">
               Did you know that businesses can save at least
               <span className="text-accent"> 30% on back-office costs </span> by
@@ -81,55 +107,66 @@ export default function LandingPageContent() {
               – nurturing your business's growth and success - while being
               efficient with your resources.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="flex flex-col w-full mt-4 md:w-2/3 2xl:w-1/2">
-            <Link
-              href="/operations"
-              className="flex flex-row items-center py-4 gap-2"
-            >
-              <Image
-                src="/icons/settings.svg"
-                alt="Gear"
-                width={30}
-                height={30}
-              />
-              <h3 className="link text-2xl text-background">Operations</h3>
-            </Link>
-
-            <Link
-              href="/finance"
-              className="flex flex-row items-center py-4 gap-2"
-            >
-              <Image
-                src="/icons/report-money.svg"
-                alt="Money"
-                width={30}
-                height={30}
-              />
-              <h3 className="link text-2xl text-background">Finance</h3>
-            </Link>
-
-            <Link
-              href="/finance"
-              className="flex flex-row items-center py-4 gap-2"
-            >
-              <Image
-                src="/icons/heart-handshake.svg"
-                alt="Hanshake in the shape of a heart"
-                width={30}
-                height={30}
-              />
-              <h3 className="link text-2xl text-background">Human Resources</h3>
-            </Link>
-          </div>
-
-          <Link
-            href="/contact"
-            className="contact-button mt-4 text-2xl md:mt-10"
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{
+              once: true,
+              amount: 'all',
+            }}
+            className="flex flex-col sm:flex-row gap-8 sm:gap-0 w-full justify-around mt-10 sm:mt-16 md:w-2/3 2xl:w-1/2"
           >
-            Learn More!
-          </Link>
+            <Link href="/operations">
+              <motion.div
+                variants={linkVariants}
+                whileHover={{ y: 3 }}
+                className="service-button flex flex-row items-center py-4 gap-2"
+              >
+                <Image
+                  src="/icons/settings.svg"
+                  alt="Gear"
+                  width={30}
+                  height={30}
+                />
+                <h3 className="kayak-bold text-2xl">Operations</h3>
+              </motion.div>
+            </Link>
+
+            <Link href="/finance">
+              <motion.div
+                variants={linkVariants}
+                whileHover={{ y: 3 }}
+                className="service-button flex flex-row items-center py-4 gap-2"
+              >
+                <Image
+                  src="/icons/report-money.svg"
+                  alt="Clip board with money"
+                  width={30}
+                  height={30}
+                />
+                <h3 className="kayak-bold text-2xl">Finance</h3>
+              </motion.div>
+            </Link>
+
+            <Link href="/human-resources">
+              <motion.div
+                variants={linkVariants}
+                whileHover={{ y: 3 }}
+                className="service-button flex flex-row items-center py-4 gap-2"
+              >
+                <Image
+                  src="/icons/heart-handshake.svg"
+                  alt="Handshake in the shape of a heart"
+                  width={30}
+                  height={30}
+                />
+                <h3 className="kayak-bold text-2xl">Human Resources</h3>
+              </motion.div>
+            </Link>
+          </motion.div>
         </div>
 
         <div>
@@ -145,179 +182,23 @@ export default function LandingPageContent() {
       </section>
 
       {/* Our Flow */}
-      <section className="flex flex-col items-center gap-4 m4-4 p-6 sm:mt-16 md:w-2/3 2xl:w-1/2">
+      <section className="flex flex-col items-center gap-4 my-8 sm:my-16 p-6 sm:mt-20 md:w-2/3 2xl:w-1/2">
         <h2 className="text-3xl sm:text-4xl">Our Flow</h2>
 
         <div className="w-full">
-          <div className="relative my-10 p-6 bg-secondarylight rounded-xl drop-shadow">
-            <div className="w-10 h-10 absolute top-0 left-0 -ml-4 -mt-4">
-              <Image
-                src="/icons/compass.svg"
-                alt="Compass"
-                width={100}
-                height={100}
-                layout="responsive"
-              />
-            </div>
-            <h3 className="text-lg sm:text-xl manrope-semibold">
-              1 • Discovery
-            </h3>
-            <p className="mt-2 sm:text-lg">
-              We jump on a discovery call to discuss your back-office needs and
-              how Tag Ops can help.
-            </p>
-          </div>
-
-          <div className="relative my-10 p-6 bg-secondarylight rounded-xl drop-shadow">
-            <div className="w-10 h-10 absolute top-0 left-0 -ml-4 -mt-4">
-              <Image
-                src="/icons/telescope.svg"
-                alt="Telescope"
-                width={100}
-                height={100}
-                layout="responsive"
-              />
-            </div>
-
-            <h3 className="text-lg sm:text-xl manrope-semibold">
-              2 • Initial Scope
-            </h3>
-            <p className="mt-2 sm:text-lg">
-              We create an initial scope for the first quarter of our
-              partnership.
-            </p>
-          </div>
-
-          <div className="relative my-10 p-6 bg-secondarylight rounded-xl drop-shadow">
-            <div className="w-10 h-10 absolute top-0 left-0 -ml-4 -mt-4">
-              <Image
-                src="/icons/rocket.svg"
-                alt="Rocket"
-                width={100}
-                height={100}
-                layout="responsive"
-              />
-            </div>
-
-            <h3 className="text-lg sm:text-xl manrope-semibold">3 • Kickoff</h3>
-            <p className="mt-2 sm:text-lg">
-              You approve the scope, and we kick off the project. You'll receive
-              access to our project management dashboard, enabling collaboration
-              and visibility into the progress.
-            </p>
-          </div>
-
-          <div className="relative my-10 p-6 bg-secondarylight rounded-xl drop-shadow">
-            <div className="w-10 h-10 absolute top-0 left-0 -ml-4 -mt-4">
-              <Image
-                src="/icons/telescope.svg"
-                alt="Telescope"
-                width={100}
-                height={100}
-                layout="responsive"
-              />
-            </div>
-
-            <h3 className="text-lg sm:text-xl manrope-semibold">
-              4 • Scope In Progress
-            </h3>
-            <p className="mt-2 sm:text-lg">
-              We complete the project as determined in the scope.
-            </p>
-          </div>
-
-          <div className="relative my-10 p-6 bg-secondarylight rounded-xl drop-shadow">
-            <div className="w-10 h-10 absolute top-0 left-0 -ml-4 -mt-4">
-              <Image
-                src="/icons/calendar.svg"
-                alt="Calendar"
-                width={100}
-                height={100}
-                layout="responsive"
-              />
-            </div>
-
-            <h3 className="text-lg sm:text-xl manrope-semibold">
-              5 • Quarterly Review
-            </h3>
-            <p className="mt-2 sm:text-lg">
-              At the end of the quarter, you will receive a report on time and
-              cost regarding the tasks in each division (Ops, Finance, Human
-              Resources), enabling data-driven decisions around your workforce
-              and empowering your growth.
-            </p>
-          </div>
-
-          <div className="relative my-10 p-6 bg-secondarylight rounded-xl drop-shadow">
-            <div className="w-10 h-10 absolute top-0 left-0 -ml-4 -mt-4">
-              <Image
-                src="/icons/bulb.svg"
-                alt="Light Bulb"
-                width={100}
-                height={100}
-                layout="responsive"
-              />
-            </div>
-
-            <h3 className="text-lg sm:text-xl manrope-semibold">
-              6 • Decision
-            </h3>
-            <p className="mt-2 sm:text-lg">
-              You determine whether you need ongoing support from us.
-            </p>
-          </div>
-
-          <div className="relative my-10 p-6 bg-secondarylight rounded-xl drop-shadow">
-            <div className="w-10 h-10 absolute top-0 left-0 -ml-4 -mt-4">
-              <Image
-                src="/icons/telescope.svg"
-                alt="Telescope"
-                width={100}
-                height={100}
-                layout="responsive"
-              />
-            </div>
-
-            <h3 className="text-lg manrope-semibold">
-              <span className="text-inherit sm:text-xl manrope-semibold">
-                If Yes:
-              </span>{' '}
-              New Scope
-            </h3>
-            <p className="mt-2 sm:text-lg">
-              We create a new scope for the upcoming quarter.
-            </p>
-          </div>
-
-          <div className="relative my-10 p-6 bg-secondarylight rounded-xl drop-shadow">
-            <div className="w-10 h-10 absolute top-0 left-0 -ml-4 -mt-4">
-              <Image
-                src="/icons/user.svg"
-                alt="Person"
-                width={100}
-                height={100}
-                layout="responsive"
-              />
-            </div>
-
-            <h3 className="text-lg manrope-semibold">
-              <span className="text-inherit sm:text-xl manrope-semibold">
-                If No:
-              </span>{' '}
-              Transition
-            </h3>
-            <p className="mt-2 sm:text-lg">
-              We help you recruit, fill the role, train as needed, and close out
-              the project.
-            </p>
-          </div>
+          <FlowCards />
         </div>
 
-        <h3 className="text-center mt-4 text-3xl sm:text-4xl lg:mt-10 manrope-semibold">
+        <h3 className="text-center mt-4 text-3xl sm:text-4xl lg:mt-10 kayak-bold">
           Analytics Empowerment
         </h3>
 
-        <div className="flex flex-col items-center mt-4 gap-4">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="flex flex-col items-center mt-4 gap-4"
+        >
           <div className="flex flex-col gap-4 w-full sm:w-2/3 md:w-2/3 lg:w-1/2 mt-6">
             <div className="border-4 border-secondarylight padding-2 rounded-xl drop-shadow">
               <Image
@@ -354,67 +235,86 @@ export default function LandingPageContent() {
             breakdown of how much time is spent on any specific task within any
             division (Finance, HR, Ops) every quarter.
           </p>
-        </div>
+        </motion.div>
       </section>
 
       {/* Testimonials */}
-      <section className="flex flex-col items-center p-6 sm:mt-16 md:w-2/3 2xl:w-1/2">
-        <h2 className="text-3xl sm:text-4xl">
-          See what our clients are saying...
-        </h2>
+      <section className="flex justify-center bg-accent pb-10">
+        <div className="flex flex-col items-center p-6 sm:mt-16 md:w-2/3 2xl:w-1/2">
+          <h2 className="text-3xl sm:text-4xl">
+            See what our clients are saying...
+          </h2>
 
-        <div>
-          <div className="bg-accentlight rounded-xl my-10 p-4 drop-shadow">
-            <div>
-              <p className="text-lg sm:text-xl manrope-bold">Riece Keck</p>
-              <p className="sm:text-lg manrope-semibold">
-                Founder & CEO, Vault Recruiting
+          <div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="bg-accentlight rounded-xl my-10 p-4 drop-shadow"
+            >
+              <div>
+                <p className="text-lg sm:text-xl manrope-bold">Riece Keck</p>
+                <p className="sm:text-lg manrope-semibold">
+                  Founder & CEO, Vault Recruiting
+                </p>
+              </div>
+
+              <p className="pt-2 sm:text-lg">
+                "Courtney, in short, has transformed the back-end operations of
+                our business. She started with bare bones and made an immediate,
+                dramatic impact. She documented processes that improved
+                candidate and internal employee experience, created more reports
+                than I can count that gave excellent insight into our sales
+                function, and fully owned and improved our routine operational
+                processes."
               </p>
-            </div>
+            </motion.div>
 
-            <p className="pt-2 sm:text-lg">
-              "Courtney, in short, has transformed the back-end operations of
-              our business. She started with bare bones and made an immediate,
-              dramatic impact. She documented processes that improved candidate
-              and internal employee experience, created more reports than I can
-              count that gave excellent insight into our sales function, and
-              fully owned and improved our routine operational processes."
-            </p>
-          </div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="bg-accentlight rounded-xl my-10 p-4 drop-shadow"
+            >
+              <div>
+                <p className="text-lg sm:text-xl manrope-bold">Jolie Curran</p>
+                <p className="sm:text-lg manrope-semibold">
+                  Head of Operations, Ejento
+                </p>
+              </div>
 
-          <div className="bg-accentlight rounded-xl my-10 p-4 drop-shadow">
-            <div>
-              <p className="text-lg sm:text-xl manrope-bold">Jolie Curran</p>
-              <p className="sm:text-lg manrope-semibold">
-                Head of Operations, Ejento
+              <p className="pt-2 sm:text-lg">
+                "It is rare to find a talent like Courtney. She is intelligent,
+                proactive, and professional. She tackles projects through
+                thoughtful planning and then executes projects flawlessly. If
+                she doesn't know how to do something, she dives into research
+                and figures out a strategy."
               </p>
-            </div>
+            </motion.div>
 
-            <p className="pt-2 sm:text-lg">
-              "It is rare to find a talent like Courtney. She is intelligent,
-              proactive, and professional. She tackles projects through
-              thoughtful planning and then executes projects flawlessly. If she
-              doesn't know how to do something, she dives into research and
-              figures out a strategy."
-            </p>
-          </div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="bg-accentlight rounded-xl my-10 p-4  drop-shadow"
+            >
+              <div>
+                <p className="text-lg sm:text-xl manrope-bold">David Milner</p>
+                <p className="sm:text-lg manrope-semibold">
+                  Head of IT, Celsius Network
+                </p>
+              </div>
 
-          <div className="bg-accentlight rounded-xl my-10 p-4  drop-shadow">
-            <div>
-              <p className="text-lg sm:text-xl manrope-bold">David Milner</p>
-              <p className="sm:text-lg manrope-semibold">
-                Head of IT, Celsius Network
+              <p className="pt-2 sm:text-lg">
+                "Working with Courtney was an absolute pleasure. She helped the
+                IT team greatly in our interactions and took responsibility even
+                for items that were not in her field of responsibility and
+                brought them to the next level. We always felt she was a part of
+                the team and her organisational skills are some of the best I
+                have seen. Anyone would be happy to have her work in their
+                company."
               </p>
-            </div>
-
-            <p className="pt-2 sm:text-lg">
-              "Working with Courtney was an absolute pleasure. She helped the IT
-              team greatly in our interactions and took responsibility even for
-              items that were not in her field of responsibility and brought
-              them to the next level. We always felt she was a part of the team
-              and her organisational skills are some of the best I have seen.
-              Anyone would be happy to have her work in their company."
-            </p>
+            </motion.div>
           </div>
         </div>
       </section>

@@ -1,5 +1,6 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import Image from 'next/legacy/image';
 import Link from 'next/link';
 
@@ -18,7 +19,7 @@ export default function ClientsServed() {
               alt="Allo Hire"
               width="2500"
               height="447"
-              objectFit='contain'
+              objectFit="contain"
             />
           </div>
           <div>
@@ -27,7 +28,7 @@ export default function ClientsServed() {
               alt="Mend"
               width="1400"
               height="525"
-              objectFit='contain'
+              objectFit="contain"
             />
           </div>
           <div className="w-1/2 sm:w-full">
@@ -36,7 +37,7 @@ export default function ClientsServed() {
               alt="Nurture Source"
               width="410"
               height="500"
-              objectFit='contain'
+              objectFit="contain"
             />
           </div>
           <div>
@@ -45,7 +46,7 @@ export default function ClientsServed() {
               alt="Nurture Source"
               width="2700"
               height="601"
-              objectFit='contain'
+              objectFit="contain"
             />
           </div>
           <div>
@@ -54,16 +55,18 @@ export default function ClientsServed() {
               alt="Mind Hire"
               width="2500"
               height="501"
-              objectFit='contain'
+              objectFit="contain"
             />
           </div>
         </div>
 
-        <Link
-          href="/contact"
-          className="contact-button my-4 text-2xl md:text-3xl"
-        >
-          Lets Talk!
+        <Link href="/contact">
+          <motion.div
+            whileHover={{ y: 3 }}
+            className="contact-button my-4 text-2xl md:text-3xl"
+          >
+            Lets Talk!
+          </motion.div>
         </Link>
       </div>
     </section>
