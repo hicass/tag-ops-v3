@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 
-import SerivcePageContent from '@/components/ServicePage/ServicePageContent';
+import SerivcePageContent, { Service } from '@/components/ServicePage/ServicePageContent';
 
 export const metadata: Metadata = {
   title: 'Tag Operations | Human Resources',
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 export default function HumanResourcesPage() {
-  const service = {
+  const service: Service = {
     name: 'Human Resources',
     description:
       'From benefits administration to recruiting, we offer expert solutions for your HR needs, ensuring seamless processes and the right people in your organization.',
@@ -62,14 +62,5 @@ export default function HumanResourcesPage() {
       'Let us help you build back office processes, recruit the right people, and train seamlessly. For more information and pricing details, get in touch with us to craft the ideal solution for your business.',
   };
 
-  return (
-    <SerivcePageContent
-      serviceName={service.name}
-      serviceDescription={service.description}
-      serviceQuestion={service.question}
-      inefficiencyCosts={service.inefficiencyCosts}
-      serviceSolutions={service.solutions}
-      serviceEndingParagraph={service.endingParagraph}
-    />
-  );
+  return <SerivcePageContent service={service} />;
 }

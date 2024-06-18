@@ -1,6 +1,18 @@
+'use client';
+
+import { FC } from 'react';
+
 import { motion } from 'framer-motion';
 
-export default function InefficiencyCostComponent({ title, description }: any) {
+interface InefficiencyCostProps {
+  title: string;
+  description: string;
+}
+
+const InefficiencyCostComponent: FC<InefficiencyCostProps> = ({
+  title,
+  description,
+}) => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -12,4 +24,6 @@ export default function InefficiencyCostComponent({ title, description }: any) {
       <p className="mt-2 sm:text-lg">{description}</p>
     </motion.div>
   );
-}
+};
+
+export default InefficiencyCostComponent;

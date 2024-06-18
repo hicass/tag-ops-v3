@@ -1,4 +1,7 @@
 'use client';
+
+import { FC } from 'react';
+
 import Image from 'next/legacy/image';
 
 import { motion, Variants } from 'framer-motion';
@@ -54,7 +57,7 @@ const cards: Card[] = [
   },
 ];
 
-export default function TeamMemberCards() {
+const TeamMemberCards: FC = () => {
   return (
     <>
       {cards.map((card, idx: number) => (
@@ -91,4 +94,6 @@ export default function TeamMemberCards() {
       ))}
     </>
   );
-}
+};
+
+export default TeamMemberCards;
