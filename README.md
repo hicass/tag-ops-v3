@@ -38,7 +38,7 @@
 - A contact page designed to encourage potential clients to get in touch, featuring a user-friendly contact form.
 - Links for convenient access to the contact page from various sections of the website.
 - A footer that offers additional navigation options for the website.
-- A beautiful, modern, and engaging design that aligns perfectly with the company's personality.
+- A beautiful, modern, responsive, and engaging design that aligns perfectly with the company's personality.
 - Utilized [Email.JS](https://www.emailjs.com/) for the contact form to enable customization of received emails and their layout, tailored to the business's preferences.
 
 
@@ -57,3 +57,5 @@
 # Roadmap
 
 - A blog feature that allows the business owner to log in and create blog posts, which will be displayed on a dedicated blog page in the future.
+- An admin dashboard for the business owner.
+- SEO improvements.
