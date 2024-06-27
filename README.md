@@ -32,14 +32,14 @@
 
 # Features
 
-- A landing page that provides an engaging introduction to the business.
-- Navigation links at the top of the website ensure easy navigation, and a services section activates a drop-down menu upon hovering, optimizing screen space efficiency.
-- A visually appealing "About Us" page that offers clients a glimpse into the Tag Operations company's story.
+- Beautiful, responsive, modern, and fun design that aligns perfectly with the company's personality.
+- Dynamic navigation hambuger or bar depending on screen size.
+- Drop down service links that appear on hover, optimizing screen space efficiency.
 - A contact page designed to encourage potential clients to get in touch, featuring a user-friendly contact form.
 - Links for convenient access to the contact page from various sections of the website.
 - A footer that offers additional navigation options for the website.
-- A beautiful, modern, and engaging design that aligns perfectly with the company's personality.
 - Utilized [Email.JS](https://www.emailjs.com/) for the contact form to enable customization of received emails and their layout, tailored to the business's preferences.
+- Utilzied [Framer Motion](https://www.framer.com/motion/) for added animations to components.
 
 
 # Color Reference
@@ -57,3 +57,5 @@
 # Roadmap
 
 - A blog feature that allows the business owner to log in and create blog posts, which will be displayed on a dedicated blog page in the future.
+- An admin page for the business owner for CRUD-ing blog posts.
+- Improvements to SEO.
