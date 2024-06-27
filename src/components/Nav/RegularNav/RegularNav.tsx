@@ -1,8 +1,10 @@
-'use client'
+'use client';
+
+import { useState, useEffect } from 'react';
+
 import Image from 'next/legacy/image';
 import Link from 'next/link';
 
-import { useState, useEffect } from 'react';
 import { useAnimate, stagger, motion } from 'framer-motion';
 
 const staggerMenuItems = stagger(0.1, { startDelay: 0.15 });
@@ -10,8 +12,7 @@ const staggerMenuItems = stagger(0.1, { startDelay: 0.15 });
 export default function RegularNav(): JSX.Element {
   const [isOpen, setIsOpen] = useState(false);
   const scope = useMenuAnimation(isOpen);
-  
-  
+
   function useMenuAnimation(isOpen: boolean) {
     const [scope, animate] = useAnimate();
 
@@ -34,9 +35,7 @@ export default function RegularNav(): JSX.Element {
 
       animate(
         'li',
-        isOpen
-          ? { opacity: 1, scale: 1 }
-          : { opacity: 0, scale: 0.3 },
+        isOpen ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.3 },
         {
           duration: 0.2,
           delay: isOpen ? staggerMenuItems : 0,
@@ -51,14 +50,16 @@ export default function RegularNav(): JSX.Element {
     <div className="flex flex-row justify-between items-center px-6 bg-background drop-shadow-lg">
       <div className="link w-24">
         <Link href="/">
-          <Image
-            src="/logos/secondary-logo.svg"
-            alt="Tag Ops"
-            layout="responsive"
-            width={100}
-            height={100}
-            priority
-          />
+          <motion.div whileHover={{ y: 2 }}>
+            <Image
+              src="/logos/secondary-logo.svg"
+              alt="Tag Ops"
+              layout="responsive"
+              width={100}
+              height={100}
+              priority
+            />
+          </motion.div>
         </Link>
       </div>
 
@@ -130,11 +131,13 @@ export default function RegularNav(): JSX.Element {
           </li>
 
           <li>
-            <Link
-              href="/contact"
-              className="contact-button manrope-semibold text-lg hover:text-primary"
-            >
-              Contact
+            <Link href="/contact">
+              <motion.div
+                whileHover={{ y: 2 }}
+                className="contact-button my-4 text-lg hover:text-primary"
+              >
+                Contact
+              </motion.div>
             </Link>
           </li>
         </ul>

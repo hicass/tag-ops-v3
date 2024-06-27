@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 
-import SerivcePageContent from '@/components/ServicePage/ServicePageContent';
+import SerivcePageContent, {
+  Service,
+} from '@/components/ServicePage/ServicePageContent';
 
 export const metadata: Metadata = {
   title: 'Tag Operations | Finance',
@@ -9,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 export default function FinancePage() {
-  const service = {
+  const service: Service = {
     name: 'Finance',
     description:
       'From precise bookkeeping to optimized cash flow, our tailored financial solutions drive savings and streamline operations.',
@@ -61,14 +63,5 @@ export default function FinancePage() {
     endingParagraph:
       'Let us improve your financial efficiency, provide you with data, and help you make decisions that cut costs. For more information and pricing details, get in touch with us to craft the ideal solution for your business.',
   };
-  return (
-    <SerivcePageContent
-      serviceName={service.name}
-      serviceDescription={service.description}
-      serviceQuestion={service.question}
-      inefficiencyCosts={service.inefficiencyCosts}
-      serviceSolutions={service.solutions}
-      serviceEndingParagraph={service.endingParagraph}
-    />
-  );
+  return <SerivcePageContent service={service} />;
 }

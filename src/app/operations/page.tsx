@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 
-import SerivcePageContent from '@/components/ServicePage/ServicePageContent';
+import SerivcePageContent, {
+  Service,
+} from '@/components/ServicePage/ServicePageContent';
 
 export const metadata: Metadata = {
   title: 'Tag Operations | Operations',
@@ -9,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 export default function OperationsPage() {
-  const service = {
+  const service: Service = {
     name: 'Operations',
     description:
       'From interdepartmental harmony to cutting-edge software and inventory management, we help your business thrive in the digital age.',
@@ -62,14 +64,5 @@ export default function OperationsPage() {
       'Let us help you standardize, optimize, and document your back office processes. For more information and pricing details, get in touch with us to craft the ideal solution for your business.',
   };
 
-  return (
-    <SerivcePageContent
-      serviceName={service.name}
-      serviceDescription={service.description}
-      serviceQuestion={service.question}
-      inefficiencyCosts={service.inefficiencyCosts}
-      serviceSolutions={service.solutions}
-      serviceEndingParagraph={service.endingParagraph}
-    />
-  );
+  return <SerivcePageContent service={service} />;
 }
