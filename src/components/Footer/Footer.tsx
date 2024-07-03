@@ -29,7 +29,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/finance"
+                  href="/human-resources"
                   className="text-secondarylight hover:text-background lg:text-lg"
                 >
                   Human Resources
