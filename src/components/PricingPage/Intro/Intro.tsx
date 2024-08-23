@@ -37,11 +37,11 @@ const introBlurbData = {
 
 const Intro: FC = () => {
   return (
-    <div className="flex flex-col items-center gap-10 mx-40">
-      <div className="flex gap-20 items-center justify-center">
+    <div className="flex flex-col items-center gap-10 px-6 w-full lg:w-4/5">
+      <div className="flex flex-col-reverse lg:flex-row gap-10 sm:gap-20 sm:items-center justify-center">
         <Diagram />
 
-        <div className="flex flex-col gap-10 w-1/2">
+        <div className="flex flex-col gap-10 lg:w-1/2">
           {introBlurbData.diagramText.map((text, idx) => (
             <Paragraph text={text} key={idx} />
           ))}
