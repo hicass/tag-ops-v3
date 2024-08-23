@@ -37,7 +37,7 @@ const introBlurbData = {
 
 const Intro: FC = () => {
   return (
-    <div className="flex flex-col items-center gap-10">
+    <div className="flex flex-col items-center gap-10 mx-40">
       <div className="flex gap-20 items-center justify-center">
         <Diagram />
 
