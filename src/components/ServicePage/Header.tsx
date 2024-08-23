@@ -38,9 +38,9 @@ const Header: FC<HeaderProps> = ({name, description}) => {
         whileInView="onscreen"
         className="w-full flex flex-col items-center my-10 p-10"
       >
-        <h1 className="text-3xl text-background sm:text-5xl">{name}</h1>
+        <h1 className="text-background">{name}</h1>
 
-        <p className="mt-4 text-lg text-background md:text-2xl md:text-center md:w-2/3 2xl:w-1/2">
+        <p className="mt-4 txt-lg text-background md:text-center md:w-2/3 2xl:w-1/2">
           {description}
         </p>
       </motion.div>

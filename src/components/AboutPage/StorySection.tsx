@@ -21,7 +21,7 @@ const floatingVariants: Variants = {
 const StorySection: FC = () => {
   return (
     <section className="w-full flex flex-col items-center my-8 p-6 md:w-2/3 2xl:w-1/2">
-      <h2 className="flex text-nowrap flex-row items-center gap-2 text-3xl manrope-bold text-primary md:text-4xl">
+      <h2 className="flex text-nowrap flex-row items-center gap-2 text-primary">
         Our Story
         <motion.div
           variants={floatingVariants}
@@ -43,7 +43,7 @@ const StorySection: FC = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="md:text-lg"
+          className="txt-md"
         >
           Our journey began in late 2022 when our founder,{' '}
           <span className="manrope-semibold">Courtney Walters</span>, recognized
@@ -59,7 +59,7 @@ const StorySection: FC = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="md:text-lg"
+          className="txt-md"
         >
           Drawing from firsthand experiences, Courtney realized the
           <span className="manrope-semibold">
@@ -76,7 +76,7 @@ const StorySection: FC = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="md:text-lg"
+          className="txt-md"
         >
           We believe that{' '}
           <span className="manrope-semibold">
@@ -100,7 +100,7 @@ const StorySection: FC = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="md:text-lg"
+          className="txt-md"
         >
           At{' '}
           <span className="text-primary manrope-semibold">Tag Operations</span>,

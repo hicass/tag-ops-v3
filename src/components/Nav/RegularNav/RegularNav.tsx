@@ -68,7 +68,7 @@ export default function RegularNav(): JSX.Element {
           <li>
             <Link
               href="/about"
-              className="manrope-semibold text-lg hover:text-primary"
+              className="txt-md-semibold hover:text-primary"
             >
               About us
             </Link>
@@ -77,7 +77,7 @@ export default function RegularNav(): JSX.Element {
           <li>
             <Link
               href="/pricing"
-              className="manrope-semibold text-lg hover:text-primary"
+              className="txt-md-semibold hover:text-primary"
             >
               Pricing
             </Link>
@@ -91,7 +91,7 @@ export default function RegularNav(): JSX.Element {
           >
             <motion.button
               whileTap={{ scale: 0.97 }}
-              className={`flex items-center gap-2 manrope-semibold text-lg ${
+              className={`flex items-center gap-2 txt-md-semibold ${
                 isOpen && 'text-primary'
               }`}
             >
@@ -115,7 +115,7 @@ export default function RegularNav(): JSX.Element {
               <li className="manrope-semibold w-full text-center hover:text-primary pb-2 border-b border-secondarylight">
                 <Link
                   href="/operations"
-                  className="manrope-semibold hover:text-primary"
+                  className="txt-rg-semibold hover:text-primary"
                 >
                   Operations
                 </Link>
@@ -123,7 +123,7 @@ export default function RegularNav(): JSX.Element {
               <li className="w-full text-center hover:text-primary pb-2 border-b border-secondarylight">
                 <Link
                   href="/finance"
-                  className="manrope-semibold hover:text-primary"
+                  className="txt-rg-semibold hover:text-primary"
                 >
                   Finance
                 </Link>
@@ -131,7 +131,7 @@ export default function RegularNav(): JSX.Element {
               <li className="w-full text-center hover:text-primary pb-2 border-b border-secondarylight">
                 <Link
                   href="/human-resources"
-                  className="manrope-semibold hover:text-primary"
+                  className="txt-rg-semibold hover:text-primary"
                 >
                   HR
                 </Link>
@@ -143,7 +143,7 @@ export default function RegularNav(): JSX.Element {
             <Link href="/contact">
               <motion.div
                 whileHover={{ y: 2 }}
-                className="contact-button my-4 text-lg hover:text-primary"
+                className="contact-button my-4 txt-md-semibold hover:text-primary"
               >
                 Contact
               </motion.div>

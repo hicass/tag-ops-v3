@@ -69,7 +69,7 @@ const SolutionsSection: FC = () => {
   return (
     <section className="w-full mt-14 sm:mt-28 relative">
       <div className="flex flex-col items-center p-6 bg-primary drop-shadow-md z-10 py-14 sm:py-24">
-        <h2 className="text-3xl text-background sm:text-5xl">Our Solutions</h2>
+        <h1 className="text-background">Our Solutions</h1>
 
         <motion.div
           initial={{ opacity: 0 }}
@@ -77,7 +77,7 @@ const SolutionsSection: FC = () => {
           transition={{ duration: 0.5 }}
           className="flex flex-col mt-4 gap-8 sm:mt-10 md:w-2/3 2xl:w-1/2"
         >
-          <p className="text-background sm:text-xl">
+          <p className="text-background txt-md">
             Did you know that businesses can save at least
             <span className="text-accent"> 30% on back-office costs </span> by
             leveraging fractional support? Not only do we offer tailored
@@ -86,7 +86,7 @@ const SolutionsSection: FC = () => {
             company's various back-office processes enabling you to strategize
             scaling your company.
           </p>
-          <p className="text-background sm:text-xl">
+          <p className="text-background txt-md">
             With the flexibility to adjust services as needed,
             <span className="text-accent">
               {' '}
@@ -120,7 +120,7 @@ const SolutionsSection: FC = () => {
                   width={30}
                   height={30}
                 />
-                <h3 className="kayak-bold text-2xl">{solution.title}</h3>
+                <p className="kayak-bold txt-lg">{solution.title}</p>
               </motion.div>
             </Link>
           ))}

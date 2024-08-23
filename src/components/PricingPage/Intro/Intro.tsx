@@ -16,7 +16,7 @@ const Paragraph: FC<ParagraphProps> = ({ text }) => {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="text-lg"
+      className="text-md"
     >
       {text}
     </motion.p>

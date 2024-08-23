@@ -47,11 +47,11 @@ export default function NavList({ toggleOpen }: any) {
     >
       <div className="overflow-hidden flex h-fit flex-col">
         <div className="flex flex-col h-full gap-4">
-        <div className="overflow-hidden pb-2">
+          <div className="overflow-hidden pb-2">
             <MobileNavLink
               title={'About Us'}
               href={'/about'}
-              style={'text-4xl font-semibold'}
+              style={'txt-lg-bold'}
             />
           </div>
 
@@ -59,19 +59,19 @@ export default function NavList({ toggleOpen }: any) {
             <MobileNavLink
               title={'Pricing'}
               href={'/pricing'}
-              style={'text-4xl font-semibold'}
+              style={'txt-lg-bold'}
             />
           </div>
 
           <div className="overflow-hidden">
             <div className="flex flex-col gap-4">
-              <span className="text-4xl manrope-semibold">Services</span>
+              <span className="txt-lg-bold">Services</span>
 
               <div className="overflow-hidden">
                 <MobileNavLink
                   title={'Operations'}
                   href={'/operations'}
-                  style={'text-2xl font-semibold'}
+                  style={'txt-rg-semibold'}
                 />
               </div>
 
@@ -79,7 +79,7 @@ export default function NavList({ toggleOpen }: any) {
                 <MobileNavLink
                   title={'Finance'}
                   href={'/finance'}
-                  style={'text-2xl font-semibold'}
+                  style={'txt-rg-semibold'}
                 />
               </div>
 
@@ -87,7 +87,7 @@ export default function NavList({ toggleOpen }: any) {
                 <MobileNavLink
                   title={'Human Resources'}
                   href={'/human-resources'}
-                  style={'text-2xl font-semibold'}
+                  style={'txt-rg-semibold'}
                 />
               </div>
             </div>
@@ -96,7 +96,7 @@ export default function NavList({ toggleOpen }: any) {
           <div className="mt-6 mb-10">
             <Link
               href="/contact"
-              className="contact-button mt-4 text-2xl kayak-bold"
+              className="contact-button mt-4 txt-lg-bold kayak-bold"
               onClick={() => setTimeout(() => toggleOpen(), 600)}
             >
               Lets Talk!

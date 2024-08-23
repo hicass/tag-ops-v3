@@ -33,7 +33,7 @@ const InefficiencySection: FC<InefficiencySectionProps> = ({
   return (
     <section className="flex flex-col items-center">
       <div className="p-10 md:w-2/3 2xl:w-1/2">
-        <h2 className="flex flex-col items-center text-center gap-6 w-full text-2xl sm:text-3xl">
+        <h3 className="flex flex-col items-center text-center gap-6 w-full">
           <motion.div
             variants={floatingVariants}
             animate="floating"
@@ -49,7 +49,7 @@ const InefficiencySection: FC<InefficiencySectionProps> = ({
             />
           </motion.div>
           {question}
-        </h2>
+        </h3>
 
         {inefficiencyCosts.map((cost: any, idx: number) => (
           <InefficiencyCostComponent

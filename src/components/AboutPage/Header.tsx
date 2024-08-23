@@ -11,15 +11,15 @@ const Header: FC = () => {
 
       <motion.h1
         animate={{ rotate: [0, 5, 0, -5, 0] }}
-        className="text-center text-5xl text-primary"
+        className="text-center text-primary"
       >
         Hello!
       </motion.h1>
-      <h2 className="mt-2 text-center text-xl md:text-2xl">
+      <h3 className="mt-2 text-center">
         We are Tag Operations, your partner in operational excellence.
-      </h2>
+      </h3>
 
-      <p className="mt-4 md:text-lg">
+      <p className="mt-4 txt-md text-center">
         Every business, regardless of size, deserves tailored support to thrive.
         Born from this belief, we offer innovative and flexible back-office
         solutions, empowering you to streamline operations, optimize resources,

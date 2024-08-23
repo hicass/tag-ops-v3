@@ -84,12 +84,12 @@ const TeamMemberCards: FC = () => {
             </div>
 
             <div>
-              <p className="text-lg manrope-bold">{card.name}</p>
-              <p className="manrope-semibold">{card.title}</p>
+              <p className="txt-lg-bold">{card.name}</p>
+              <p className="txt-rg-semibold">{card.title}</p>
             </div>
           </div>
 
-          <p className="mt-6">{card.description}</p>
+          <p className="mt-6 txt-rg">{card.description}</p>
         </motion.div>
       ))}
     </>
