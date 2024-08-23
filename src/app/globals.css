@@ -35,9 +35,9 @@
     --color-text: 57 35 101;
     --color-primary: 97 38 216;
     --color-secondary: 208 178 255;
-    --color-secondary-light: 231 216 255;
+    --color-secondary-light: 245 238 254;
     --color-accent: 163 221 255;
-    --color-accent-light: 212 239 255;
+    --color-accent-light: 226 244 255;
     --color-background: 255 255 255
   }
 }
@@ -46,9 +46,9 @@
   --text: rgb(57, 35, 101);
   --primary: rgb(97, 38, 216);
   --secondary: rgb(208, 178, 255);
-  --secondary-light: rgb(231, 216, 255);
+  --secondary-light: rgb(245, 238, 254);
   --accent: rgb(163, 221, 255);
-  --accent-light: rgb(212, 239, 255);
+  --accent-light: rgb(226, 244, 255);
   --background: rgb(255, 255, 255);
 }
 
