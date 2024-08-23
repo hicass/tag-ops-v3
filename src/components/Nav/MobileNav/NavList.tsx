@@ -47,6 +47,22 @@ export default function NavList({ toggleOpen }: any) {
     >
       <div className="overflow-hidden flex h-fit flex-col">
         <div className="flex flex-col h-full gap-4">
+        <div className="overflow-hidden pb-2">
+            <MobileNavLink
+              title={'About Us'}
+              href={'/about'}
+              style={'text-4xl font-semibold'}
+            />
+          </div>
+
+          <div className="overflow-hidden pb-2">
+            <MobileNavLink
+              title={'Pricing'}
+              href={'/pricing'}
+              style={'text-4xl font-semibold'}
+            />
+          </div>
+
           <div className="overflow-hidden">
             <div className="flex flex-col gap-4">
               <span className="text-4xl manrope-semibold">Services</span>
@@ -75,14 +91,6 @@ export default function NavList({ toggleOpen }: any) {
                 />
               </div>
             </div>
-          </div>
-
-          <div className="overflow-hidden pb-2">
-            <MobileNavLink
-              title={'About Us'}
-              href={'/about'}
-              style={'text-4xl font-semibold'}
-            />
           </div>
 
           <div className="mt-6 mb-10">
