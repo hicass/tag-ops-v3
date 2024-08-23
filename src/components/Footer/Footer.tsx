@@ -77,11 +77,11 @@ export default function Footer() {
 
         <div className="w-1/2 sm:w-1/5 md:w-40">
           <Image
-            src="/logos/main-logo-white.svg"
+            src="/logos/secondary-logo-white.png"
             alt="Tag Operations Finance Human Resources"
             layout="responsive"
-            width={100}
-            height={100}
+            width={532}
+            height={341}
           />
         </div>
       </div>
