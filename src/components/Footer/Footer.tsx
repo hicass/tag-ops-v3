@@ -53,6 +53,14 @@ export default function Footer() {
               </li>
               <li>
                 <Link
+                  href="/pricing"
+                  className="text-secondarylight hover:text-background lg:text-lg"
+                >
+                  Pricing
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/contact"
                   className="text-secondarylight hover:text-background lg:text-lg"
                 >

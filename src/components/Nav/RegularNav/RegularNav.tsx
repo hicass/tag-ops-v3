@@ -74,6 +74,15 @@ export default function RegularNav(): JSX.Element {
             </Link>
           </li>
 
+          <li>
+            <Link
+              href="/pricing"
+              className="manrope-semibold text-lg hover:text-primary"
+            >
+              Pricing
+            </Link>
+          </li>
+
           <li
             ref={scope}
             onMouseEnter={() => setIsOpen(!isOpen)}
