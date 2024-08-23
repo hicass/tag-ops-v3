@@ -40,6 +40,88 @@
     --color-accent-light: 226 244 255;
     --color-background: 255 255 255
   }
+
+  /* Headings */
+  h1 {
+    @apply text-h1;
+  }
+
+  h2 {
+    @apply text-h2;
+  }
+
+  h3 {
+    @apply text-h3;
+  }
+
+  h4 {
+    @apply text-h4;
+  }
+
+  /* Body Text */
+  .txt-lg,
+  .txt-lg-semibold,
+  .txt-lg-bold {
+    @apply text-lg;
+  }
+
+  .txt-lg-semibold {
+    @apply font-semibold;
+    font-family: 'Manrope-SemiBold', sans-serif;
+  }
+
+  .txt-lg-bold {
+    @apply font-bold;
+    font-family: 'Manrope-Bold', sans-serif;
+  }
+
+  .txt-md,
+  .txt-md-semibold,
+  .txt-md-bold {
+    @apply text-md;
+  }
+
+  .txt-md-semibold {
+    @apply font-semibold;
+    font-family: 'Manrope-SemiBold', sans-serif;
+  }
+
+  .txt-md-bold {
+    @apply font-bold;
+    font-family: 'Manrope-Bold', sans-serif;
+  }
+
+  .txt-rg,
+  .txt-rg-semibold,
+  .txt-rg-bold {
+    @apply text-base;
+  }
+
+  .txt-rg-semibold {
+    @apply font-semibold;
+    font-family: 'Manrope-SemiBold', sans-serif;
+  }
+
+  .txt-rg-bold {
+    @apply font-bold;
+    font-family: 'Manrope-Bold', sans-serif;
+  }
+
+  .txt-sm,
+  .txt-sm-semibold,
+  .txt-sm-bold {
+    @apply text-sm;
+  }
+
+  .txt-sm-semibold {
+    @apply font-semibold;
+    font-family: 'Manrope-SemiBold', sans-serif;
+  }
+
+  .txt-sm-bold {
+    @apply font-bold;
+    font-family: 'Manrope-Bold', sans-serif;
+  }
 }
 
 :root {
@@ -59,6 +141,7 @@
 
 h1,
 h2,
+h3,
 .kayak-bold,
 .button {
   font-family: 'Kayak-Sans-Bold', sans-serif;

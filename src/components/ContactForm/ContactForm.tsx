@@ -24,7 +24,7 @@ export default function ContactForm() {
   const sendEmail = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
 
-    console.log(formValues)
+    console.log(formValues);
 
     try {
       emailjs
@@ -114,10 +114,14 @@ export default function ContactForm() {
 
   return (
     <section className="w-full flex flex-col items-center p-6 sm:w-2/3 md:w-1/3">
-      <div className='relative w-full flex items-center'>
+      <div className="relative w-full flex items-center">
         <span className="place-holder">p</span>
 
-        {formSubmitted && <p className='sm:text-lg absolute top-0'>{confirmationMessage}</p>}
+        {formSubmitted && (
+          <p className="txt-lg-semibold absolute top-0">
+            {confirmationMessage}
+          </p>
+        )}
       </div>
 
       <form
@@ -129,9 +133,7 @@ export default function ContactForm() {
         <div className="pb-12">
           <div className="grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6">
             <div className="col-span-full">
-              <label className="block text-lg manrope-semibold leading-6">
-                Name
-              </label>
+              <label className="block txt-md-bold leading-6">Name</label>
               <div className="mt-2">
                 <input
                   type="text"
@@ -148,9 +150,7 @@ export default function ContactForm() {
             </div>
 
             <div className="col-span-full">
-              <label className="block text-lg manrope-semibold leading-6">
-                Email
-              </label>
+              <label className="block txt-md-bold leading-6">Email</label>
               <div className="mt-2">
                 <input
                   type="email"
@@ -169,7 +169,7 @@ export default function ContactForm() {
             </div>
 
             <div className="col-span-full -mt-2">
-              <label className="block text-lg manrope-semibold leading-6">
+              <label className="block txt-md-bold leading-6">
                 Company Name
               </label>
               <div className="mt-2">
@@ -188,9 +188,7 @@ export default function ContactForm() {
             </div>
 
             <div className="col-span-full space-y-2">
-              <label className="block text-lg manrope-semibold leading-6">
-                Service
-              </label>
+              <label className="block txt-md-bold leading-6">Service</label>
 
               <fieldset>
                 <div className="space-y-2">
@@ -206,7 +204,7 @@ export default function ContactForm() {
                       />
                     </div>
                     <div className="text-sm leading-6">
-                      <label className="text-base">Operations</label>
+                      <label className="txt-rg">Operations</label>
                     </div>
                   </div>
                   <div className="relative flex gap-x-3">
@@ -221,7 +219,7 @@ export default function ContactForm() {
                       />
                     </div>
                     <div className="text-sm leading-6">
-                      <label className="text-base">Finance</label>
+                      <label className="txt-rg">Finance</label>
                     </div>
                   </div>
                   <div className="relative flex gap-x-3">
@@ -236,7 +234,9 @@ export default function ContactForm() {
                       />
                     </div>
                     <div className="text-sm leading-6">
-                      <label className="text-base w-full">Human Resources</label>
+                      <label className="txt-rg w-full">
+                        Human Resources
+                      </label>
                     </div>
                   </div>
                 </div>
@@ -244,9 +244,7 @@ export default function ContactForm() {
             </div>
 
             <div className="col-span-full">
-              <label className="block text-lg manrope-semibold leading-6">
-                Message
-              </label>
+              <label className="block txt-md-bold leading-6">Message</label>
               <div className="mt-2">
                 <textarea
                   id="about"
@@ -262,7 +260,7 @@ export default function ContactForm() {
             </div>
           </div>
 
-          <div className="mt-6 flex items-center justify-end text-lg">
+          <div className="mt-6 flex items-center justify-end txt-md-bold">
             <button type="submit" className="contact-button">
               Send
             </button>

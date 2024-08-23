@@ -19,7 +19,7 @@ const SolutionsSection: FC<SolutionsSectionProps> = ({
   return (
     <section className="flex flex-col items-center mt-14 bg-secondary">
       <div className="flex flex-col items-center mt-12 p-6 pb-0 gap-2 md:w-2/3 2xl:w-1/2">
-        <h2 className="flex flex-row items-center text-3xl">
+        <h2 className="flex flex-row items-center">
           How we can help:
         </h2>
 

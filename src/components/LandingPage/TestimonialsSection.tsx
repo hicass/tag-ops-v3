@@ -15,7 +15,7 @@ const testimonials: Testimonial[] = [
     name: 'Riece Keck',
     title: 'Founder & CEO, Vault Recruiting',
     description:
-      '"Courtney, in short, has transformed the back-end operations of our business. She started with bare bones and made an immediate, dramatic impact. She documented processes that improved candidate and internal employee experience, created more reports than I can count that gave excellent insight into our sales function, and fully owned and improved our routine operational pro ',
+      '"Courtney, in short, has transformed the back-end operations of our business. She started with bare bones and made an immediate, dramatic impact. She documented processes that improved candidate and internal employee experience, created more reports than I can count that gave excellent insight into our sales function, and fully owned and improved our routine operational processes."',
   },
   {
     name: 'Jolie Curran',
@@ -35,7 +35,7 @@ const TestimonialsSection: FC = () => {
   return (
     <section className="flex justify-center bg-accent pb-10">
       <div className="flex flex-col items-center p-6 sm:mt-16 md:w-2/3 2xl:w-1/2">
-        <h2 className="text-3xl sm:text-4xl">
+        <h2>
           See what our clients are saying...
         </h2>
 
@@ -49,15 +49,15 @@ const TestimonialsSection: FC = () => {
               className="bg-accentlight rounded-xl my-10 p-4 drop-shadow"
             >
               <div>
-                <p className="text-lg sm:text-xl manrope-bold">
+                <p className="txt-lg-bold">
                   {testimonial.name}
                 </p>
-                <p className="sm:text-lg manrope-semibold">
+                <p className="txt-md-semibold">
                   {testimonial.title}
                 </p>
               </div>
 
-              <p className="pt-2 sm:text-lg">{testimonial.description}</p>
+              <p className="pt-2 txt-rg">{testimonial.description}</p>
             </motion.div>
           ))}
         </div>

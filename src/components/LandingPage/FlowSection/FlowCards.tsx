@@ -110,8 +110,8 @@ const FlowCards: FC = () => {
               layout="responsive"
             />
           </div>
-          <h3 className="text-lg sm:text-xl manrope-semibold">{card.title}</h3>
-          <p className="mt-2 sm:text-lg">{card.description}</p>
+          <h3 className="txt-md-bold">{card.title}</h3>
+          <p className="mt-2 txt-rg">{card.description}</p>
         </motion.div>
       ))}
     </>
