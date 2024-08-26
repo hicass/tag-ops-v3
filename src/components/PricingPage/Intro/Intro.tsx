@@ -2,26 +2,8 @@
 
 import { FC } from 'react';
 
-import { motion } from 'framer-motion';
-
 import Diagram from './Diagram';
-
-interface ParagraphProps {
-  text: String;
-}
-
-const Paragraph: FC<ParagraphProps> = ({ text }) => {
-  return (
-    <motion.p
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className="text-md"
-    >
-      {text}
-    </motion.p>
-  );
-};
+import Paragraph from '@/components/Paragraph';
 
 const introBlurbData = {
   diagramText: [
@@ -38,7 +20,7 @@ const introBlurbData = {
 const Intro: FC = () => {
   return (
     <div className="flex flex-col items-center gap-10 px-6 w-full lg:w-4/5">
-      <div className="flex flex-col-reverse lg:flex-row gap-10 sm:gap-20 sm:items-center justify-center">
+      <div className="flex flex-col lg:flex-row gap-10 sm:gap-20 sm:items-center justify-center">
         <Diagram />
 
         <div className="flex flex-col gap-10 lg:w-1/2">
