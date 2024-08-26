@@ -3,6 +3,8 @@ import { FC } from 'react';
 import Header from './Header';
 import Intro from './Intro/Intro';
 import Quote from './Quote';
+import PricingCardSection from './PricingCardSection';
+import ClientsServed from '../ClientsServed/ClientsServed';
 
 const PricingPageContent: FC = () => {
   return (
@@ -10,6 +12,8 @@ const PricingPageContent: FC = () => {
       <Header />
       <Intro />
       <Quote />
+      <PricingCardSection />
+      <ClientsServed />
     </main>
   );
 }
