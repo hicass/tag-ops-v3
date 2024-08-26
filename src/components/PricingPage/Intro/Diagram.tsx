@@ -30,7 +30,7 @@ const Diagram: FC = () => {
       whileInView="onscreen"
       viewport={{
         once: true,
-        amount: 0.4,
+        amount: 0.2,
       }}
     >
       <Image
