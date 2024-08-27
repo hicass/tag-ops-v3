@@ -1,6 +1,6 @@
 'use client';
 
-import { FC } from 'react';
+import { FC, useEffect, useRef } from 'react';
 
 import Button from '@/components/Button';
 import AddOnCard, { AddOn } from './AddOnCard';
@@ -27,9 +27,33 @@ const PricingCard: FC<PricingCardProps> = ({
   handleAddOnClick,
   addOnsOpen,
 }) => {
+  const addOnRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        addOnRef.current &&
+        !addOnRef.current.contains(event.target as Node)
+      ) {
+        handleAddOnClick({} as React.MouseEvent<HTMLButtonElement>);
+      }
+    };
+
+    if (addOnsOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [addOnsOpen]);
+
   return (
     <div
       className={`flex flex-col gap-2 items-center ${card.addOns && 'z-30'}`}
+      ref={card.addOns ? addOnRef : null}
     >
       <div
         className={`flex flex-col items-center justify-between bg-secondarylight rounded-lg p-6 drop-shadow w-5/6 sm:w-[17.8rem] h-[32rem]`}
@@ -53,11 +77,13 @@ const PricingCard: FC<PricingCardProps> = ({
 
         <div className="flex flex-wrap-reverse gap-2 justify-start lg:justify-center w-full">
           <Button text="Contact Us" href="/contact" />
-          {card.addOns && (
+          {!addOnsOpen && card.addOns ? (
             <Button
               text={addOnsOpen ? 'Close' : 'Add Ons'}
               onClick={handleAddOnClick}
             />
+          ) : (
+            ''
           )}
         </div>
       </div>

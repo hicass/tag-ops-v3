@@ -82,7 +82,7 @@ interface PricingCardsProps {
 const PricingCards: FC<PricingCardsProps> = ({ pageBlur, setPageBlur }) => {
   const [addOnsOpen, setAddOnsOpen] = useState(false);
 
-  const handleAddOnClick = () => {
+  const handleAddOnClick: React.MouseEventHandler<HTMLButtonElement> = (event) => {
     setAddOnsOpen(!addOnsOpen);
     setPageBlur(!pageBlur);
   };
