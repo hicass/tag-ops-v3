@@ -68,14 +68,14 @@ const animationLinkVariants: Variants = {
 const SolutionsSection: FC = () => {
   return (
     <section className="w-full mt-14 sm:mt-28 relative">
-      <div className="flex flex-col items-center p-6 bg-primary drop-shadow-md z-10 py-14 sm:py-24">
+      <div className="flex flex-col items-center gap-10 bg-primary drop-shadow-md z-10 py-14 sm:pt-20 sm:pb-32">
         <h1 className="text-background">Our Solutions</h1>
 
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="flex flex-col mt-4 gap-8 sm:mt-10 md:w-2/3 2xl:w-1/2"
+          className="flex flex-col items-center gap-10 px-6 w-full lg:w-4/5 2xl:w-1/2"
         >
           <p className="text-background txt-md">
             Did you know that businesses can save at least
@@ -105,14 +105,14 @@ const SolutionsSection: FC = () => {
             once: true,
             amount: 'all',
           }}
-          className="flex flex-col sm:flex-row gap-8 sm:gap-0 w-full justify-around mt-10 sm:mt-16 md:w-2/3 2xl:w-1/2"
+          className="flex flex-col px-6 sm:flex-row gap-8 sm:gap-0 w-full justify-between md:w-2/3 2xl:w-1/2 mt-4"
         >
           {solutionsLinks.map((solution, idx) => (
             <Link key={idx} href={solution.href}>
               <motion.div
                 variants={animationLinkVariants}
                 whileHover={{ y: 3 }}
-                className="service-button flex flex-row items-center py-4 gap-2"
+                className="service-button w-fit flex flex-row items-center py-4 gap-2"
               >
                 <Image
                   src={solution.iconPath}
