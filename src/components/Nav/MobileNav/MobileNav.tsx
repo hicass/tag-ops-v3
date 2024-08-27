@@ -6,22 +6,16 @@ import { useCycle } from 'framer-motion';
 
 import MenuToggle from './MenuToggle';
 import NavList from './NavList';
+import SecondaryLogo from '@/components/Logos/SecondaryLogo';
 
 export default function Nav() {
   const [isOpen, toggleOpen] = useCycle(false, true);
 
   return (
-    <div className="flex flex-row justify-between sticky items-center top-0 px-6 bg-background drop-shadow-lg">
+    <div className="flex flex-row justify-between sticky items-center top-0 p-2 bg-background drop-shadow-lg">
       <div className="w-20">
         <Link href="/">
-          <Image
-            src="/logos/secondary-logo.svg"
-            alt="Tag Ops"
-            width={100}
-            height={100}
-            layout="responsive"
-            priority
-          />
+          <SecondaryLogo />
         </Link>
       </div>
 

@@ -5,23 +5,31 @@ import { FC } from 'react';
 import Link from 'next/link';
 
 interface ButtonProps {
-  text: String;
+  text: string;
   href?: string;
+  blue?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-const Button: FC<ButtonProps> = ({ text, href, onClick }) => {
+const Button: FC<ButtonProps> = ({ text, href, onClick, blue }) => {
   if (href) {
     return (
-      <Link href={href} className="txt-md kayak-bold bg-secondary px-4 py-[0.4rem] rounded-md w-fit">
-          {text}
+      <Link
+        href={href}
+        className={`${
+          blue ? 'bg-accent' : 'bg-secondary'
+        } txt-md kayak-bold px-4 py-[0.4rem] rounded-md w-fit`}
+      >
+        {text}
       </Link>
     );
   }
 
   return (
     <button
-      className="txt-md kayak-bold bg-secondary px-4 py-[0.4rem] rounded-md w-fit"
+      className={`${
+        blue ? 'bg-accent' : 'bg-secondary'
+      } txt-md kayak-bold px-4 py-[0.4rem] rounded-md w-fit`}
       onClick={onClick}
     >
       {text}
