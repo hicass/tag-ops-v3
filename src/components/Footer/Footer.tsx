@@ -3,7 +3,7 @@ import Image from 'next/legacy/image';
 
 export default function Footer() {
   return (
-    <footer className="flex flex-col p-6 bg-primary sm:p-4">
+    <footer className="flex flex-col p-6 bg-primary sm:p-4 z-40">
       <div className="sm:flex sm:flex-row-reverse sm:justify-end sm:gap-8">
         <div className="sm:flex sm:flex-row sm:w-1/2 sm:justify-between sm:mt-4 sm:gap-4 lg:w-1/3 lg:items-center">
           <div className="h-full">
