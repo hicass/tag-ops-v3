@@ -6,6 +6,7 @@ import Image from 'next/legacy/image';
 import Link from 'next/link';
 
 import { useAnimate, stagger, motion } from 'framer-motion';
+import SecondaryLogo from '@/components/Logos/SecondaryLogo';
 
 const staggerMenuItems = stagger(0.1, { startDelay: 0.15 });
 
@@ -51,14 +52,7 @@ export default function RegularNav(): JSX.Element {
       <div className="link w-24">
         <Link href="/">
           <motion.div whileHover={{ y: 2 }}>
-            <Image
-              src="/logos/secondary-logo.svg"
-              alt="Tag Ops"
-              layout="responsive"
-              width={100}
-              height={100}
-              priority
-            />
+            <SecondaryLogo />
           </motion.div>
         </Link>
       </div>
