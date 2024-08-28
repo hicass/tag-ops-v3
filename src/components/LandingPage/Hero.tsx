@@ -15,7 +15,7 @@ const Hero: FC = () => {
           Simplify, Optimize, Scale with...
         </h1>
 
-        <div className="w-full relative">
+        <div className="w-4/5 relative">
           <MainLogo />
         </div>
 
