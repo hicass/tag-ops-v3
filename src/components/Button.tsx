@@ -17,7 +17,9 @@ const Button: FC<ButtonProps> = ({ text, href, onClick, blue }) => {
       <Link
         href={href}
         className={`${
-          blue ? 'bg-accent' : 'bg-secondary'
+          blue
+            ? 'bg-accent hover:bg-accent/80'
+            : 'bg-secondary hover:bg-secondarylight/80'
         } txt-md kayak-bold px-4 py-[0.4rem] rounded-md w-fit`}
       >
         {text}

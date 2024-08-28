@@ -33,8 +33,8 @@ const testimonials: Testimonial[] = [
 
 const TestimonialsSection: FC = () => {
   return (
-    <section className="flex justify-center bg-accent pb-10">
-      <div className="flex flex-col items-center p-6 sm:mt-16 md:w-2/3 2xl:w-1/2">
+    <section className="flex justify-center bg-accent py-20">
+      <div className="flex flex-col items-center px-6 md:px-0 md:w-4/5 lg:w-2/3 2xl:w-1/2">
         <h2>
           See what our clients are saying...
         </h2>
@@ -44,8 +44,11 @@ const TestimonialsSection: FC = () => {
             <motion.div
               key={idx}
               initial={{ opacity: 0 }}
+              viewport={{
+                amount: 0.2,
+              }}
               whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.3 }}
               className="bg-accentlight rounded-xl my-10 p-4 drop-shadow"
             >
               <div>

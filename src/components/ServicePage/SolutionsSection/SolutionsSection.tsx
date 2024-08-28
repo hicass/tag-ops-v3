@@ -17,8 +17,8 @@ const SolutionsSection: FC<SolutionsSectionProps> = ({
   endingParagraph,
 }) => {
   return (
-    <section className="flex flex-col items-center mt-14 bg-secondary">
-      <div className="flex flex-col items-center mt-12 p-6 pb-0 gap-2 md:w-2/3 2xl:w-1/2">
+    <section className="flex flex-col items-center py-20">
+      <div className="flex flex-col items-center px-6 gap-2 md:w-2/3 2xl:w-1/2">
         <h2 className="flex flex-row items-center">
           How we can help:
         </h2>
@@ -33,22 +33,6 @@ const SolutionsSection: FC<SolutionsSectionProps> = ({
           ))}
         </div>
       </div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        className="p-6 pt-0 sm:p-10 sm:pt-0  mb-6 md:w-2/3 2xl:w-1/2"
-      >
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="text-lg sm:text-lg md:text-2xl"
-        >
-          {endingParagraph}
-        </motion.p>
-      </motion.div>
     </section>
   );
 };

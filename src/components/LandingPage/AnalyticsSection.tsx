@@ -5,20 +5,41 @@ import { FC } from 'react';
 import Image from 'next/legacy/image';
 import Link from 'next/link';
 
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
+
+const slideVariants: Variants = {
+  offscreen: {
+    x: -200,
+    opacity: 0,
+  },
+  onscreen: {
+    x: 0,
+    opacity: 1,
+    scale: 1,
+    transition: {
+      type: 'spring',
+      bounce: 0.3,
+      duration: 0.6,
+    },
+  },
+};
 
 const AnalyticsSection: FC = () => {
   return (
-    <div className="px-6">
+    <div className="px-6 lg:pt-20 pb-24">
       <h2 className="text-center">Analytics Empowerment</h2>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        className="flex flex-col lg:flex-row sm:justify-center items-center lg:items-start mt-4 gap-4 sm:gap-10"
-      >
-        <div className="flex flex-col gap-4 w-full sm:w-1/2 lg:w-1/3 mt-6">
+      <div className="flex flex-col lg:flex-row sm:justify-center items-center lg:items-start mt-4 gap-4 sm:gap-10">
+        <motion.div
+          variants={slideVariants}
+          initial={{ x: -200, opacity: 0 }}
+          whileInView="onscreen"
+          viewport={{
+            once: true,
+            amount: 0.2,
+          }}
+          className="flex flex-col gap-4 w-full sm:w-1/2 lg:w-1/3 mt-6"
+        >
           <div className="border-4 border-secondary rounded-xl drop-shadow">
             <Image
               src="/images/dashboard.png"
@@ -32,8 +53,8 @@ const AnalyticsSection: FC = () => {
           </div>
 
           <div className="flex w-full flex-row items-center gap-2">
-            <p className="text-rg">Powered By: </p>
-            <div className="w-1/4">
+            <p className="text-md">Powered By: </p>
+            <div className="w-1/3">
               <Link href="https://www.teamwork.com/" target="_blank">
                 <Image
                   src="/images/teamwork-logo.png"
@@ -46,15 +67,24 @@ const AnalyticsSection: FC = () => {
               </Link>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <p className="lg:mt-6 txt-md lg:w-1/5">
+        <motion.p
+          variants={slideVariants}
+          initial={{ x: 200, opacity: 0 }}
+          whileInView="onscreen"
+          viewport={{
+            once: true,
+            amount: 0.2,
+          }}
+          className="lg:mt-6 txt-md md:w-4/5 lg:w-1/5"
+        >
           Our project management software empowers your business with analytics,
           not only on tasks and project budgets but also a breakdown of how much
           time is spent on any specific task within any division (Finance, HR,
           Ops) every quarter.
-        </p>
-      </motion.div>
+        </motion.p>
+      </div>
     </div>
   );
 };
