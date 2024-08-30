@@ -8,7 +8,7 @@ import ClientsServed from '../ClientsServed/ClientsServed';
 
 const AboutPageContent: FC = () => {
   return (
-    <main className="flex flex-col items-center overflow-hidden">
+    <main className="flex flex-col items-center gap-16 overflow-hidden">
       <Header />
       <MissionSection />
       <StorySection />

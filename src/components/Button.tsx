@@ -18,9 +18,9 @@ const Button: FC<ButtonProps> = ({ text, href, onClick, blue }) => {
         href={href}
         className={`${
           blue
-            ? 'bg-accent hover:bg-accent/80'
-            : 'bg-secondary hover:bg-secondarylight/80'
-        } txt-md kayak-bold px-4 py-[0.4rem] rounded-md w-fit`}
+            ? 'bg-accent hover:bg-accent/80 hover:text-primary text-h4'
+            : 'bg-secondary hover:bg-secondary/70'
+        } txt-lg kayak-bold px-4 py-[0.4rem] rounded-md w-fit`}
       >
         {text}
       </Link>
@@ -30,7 +30,9 @@ const Button: FC<ButtonProps> = ({ text, href, onClick, blue }) => {
   return (
     <button
       className={`${
-        blue ? 'bg-accent' : 'bg-secondary'
+        blue
+          ? 'bg-accent hover:bg-accent/80 hover:text-primary text-h4'
+          : 'bg-secondary hover:bg-secondary/70'
       } txt-md kayak-bold px-4 py-[0.4rem] rounded-md w-fit`}
       onClick={onClick}
     >

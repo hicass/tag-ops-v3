@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 
-import Image from 'next/legacy/image';
 import Link from 'next/link';
 
 import { useAnimate, stagger, motion } from 'framer-motion';
@@ -48,22 +47,17 @@ export default function RegularNav(): JSX.Element {
   }
 
   return (
-    <div className="flex flex-row justify-between items-center px-6 bg-background drop-shadow-lg">
-      <div className="link w-24">
+    <div className="flex flex-row justify-between items-center px-6 py-2 bg-background drop-shadow-lg">
+      <div className="link w-20">
         <Link href="/">
-          <motion.div whileHover={{ y: 2 }}>
-            <SecondaryLogo />
-          </motion.div>
+          <SecondaryLogo />
         </Link>
       </div>
 
       <div className="flex items-center">
         <ul className="flex flex-row items-center gap-8">
           <li>
-            <Link
-              href="/about"
-              className="txt-md-semibold hover:text-primary"
-            >
+            <Link href="/about" className="txt-md-semibold hover:text-primary">
               About us
             </Link>
           </li>
@@ -104,7 +98,7 @@ export default function RegularNav(): JSX.Element {
                 pointerEvents: isOpen ? 'auto' : 'none',
                 clipPath: 'inset(10% 50% 90% 50% round 10px)',
               }}
-              className="flex flex-col items-center absolute gap-2 bg-background border-t-4 border-secondarylight top-2/3 -ml-2 -mt-1 w-26 p-4 z-40 drop-shadow-lg"
+              className="flex flex-col items-center absolute gap-2 bg-background border-t-4 border-secondarylight top-2/3 -ml-4 mt-1 w-26 p-4 z-40 drop-shadow-lg"
             >
               <li className="manrope-semibold w-full text-center hover:text-primary pb-2 border-b border-secondarylight">
                 <Link
@@ -137,7 +131,7 @@ export default function RegularNav(): JSX.Element {
             <Link href="/contact">
               <motion.div
                 whileHover={{ y: 2 }}
-                className="contact-button my-4 txt-md-semibold hover:text-primary"
+                className="bg-accent hover:bg-accent/80 hover:text-primary txt-md kayak-bold px-4 py-[0.4rem] rounded-md w-fit"
               >
                 Contact
               </motion.div>

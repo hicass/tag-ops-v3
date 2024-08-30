@@ -15,7 +15,7 @@ interface AddOnCardProps {
 const AddOnCard: FC<AddOnCardProps> = ({ addOn }) => {
   return (
     <div className="flex flex-col items-center justify-between bg-secondarylight rounded-lg p-6 drop-shadow w-5/6 sm:w-[17.6rem] h-fit z-30">
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-2">
         <h4>{addOn.title}</h4>
 
         {addOn.description && <p>{addOn.description}</p>}

@@ -52,7 +52,7 @@ const PricingCard: FC<PricingCardProps> = ({
 
   return (
     <div
-      className={`flex flex-col gap-2 items-center ${card.addOns && 'z-30'}`}
+      className={`flex flex-col gap-4 items-center ${card.addOns && 'z-30'}`}
       ref={card.addOns ? addOnRef : null}
     >
       <div
@@ -75,13 +75,10 @@ const PricingCard: FC<PricingCardProps> = ({
           </div>
         </div>
 
-        <div className="flex flex-wrap-reverse gap-2 justify-start lg:justify-center w-full">
+        <div className="flex flex-wrap-reverse gap-2 justify-start lg:justify-center w-full h-fit">
           <Button text="Contact Us" href="/contact" />
           {!addOnsOpen && card.addOns ? (
-            <Button
-              text={addOnsOpen ? 'Close' : 'Add Ons'}
-              onClick={handleAddOnClick}
-            />
+            <Button text="Add Ons" onClick={handleAddOnClick} />
           ) : (
             ''
           )}

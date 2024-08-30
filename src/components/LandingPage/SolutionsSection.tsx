@@ -75,7 +75,7 @@ const SolutionsSection: FC = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="flex flex-col items-center gap-10 px-6 md:px-0 w-full md:w-4/5 md:border g:w-2/3 2xl:w-1/2"
+          className="flex flex-col items-center gap-10 px-6 md:px-0 w-full md:w-4/5 g:w-2/3 2xl:w-1/2"
         >
           <p className="text-background txt-md">
             Did you know that businesses can save at least
@@ -111,15 +111,16 @@ const SolutionsSection: FC = () => {
             <Link key={idx} href={solution.href}>
               <motion.div
                 variants={animationLinkVariants}
-                className="txt-md kayak-bold px-4 py-[0.4rem] rounded-md w-fit flex flex-row items-center py-4 gap-2 bg-secondary hover:bg-secondarylight/80"
+                whileHover={{ y: -5 }}
+                className="txt-md kayak-bold px-4 py-[0.4rem] flex flex-row items-center py-4 gap-2"
               >
                 <Image
                   src={solution.iconPath}
                   alt={solution.iconAlt}
-                  width={30}
-                  height={30}
+                  width={40}
+                  height={40}
                 />
-                <p className="kayak-bold txt-lg">{solution.title}</p>
+                <p className="text-h4 text-background">{solution.title}</p>
               </motion.div>
             </Link>
           ))}

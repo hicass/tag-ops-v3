@@ -82,18 +82,22 @@ interface PricingCardsProps {
 const PricingCards: FC<PricingCardsProps> = ({ pageBlur, setPageBlur }) => {
   const [addOnsOpen, setAddOnsOpen] = useState(false);
 
-  const handleAddOnClick: React.MouseEventHandler<HTMLButtonElement> = (event) => {
+  const handleAddOnClick: React.MouseEventHandler<HTMLButtonElement> = (
+    event
+  ) => {
     setAddOnsOpen(!addOnsOpen);
     setPageBlur(!pageBlur);
   };
 
   return (
-    <div className="flex flex-col items-center gap-8 px-6 lg:w-4/5 lg:p-0">
+    <div className="flex flex-col items-center gap-8 px-6 py-20 w-full lg:px-0">
       <h1>Pricing</h1>
 
-      <Paragraph text={pricingCardData.intro} />
+      <div className="md:w-2/3 2xl:w-1/2 ">
+        <Paragraph text={pricingCardData.intro} />
+      </div>
 
-      <div className="flex flex-col items-center lg:flex-row flex-wrap lg:items-start gap-6 mt-8 lg:gap-2 items-center">
+      <div className="flex flex-col items-center lg:flex-row flex-wrap lg:items-start gap-6 mt-8 lg:gap-4 items-center">
         {pricingCardData.pricingCards.map((card, idx) => (
           <PricingCard
             card={card}
