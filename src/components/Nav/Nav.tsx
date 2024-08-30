@@ -22,7 +22,11 @@ const Nav: FC = () => {
     };
   }, []);
 
-  return <nav className='sticky top-0 z-40'>{isMobileScreen ? <MobileNav /> : <RegularNav />}</nav>;
-}
+  return (
+    <nav className="sticky top-0 z-40">
+      {isMobileScreen ? <MobileNav /> : <RegularNav />}
+    </nav>
+  );
+};
 
 export default Nav;

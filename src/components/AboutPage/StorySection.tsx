@@ -21,7 +21,7 @@ const floatingVariants: Variants = {
 const StorySection: FC = () => {
   return (
     <section className="w-full flex flex-col items-center my-8 p-6 md:w-2/3 2xl:w-1/2">
-      <h2 className="flex text-nowrap flex-row items-center gap-2 text-primary">
+      <h2 className="flex text-nowrap flex-row items-center gap-2">
         Our Story
         <motion.div
           variants={floatingVariants}
