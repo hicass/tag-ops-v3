@@ -1,81 +1,59 @@
 import Link from 'next/link';
 import Image from 'next/legacy/image';
 
+const footerProps = {
+  serviceLinks: [
+    { title: 'Operations', href: '/operations' },
+    { title: 'Finance', href: '/finance' },
+    { title: 'Human Resources', href: '/human-resources' },
+  ],
+  companyLinks: [
+    { title: 'About Us', href: '/about' },
+    { title: 'Pricing', href: '/pricing' },
+    { title: 'Contact', href: '/contact' },
+    { title: 'tag@tagoperations.com', href: 'mailto: tag@tagoperations.com' },
+  ],
+};
+
 export default function Footer() {
   return (
     <footer className="flex flex-col p-6 bg-primary sm:p-4 z-40">
-      <div className="sm:flex sm:flex-row-reverse sm:justify-end sm:gap-8">
-        <div className="sm:flex sm:flex-row sm:w-1/2 sm:justify-between sm:mt-4 sm:gap-4 lg:w-1/3 lg:items-center">
-          <div className="h-full">
-            <h4 className="text-background">Services</h4>
-            <ul>
-              <li>
-                <Link
-                  href="/operations"
-                  className="text-secondarylight hover:text-background txt-rg"
-                >
-                  Operations
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/finance"
-                  className="text-secondarylight hover:text-background txt-rg"
-                >
-                  Finance
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/human-resources"
-                  className="text-secondarylight hover:text-background txt-rg"
-                >
-                  Human Resources
-                </Link>
-              </li>
-            </ul>
-          </div>
-
+      <div className="sm:flex sm:flex-row-reverse sm:justify-end sm:gap-20">
+        <div className="sm:flex sm:flex-row sm:w-1/2 sm:mt-4 sm:gap-16 lg:w-1/3 lg:items-center">
           <div className="mt-4 sm:mt-0">
             <h4 className="text-background">Company</h4>
             <ul>
-              <li>
-                <Link
-                  href="/about"
-                  className="text-secondarylight hover:text-background txt-rg"
-                >
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/pricing"
-                  className="text-secondarylight hover:text-background txt-rg"
-                >
-                  Pricing
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="text-secondarylight hover:text-background txt-rg"
-                >
-                  Contact
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="mailto: tag@tagoperations.com"
-                  className="text-secondarylight hover:text-background txt-rg"
-                >
-                  tag@tagoperations.com
-                </Link>
-              </li>
+              {footerProps.companyLinks.map((link, idx) => (
+                <li key={idx}>
+                  <Link
+                    href={link.href}
+                    className="text-secondarylight hover:text-secondary txt-rg"
+                  >
+                    {link.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="h-full">
+            <h4 className="text-background">Services</h4>
+            <ul>
+              {footerProps.serviceLinks.map((link, idx) => (
+                <li key={idx}>
+                  <Link
+                    href={link.href}
+                    className="text-secondarylight hover:text-secondary txt-rg"
+                  >
+                    {link.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
 
-        <div className="w-1/2 sm:w-1/5 md:w-40">
+        <div className="w-1/2 sm:w-1/5 md:w-40 flex flex-col justify-center">
           <Image
             src="/logos/secondary-logo-white.png"
             alt="Tag Operations Finance Human Resources"
@@ -86,19 +64,20 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="flex flex-row justify-between items-end mt-6">
-        <Link
-          href="https://www.linkedin.com/company/tag-operations"
-          target="_blank"
-        >
-          <Image
-            src="/icons/brand-linkedin.svg"
-            alt="Linked In"
-            width={30}
-            height={30}
-          />
-        </Link>
-        <p className="text-secondary lg:text-lg">
+      <div className="flex flex-row justify-between items-start mt-6">
+          <Link
+            href="https://www.linkedin.com/company/tag-operations"
+            target="_blank"
+            className='flex'
+          >
+            <Image
+              src="/icons/brand-linkedin.svg"
+              alt="Linked In"
+              width={30}
+              height={30}
+            />
+          </Link>
+        <p className="text-secondary text-md">
           &copy; {new Date().getFullYear()} Tag Operations
         </p>
       </div>
