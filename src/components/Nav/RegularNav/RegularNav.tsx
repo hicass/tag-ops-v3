@@ -1,15 +1,17 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, FC } from 'react';
 
 import Link from 'next/link';
 
 import { useAnimate, stagger, motion } from 'framer-motion';
 import SecondaryLogo from '@/components/Logos/SecondaryLogo';
+import RegularNavDropDown from './RegularNavDropDown';
+import { NavProps } from '../Nav';
 
 const staggerMenuItems = stagger(0.1, { startDelay: 0.15 });
 
-export default function RegularNav(): JSX.Element {
+const RegularNav: FC<NavProps> = ({ companyLinks, serviceLinks }) => {
   const [isOpen, setIsOpen] = useState(false);
   const scope = useMenuAnimation(isOpen);
 
@@ -47,7 +49,7 @@ export default function RegularNav(): JSX.Element {
   }
 
   return (
-    <div className="flex flex-row justify-between items-center px-6 py-2 bg-background drop-shadow-lg">
+    <div className="flex flex-row justify-between items-center px-6 py-3 bg-background drop-shadow-lg">
       <div className="link w-20">
         <Link href="/">
           <SecondaryLogo />
@@ -56,20 +58,16 @@ export default function RegularNav(): JSX.Element {
 
       <div className="flex items-center">
         <ul className="flex flex-row items-center gap-8">
-          <li>
-            <Link href="/about" className="txt-md-semibold hover:text-primary">
-              About us
-            </Link>
-          </li>
-
-          <li>
-            <Link
-              href="/pricing"
-              className="txt-md-semibold hover:text-primary"
-            >
-              Pricing
-            </Link>
-          </li>
+          {companyLinks.map((link, idx) => (
+            <li key={idx}>
+              <Link
+                href={link.href}
+                className="txt-md-semibold hover:text-primary"
+              >
+                {link.title}
+              </Link>
+            </li>
+          ))}
 
           <li
             ref={scope}
@@ -93,52 +91,21 @@ export default function RegularNav(): JSX.Element {
                 </svg>
               </div>
             </motion.button>
-            <ul
-              style={{
-                pointerEvents: isOpen ? 'auto' : 'none',
-                clipPath: 'inset(10% 50% 90% 50% round 10px)',
-              }}
-              className="flex flex-col items-center absolute gap-2 bg-background border-t-4 border-secondarylight top-2/3 -ml-4 mt-1 w-26 p-4 z-40 drop-shadow-lg"
-            >
-              <li className="manrope-semibold w-full text-center hover:text-primary pb-2 border-b border-secondarylight">
-                <Link
-                  href="/operations"
-                  className="txt-rg-semibold hover:text-primary"
-                >
-                  Operations
-                </Link>
-              </li>
-              <li className="w-full text-center hover:text-primary pb-2 border-b border-secondarylight">
-                <Link
-                  href="/finance"
-                  className="txt-rg-semibold hover:text-primary"
-                >
-                  Finance
-                </Link>
-              </li>
-              <li className="w-full text-center hover:text-primary pb-2 border-b border-secondarylight">
-                <Link
-                  href="/human-resources"
-                  className="txt-rg-semibold hover:text-primary"
-                >
-                  HR
-                </Link>
-              </li>
-            </ul>{' '}
+
+            <RegularNavDropDown isOpen={isOpen} serviceLinks={serviceLinks} />
           </li>
 
           <li>
             <Link href="/contact">
-              <motion.div
-                whileHover={{ y: 2 }}
-                className="bg-accent hover:bg-accent/80 hover:text-primary txt-md kayak-bold px-4 py-[0.4rem] rounded-md w-fit"
-              >
+              <div className="bg-accent hover:bg-accent/80 hover:text-primary txt-md kayak-bold px-4 py-[0.4rem] rounded-md w-fit">
                 Contact
-              </motion.div>
+              </div>
             </Link>
           </li>
         </ul>
       </div>
     </div>
   );
-}
+};
+
+export default RegularNav;

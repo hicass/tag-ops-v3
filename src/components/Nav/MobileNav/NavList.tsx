@@ -1,5 +1,14 @@
-import { motion } from 'framer-motion';
+import { FC } from 'react';
 import Link from 'next/link';
+
+import { motion } from 'framer-motion';
+import { NavLink } from '../Nav';
+
+interface NavListProps {
+  toggleOpen: () => void;
+  serviceLinks: NavLink[];
+  companyLinks: NavLink[];
+}
 
 const menuVars = {
   initial: {
@@ -22,7 +31,11 @@ const menuVars = {
   },
 };
 
-export default function NavList({ toggleOpen }: any) {
+const NavList: FC<NavListProps> = ({
+  toggleOpen,
+  serviceLinks,
+  companyLinks,
+}) => {
   const MobileNavLink = ({ title, href, style }: any) => {
     return (
       <motion.div key={title}>
@@ -43,52 +56,33 @@ export default function NavList({ toggleOpen }: any) {
       initial="initial"
       animate="animate"
       exit="exit"
-      className="fixed left-0 top-20 w-full h-screen origin-top bg-background p-10 z-40"
+      className="fixed left-0 top-16 w-full h-screen origin-top bg-background p-10 z-40"
     >
       <div className="overflow-hidden flex h-fit flex-col">
         <div className="flex flex-col h-full gap-4">
-          <div className="overflow-hidden pb-2">
-            <MobileNavLink
-              title={'About Us'}
-              href={'/about'}
-              style={'txt-lg-bold'}
-            />
-          </div>
-
-          <div className="overflow-hidden pb-2">
-            <MobileNavLink
-              title={'Pricing'}
-              href={'/pricing'}
-              style={'txt-lg-bold'}
-            />
-          </div>
+          {companyLinks.map((link, idx) => (
+            <div className="overflow-hidden pb-2" key={idx}>
+              <MobileNavLink
+                title={link.title}
+                href={link.href}
+                style={'text-h4 manrope-bold'}
+              />
+            </div>
+          ))}
 
           <div className="overflow-hidden">
-            <div className="flex flex-col gap-4">
-              <span className="txt-lg-bold">Services</span>
-
-              <div className="overflow-hidden">
-                <MobileNavLink
-                  title={'Operations'}
-                  href={'/operations'}
-                  style={'txt-rg-semibold'}
-                />
-              </div>
-
-              <div className="overflow-hidden">
-                <MobileNavLink
-                  title={'Finance'}
-                  href={'/finance'}
-                  style={'txt-rg-semibold'}
-                />
-              </div>
-
-              <div className="overflow-hidden">
-                <MobileNavLink
-                  title={'Human Resources'}
-                  href={'/human-resources'}
-                  style={'txt-rg-semibold'}
-                />
+            <div className="flex flex-col gap-1">
+              <span className="text-h4 kayak-bold">Services</span>
+              <div className="flex flex-col gap-2">
+                {serviceLinks.map((link, idx) => (
+                  <div className="overflow-hidden" key={idx}>
+                    <MobileNavLink
+                      title={link.title}
+                      href={link.href}
+                      style={'txt-rg'}
+                    />
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -96,7 +90,7 @@ export default function NavList({ toggleOpen }: any) {
           <div className="mt-6 mb-10">
             <Link
               href="/contact"
-              className="contact-button mt-4 txt-lg-bold kayak-bold"
+              className="bg-accent hover:bg-accent/80 hover:text-primary text-h4 txt-lg kayak-bold px-4 py-[0.4rem] rounded-md w-fit"
               onClick={() => setTimeout(() => toggleOpen(), 600)}
             >
               Lets Talk!
@@ -106,4 +100,6 @@ export default function NavList({ toggleOpen }: any) {
       </div>
     </motion.div>
   );
-}
+};
+
+export default NavList;
