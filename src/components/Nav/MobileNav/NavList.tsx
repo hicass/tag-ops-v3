@@ -61,7 +61,7 @@ const NavList: FC<NavListProps> = ({
       <div className="overflow-hidden flex h-fit flex-col">
         <div className="flex flex-col h-full gap-4">
           {companyLinks.map((link, idx) => (
-            <div className="overflow-hidden pb-2">
+            <div className="overflow-hidden pb-2" key={idx}>
               <MobileNavLink
                 title={link.title}
                 href={link.href}
@@ -75,7 +75,7 @@ const NavList: FC<NavListProps> = ({
               <span className="text-h4 kayak-bold">Services</span>
               <div className="flex flex-col gap-2">
                 {serviceLinks.map((link, idx) => (
-                  <div className="overflow-hidden">
+                  <div className="overflow-hidden" key={idx}>
                     <MobileNavLink
                       title={link.title}
                       href={link.href}
