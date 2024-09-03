@@ -5,6 +5,28 @@ import { FC, useEffect, useState } from 'react';
 import RegularNav from './RegularNav/RegularNav';
 import MobileNav from './MobileNav/MobileNav';
 
+export interface NavProps {
+  companyLinks: NavLink[];
+  serviceLinks: NavLink[];
+}
+
+export type NavLink = {
+  title: string;
+  href: string;
+};
+
+const navProps = {
+  companyLinks: [
+    { title: 'About Us', href: '/about' },
+    { title: 'Pricing', href: '/pricing' },
+  ],
+  serviceLinks: [
+    { title: 'Operations', href: '/operations' },
+    { title: 'Finance', href: '/finance' },
+    { title: 'Human Resources', href: '/human-resources' },
+  ],
+};
+
 const Nav: FC = () => {
   const [isMobileScreen, setIsMobileScreen] = useState(false);
 
@@ -24,7 +46,17 @@ const Nav: FC = () => {
 
   return (
     <nav className="sticky top-0 z-40">
-      {isMobileScreen ? <MobileNav /> : <RegularNav />}
+      {isMobileScreen ? (
+        <MobileNav
+          companyLinks={navProps.companyLinks}
+          serviceLinks={navProps.serviceLinks}
+        />
+      ) : (
+        <RegularNav
+          companyLinks={navProps.companyLinks}
+          serviceLinks={navProps.serviceLinks}
+        />
+      )}
     </nav>
   );
 };
