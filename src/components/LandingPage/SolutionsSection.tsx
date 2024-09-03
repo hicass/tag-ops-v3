@@ -75,7 +75,7 @@ const SolutionsSection: FC = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="flex flex-col items-center gap-10 px-6 md:px-0 w-full md:w-4/5 g:w-2/3 2xl:w-1/2"
+          className="flex flex-col items-center gap-10 px-6 md:px-0 w-full md:w-2/3 2xl:w-1/2"
         >
           <p className="text-background txt-md">
             Did you know that businesses can save at least
