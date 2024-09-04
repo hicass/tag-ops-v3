@@ -28,7 +28,7 @@ const titleVariants: Variants = {
 
 const Header: FC<HeaderProps> = ({name, description}) => {
   return (
-    <section className="w-full bg-primary drop-shadow-md">
+    <section className="w-full bg-primary drop-shadow-md px-10">
       <motion.div
         variants={titleVariants}
         viewport={{
@@ -38,9 +38,9 @@ const Header: FC<HeaderProps> = ({name, description}) => {
         whileInView="onscreen"
         className="w-full flex flex-col items-center my-16"
       >
-        <h1 className="text-background">{name}</h1>
+        <h1 className="text-background text-center">{name}</h1>
 
-        <p className="mt-4 text-h4 text-background md:text-center md:w-2/3 2xl:w-1/2">
+        <p className="mt-4 txt-lg-semibold sm:text-h4 text-background text-center md:w-3/4 2xl:w-1/2">
           {description}
         </p>
       </motion.div>

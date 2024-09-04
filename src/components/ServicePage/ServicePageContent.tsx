@@ -33,7 +33,7 @@ const ServicePageContent: FC<ServicePageContentProps> = ({ service }: ServicePag
   const { name, description, question, inefficiencyCosts, solutions, endingParagraph } = service;
 
   return (
-    <main className="flex flex-col items-center gap-16 overflow-hidden">
+    <main className="flex flex-col items-center gap-10 overflow-hidden">
       <Header name={name} description={description} />
       <InefficiencySection question={question} inefficiencyCosts={inefficiencyCosts} />
       <WavyLine />
