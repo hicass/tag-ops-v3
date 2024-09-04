@@ -20,7 +20,7 @@ const floatingVariants: Variants = {
 
 const StorySection: FC = () => {
   return (
-    <section className="w-full flex flex-col items-center my-8 p-6 md:w-2/3 2xl:w-1/2">
+    <section className="w-full flex flex-col items-center sm:my-8 p-5 md:w-2/3 2xl:w-1/2">
       <h2 className="flex text-nowrap flex-row items-center gap-2">
         Our Story
         <motion.div
@@ -38,7 +38,7 @@ const StorySection: FC = () => {
         </motion.div>
       </h2>
 
-      <div className="flex flex-col gap-4 mt-6">
+      <div className="flex flex-col gap-6 mt-6">
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}

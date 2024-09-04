@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 
 const Header: FC = () => {
   return (
-    <section className="w-full flex flex-col items-center my-8 p-6 md:w-2/3 2xl:w-1/2">
+    <section className="w-full flex flex-col items-center sm:my-8 p-6 md:w-2/3 2xl:w-1/2">
       <h1 className="secret">About Us</h1>
 
       <motion.h1
@@ -15,7 +15,7 @@ const Header: FC = () => {
       >
         Hello!
       </motion.h1>
-      <h3 className="mt-2 text-center">
+      <h3 className="mt-2 text-center text-h4 sm:text-h3">
         We are Tag Operations, your partner in operational excellence.
       </h3>
 
