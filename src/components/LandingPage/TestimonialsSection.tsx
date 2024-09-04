@@ -35,7 +35,7 @@ const TestimonialsSection: FC = () => {
   return (
     <section className="flex justify-center bg-accent py-20">
       <div className="flex flex-col items-center px-6 md:px-0 md:w-4/5 lg:w-2/3 2xl:w-1/2">
-        <h2>
+        <h2 className='text-center'>
           See what our clients are saying...
         </h2>
 
