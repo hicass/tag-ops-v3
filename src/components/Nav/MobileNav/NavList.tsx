@@ -72,14 +72,14 @@ const NavList: FC<NavListProps> = ({
 
           <div className="overflow-hidden">
             <div className="flex flex-col gap-1">
-              <span className="text-h4 kayak-bold">Services</span>
+              <span className="text-h4 kayak-bold text-primary">Services</span>
               <div className="flex flex-col gap-2">
                 {serviceLinks.map((link, idx) => (
                   <div className="overflow-hidden" key={idx}>
                     <MobileNavLink
                       title={link.title}
                       href={link.href}
-                      style={'txt-rg'}
+                      style={'txt-md'}
                     />
                   </div>
                 ))}
@@ -93,7 +93,7 @@ const NavList: FC<NavListProps> = ({
               className="bg-accent hover:bg-accent/80 hover:text-primary text-h4 txt-lg kayak-bold px-4 py-[0.4rem] rounded-md w-fit"
               onClick={() => setTimeout(() => toggleOpen(), 600)}
             >
-              Lets Talk!
+              Contact
             </Link>
           </div>
         </div>
