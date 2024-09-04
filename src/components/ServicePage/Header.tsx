@@ -28,7 +28,7 @@ const titleVariants: Variants = {
 
 const Header: FC<HeaderProps> = ({name, description}) => {
   return (
-    <section className="w-full bg-primary drop-shadow-md px-10">
+    <section className="w-full bg-primary drop-shadow-md px-6">
       <motion.div
         variants={titleVariants}
         viewport={{
