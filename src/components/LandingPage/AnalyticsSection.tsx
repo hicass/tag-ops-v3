@@ -38,9 +38,9 @@ const AnalyticsSection: FC = () => {
             once: true,
             amount: 0.2,
           }}
-          className="flex flex-col gap-4 w-full sm:w-1/2 lg:w-1/3 mt-6"
+          className="flex flex-col gap-4  mt-6 w-full sm:w-1/2 lg:w-1/3 2xl:w-1/4"
         >
-          <div className="border-4 border-secondary rounded-xl drop-shadow">
+          <div className="border-4 border-secondary rounded-xl p-2">
             <Image
               src="/images/dashboard.png"
               alt="Teamwork Dashboard"
