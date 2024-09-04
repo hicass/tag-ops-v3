@@ -7,7 +7,7 @@ export default function ClientsServed() {
   return (
     <section className="w-full flex flex-col items-center mb-20">
       <div className="flex flex-col items-center my-8 px-6 gap-6 md:w-2/3 2xl:w-1/2">
-        <h3 className="text-h2">Trusted by businesses like you:</h3>
+        <h3 className="text-h2 text-center">Trusted by businesses like you:</h3>
 
         <div className="w-2/3 sm:w-full flex flex-col gap-10 items-center sm:flex-row items-center my-8">
           <div>
