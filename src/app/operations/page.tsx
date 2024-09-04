@@ -35,9 +35,9 @@ export default function OperationsPage() {
     ],
     solutions: [
       {
-        title: 'Establishing Interdepartmental Processes/Policies',
+        title: 'Operations Process Documentation',
         description:
-          'Tag Ops specializes in establishing interdepartmental processes and policies, ensuring cohesive workflows that drive efficiency and unity across your business.',
+          'Tag Ops specializes in establishing interdepartmental process and policy documentation, ensuring cohesive workflows that drive efficiency and unity across your business.',
       },
       {
         title: 'Software Strategization',
