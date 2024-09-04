@@ -31,13 +31,12 @@ const InefficiencySection: FC<InefficiencySectionProps> = ({
   inefficiencyCosts,
 }) => {
   return (
-    <section className="flex flex-col items-center py-20">
-      <div className="px-10 md:w-2/3 2xl:w-1/2">
-        <h3 className="flex flex-col items-center text-center gap-10 w-full">
+    <section className="flex flex-col items-center py-6 sm:py-20">
+      <div className="px-6 md:w-2/3 2xl:w-1/2">
+        <h3 className="flex flex-col items-center text-center gap-6 sm:gap-10 w-full">
           <motion.div
             variants={floatingVariants}
             animate="floating"
-            initial="flating"
             className="w-10 h-10"
           >
             <Image

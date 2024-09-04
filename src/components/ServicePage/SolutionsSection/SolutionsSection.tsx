@@ -17,7 +17,7 @@ const SolutionsSection: FC<SolutionsSectionProps> = ({
   endingParagraph,
 }) => {
   return (
-    <section className="flex flex-col items-center py-20">
+    <section className="flex flex-col items-center py-10 sm:py-20">
       <div className="flex flex-col items-center px-6 gap-2 md:w-2/3 2xl:w-1/2">
         <h2 className="flex flex-row items-center">
           How we can help:
