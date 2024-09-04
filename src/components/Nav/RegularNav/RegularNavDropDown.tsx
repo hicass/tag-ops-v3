@@ -21,14 +21,14 @@ const RegularNavDropDown: FC<RegularNavDropDownProps> = ({
         pointerEvents: isOpen ? 'auto' : 'none',
         clipPath: 'inset(10% 50% 90% 50% round 10px)',
       }}
-      className="flex flex-col items-center absolute gap-2 bg-background border-t-4 border-secondarylight top-2/3 -ml-6 mt-1 w-26 p-4 z-40 drop-shadow-lg"
+      className="flex flex-col items-center absolute gap-2 bg-background border-t-4 border-secondarylight top-2/3 -ml-10 mt-2 w-26 p-4 z-40 drop-shadow-lg"
     >
       {serviceLinks.map((link, idx) => (
         <li
           className="manrope-semibold w-full text-center hover:text-primary pb-2 border-b border-secondarylight"
           key={idx}
         >
-          <Link href={link.href} className="txt-sm-semibold hover:text-primary">
+          <Link href={link.href} className="txt-rg-semibold hover:text-primary">
             {link.title}
           </Link>
         </li>
