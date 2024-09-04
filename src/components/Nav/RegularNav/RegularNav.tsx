@@ -1,15 +1,17 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, FC } from 'react';
 
-import Image from 'next/legacy/image';
 import Link from 'next/link';
 
 import { useAnimate, stagger, motion } from 'framer-motion';
+import SecondaryLogo from '@/components/Logos/SecondaryLogo';
+import RegularNavDropDown from './RegularNavDropDown';
+import { NavProps } from '../Nav';
 
 const staggerMenuItems = stagger(0.1, { startDelay: 0.15 });
 
-export default function RegularNav(): JSX.Element {
+const RegularNav: FC<NavProps> = ({ companyLinks, serviceLinks }) => {
   const [isOpen, setIsOpen] = useState(false);
   const scope = useMenuAnimation(isOpen);
 
@@ -47,42 +49,35 @@ export default function RegularNav(): JSX.Element {
   }
 
   return (
-    <div className="flex flex-row justify-between items-center px-6 bg-background drop-shadow-lg">
-      <div className="link w-24">
+    <div className="flex flex-row justify-between items-center px-6 py-3 bg-background drop-shadow-lg">
+      <div className="link w-20">
         <Link href="/">
-          <motion.div whileHover={{ y: 2 }}>
-            <Image
-              src="/logos/secondary-logo.svg"
-              alt="Tag Ops"
-              layout="responsive"
-              width={100}
-              height={100}
-              priority
-            />
-          </motion.div>
+          <SecondaryLogo />
         </Link>
       </div>
 
       <div className="flex items-center">
         <ul className="flex flex-row items-center gap-8">
-          <li>
-            <Link
-              href="/about"
-              className="manrope-semibold text-lg hover:text-primary"
-            >
-              About us
-            </Link>
-          </li>
+          {companyLinks.map((link, idx) => (
+            <li key={idx}>
+              <Link
+                href={link.href}
+                className="txt-md-semibold hover:text-primary"
+              >
+                {link.title}
+              </Link>
+            </li>
+          ))}
 
           <li
             ref={scope}
             onMouseEnter={() => setIsOpen(!isOpen)}
             onMouseLeave={() => setIsOpen(!isOpen)}
-            className="flex flex-col gap-2 hover:cursor-pointer"
+            className="flex flex-col justify-center gap-2 hover:cursor-pointer h-[3em]"
           >
             <motion.button
               whileTap={{ scale: 0.97 }}
-              className={`flex items-center gap-2 manrope-semibold text-lg ${
+              className={`flex items-center gap-2 txt-md-semibold ${
                 isOpen && 'text-primary'
               }`}
             >
@@ -96,52 +91,21 @@ export default function RegularNav(): JSX.Element {
                 </svg>
               </div>
             </motion.button>
-            <ul
-              style={{
-                pointerEvents: isOpen ? 'auto' : 'none',
-                clipPath: 'inset(10% 50% 90% 50% round 10px)',
-              }}
-              className="flex flex-col items-center absolute gap-2 bg-background border-t-4 border-secondarylight top-2/3 -ml-2 -mt-1 w-26 p-4 z-40 drop-shadow-lg"
-            >
-              <li className="manrope-semibold w-full text-center hover:text-primary pb-2 border-b border-secondarylight">
-                <Link
-                  href="/operations"
-                  className="manrope-semibold hover:text-primary"
-                >
-                  Operations
-                </Link>
-              </li>
-              <li className="w-full text-center hover:text-primary pb-2 border-b border-secondarylight">
-                <Link
-                  href="/finance"
-                  className="manrope-semibold hover:text-primary"
-                >
-                  Finance
-                </Link>
-              </li>
-              <li className="w-full text-center hover:text-primary pb-2 border-b border-secondarylight">
-                <Link
-                  href="/human-resources"
-                  className="manrope-semibold hover:text-primary"
-                >
-                  HR
-                </Link>
-              </li>
-            </ul>{' '}
+
+            <RegularNavDropDown isOpen={isOpen} serviceLinks={serviceLinks} />
           </li>
 
           <li>
             <Link href="/contact">
-              <motion.div
-                whileHover={{ y: 2 }}
-                className="contact-button my-4 text-lg hover:text-primary"
-              >
+              <div className="bg-accent hover:bg-accent/80 hover:text-primary txt-md kayak-bold px-4 py-[0.4rem] rounded-md w-fit">
                 Contact
-              </motion.div>
+              </div>
             </Link>
           </li>
         </ul>
       </div>
     </div>
   );
-}
+};
+
+export default RegularNav;

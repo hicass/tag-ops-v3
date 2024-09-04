@@ -68,16 +68,16 @@ const animationLinkVariants: Variants = {
 const SolutionsSection: FC = () => {
   return (
     <section className="w-full mt-14 sm:mt-28 relative">
-      <div className="flex flex-col items-center p-6 bg-primary drop-shadow-md z-10 py-14 sm:py-24">
-        <h2 className="text-3xl text-background sm:text-5xl">Our Solutions</h2>
+      <div className="flex flex-col items-center gap-10 bg-primary drop-shadow-md z-10 py-14 lg:py-32 lg:pb-36">
+        <h1 className="text-background">Our Solutions</h1>
 
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="flex flex-col mt-4 gap-8 sm:mt-10 md:w-2/3 2xl:w-1/2"
+          className="flex flex-col items-center gap-10 px-6 md:px-0 w-full md:w-2/3 2xl:w-1/2"
         >
-          <p className="text-background sm:text-xl">
+          <p className="text-background txt-md">
             Did you know that businesses can save at least
             <span className="text-accent"> 30% on back-office costs </span> by
             leveraging fractional support? Not only do we offer tailored
@@ -86,7 +86,7 @@ const SolutionsSection: FC = () => {
             company's various back-office processes enabling you to strategize
             scaling your company.
           </p>
-          <p className="text-background sm:text-xl">
+          <p className="text-background txt-md">
             With the flexibility to adjust services as needed,
             <span className="text-accent">
               {' '}
@@ -105,22 +105,22 @@ const SolutionsSection: FC = () => {
             once: true,
             amount: 'all',
           }}
-          className="flex flex-col sm:flex-row gap-8 sm:gap-0 w-full justify-around mt-10 sm:mt-16 md:w-2/3 2xl:w-1/2"
+          className="flex flex-col px-6 sm:flex-row gap-8 sm:gap-0 w-full justify-between md:w-4/5 lg:w-2/3 2xl:w-1/2 mt-8"
         >
           {solutionsLinks.map((solution, idx) => (
             <Link key={idx} href={solution.href}>
               <motion.div
                 variants={animationLinkVariants}
-                whileHover={{ y: 3 }}
-                className="service-button flex flex-row items-center py-4 gap-2"
+                whileHover={{ y: -5 }}
+                className="txt-md kayak-bold px-4 py-[0.4rem] flex flex-row items-center py-4 gap-2"
               >
                 <Image
                   src={solution.iconPath}
                   alt={solution.iconAlt}
-                  width={30}
-                  height={30}
+                  width={40}
+                  height={40}
                 />
-                <h3 className="kayak-bold text-2xl">{solution.title}</h3>
+                <p className="text-h4 text-background">{solution.title}</p>
               </motion.div>
             </Link>
           ))}

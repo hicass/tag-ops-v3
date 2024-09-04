@@ -35,10 +35,92 @@
     --color-text: 57 35 101;
     --color-primary: 97 38 216;
     --color-secondary: 208 178 255;
-    --color-secondary-light: 231 216 255;
+    --color-secondary-light: 245 238 254;
     --color-accent: 163 221 255;
-    --color-accent-light: 212 239 255;
+    --color-accent-light: 226 244 255;
     --color-background: 255 255 255
+  }
+
+  /* Headings */
+  h1 {
+    @apply text-h1;
+  }
+
+  h2 {
+    @apply text-h2;
+  }
+
+  h3 {
+    @apply text-h3;
+  }
+
+  h4 {
+    @apply text-h4;
+  }
+
+  /* Body Text */
+  .txt-lg,
+  .txt-lg-semibold,
+  .txt-lg-bold {
+    @apply text-lg;
+  }
+
+  .txt-lg-semibold {
+    @apply font-semibold;
+    font-family: 'Manrope-SemiBold', sans-serif;
+  }
+
+  .txt-lg-bold {
+    @apply font-bold;
+    font-family: 'Manrope-Bold', sans-serif;
+  }
+
+  .txt-md,
+  .txt-md-semibold,
+  .txt-md-bold {
+    @apply text-md;
+  }
+
+  .txt-md-semibold {
+    @apply font-semibold;
+    font-family: 'Manrope-SemiBold', sans-serif;
+  }
+
+  .txt-md-bold {
+    @apply font-bold;
+    font-family: 'Manrope-Bold', sans-serif;
+  }
+
+  .txt-rg,
+  .txt-rg-semibold,
+  .txt-rg-bold {
+    @apply text-base;
+  }
+
+  .txt-rg-semibold {
+    @apply font-semibold;
+    font-family: 'Manrope-SemiBold', sans-serif;
+  }
+
+  .txt-rg-bold {
+    @apply font-bold;
+    font-family: 'Manrope-Bold', sans-serif;
+  }
+
+  .txt-sm,
+  .txt-sm-semibold,
+  .txt-sm-bold {
+    @apply text-sm;
+  }
+
+  .txt-sm-semibold {
+    @apply font-semibold;
+    font-family: 'Manrope-SemiBold', sans-serif;
+  }
+
+  .txt-sm-bold {
+    @apply font-bold;
+    font-family: 'Manrope-Bold', sans-serif;
   }
 }
 
@@ -46,9 +128,9 @@
   --text: rgb(57, 35, 101);
   --primary: rgb(97, 38, 216);
   --secondary: rgb(208, 178, 255);
-  --secondary-light: rgb(231, 216, 255);
+  --secondary-light: rgb(245, 238, 254);
   --accent: rgb(163, 221, 255);
-  --accent-light: rgb(212, 239, 255);
+  --accent-light: rgb(226, 244, 255);
   --background: rgb(255, 255, 255);
 }
 
@@ -59,6 +141,8 @@
 
 h1,
 h2,
+h3,
+h4,
 .kayak-bold,
 .button {
   font-family: 'Kayak-Sans-Bold', sans-serif;
@@ -75,8 +159,6 @@ h2,
 .contact-button,
 .service-button {
   font-family: 'Kayak-Sans-Bold', sans-serif;
-  padding: 0.4em 0.7em;
-  border-radius: 10px;
 }
 
 .service-button {

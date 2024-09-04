@@ -1,16 +1,13 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import Image from 'next/legacy/image';
-import Link from 'next/link';
+import Button from '../Button';
 
 export default function ClientsServed() {
   return (
-    <section className="w-full flex flex-col items-center ">
-      <div className="flex flex-col items-center my-8 p-6 gap-6 md:w-2/3 2xl:w-1/2">
-        <h2 className="text-3xl md:text-4xl">
-          Trusted by businesses like you:
-        </h2>
+    <section className="w-full flex flex-col items-center mb-20">
+      <div className="flex flex-col items-center my-8 px-6 gap-6 md:w-2/3 2xl:w-1/2">
+        <h3 className="text-h2 text-center">Trusted by businesses like you:</h3>
 
         <div className="w-2/3 sm:w-full flex flex-col gap-10 items-center sm:flex-row items-center my-8">
           <div>
@@ -60,14 +57,7 @@ export default function ClientsServed() {
           </div>
         </div>
 
-        <Link href="/contact">
-          <motion.div
-            whileHover={{ y: 3 }}
-            className="contact-button my-4 text-2xl md:text-3xl"
-          >
-            Lets Talk!
-          </motion.div>
-        </Link>
+        <Button text={"Let's Talk!"} blue={true} href={'/contact'} />
       </div>
     </section>
   );

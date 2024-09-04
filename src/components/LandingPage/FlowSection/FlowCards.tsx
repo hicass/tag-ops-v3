@@ -71,17 +71,17 @@ const cards: Card[] = [
 
 const cardVariants: Variants = {
   offscreen: {
-    y: 200,
+    x: 200,
     opacity: 0,
   },
   onscreen: {
-    y: 0,
+    x: 0,
     opacity: 1,
     scale: 1,
     transition: {
       type: 'spring',
-      bounce: 0.4,
-      duration: 0.8,
+      bounce: 0.3,
+      duration: 0.6,
     },
   },
 };
@@ -99,9 +99,9 @@ const FlowCards: FC = () => {
             amount: 0.2,
           }}
           key={idx}
-          className="relative my-10 p-6 bg-secondarylight rounded-xl drop-shadow"
+          className="relative my-6 min-h-fit"
         >
-          <div className="w-10 h-10 absolute top-0 left-0 -ml-4 -mt-4">
+          <div className="w-10 h-10 absolute top-0 left-0 -ml-5 -mt-2">
             <Image
               src={card.iconLink}
               alt={card.iconAlt}
@@ -110,12 +110,14 @@ const FlowCards: FC = () => {
               layout="responsive"
             />
           </div>
-          <h3 className="text-lg sm:text-xl manrope-semibold">{card.title}</h3>
-          <p className="mt-2 sm:text-lg">{card.description}</p>
+          <h3 className="txt-md-bold pl-6">{card.title}</h3>
+          <p className="mt-2 txt-rg border-l-4 pl-6 min-h-24 h-fit">
+            {card.description}
+          </p>
         </motion.div>
       ))}
     </>
   );
-}
+};
 
 export default FlowCards;
