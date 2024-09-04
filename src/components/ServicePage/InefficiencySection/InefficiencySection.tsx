@@ -31,7 +31,7 @@ const InefficiencySection: FC<InefficiencySectionProps> = ({
   inefficiencyCosts,
 }) => {
   return (
-    <section className="flex flex-col items-center py-6 sm:py-20">
+    <section className="flex flex-col items-center py-6 sm:pt-20 sm:pb-28">
       <div className="px-6 md:w-2/3 2xl:w-1/2">
         <h3 className="flex flex-col items-center text-center gap-6 sm:gap-10 w-full">
           <motion.div
