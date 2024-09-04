@@ -73,7 +73,7 @@ const RegularNav: FC<NavProps> = ({ companyLinks, serviceLinks }) => {
             ref={scope}
             onMouseEnter={() => setIsOpen(!isOpen)}
             onMouseLeave={() => setIsOpen(!isOpen)}
-            className="flex flex-col gap-2 hover:cursor-pointer"
+            className="flex flex-col justify-center gap-2 hover:cursor-pointer h-[3em]"
           >
             <motion.button
               whileTap={{ scale: 0.97 }}
