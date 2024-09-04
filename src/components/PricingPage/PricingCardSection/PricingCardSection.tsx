@@ -3,6 +3,7 @@ import { FC, useState } from 'react';
 
 import Paragraph from '@/components/Paragraph';
 import PricingCard from './PricingCard';
+import WavyLine from '@/components/Accents/WavyLine';
 
 const pricingCardData = {
   intro:
@@ -90,7 +91,7 @@ const PricingCards: FC<PricingCardsProps> = ({ pageBlur, setPageBlur }) => {
   };
 
   return (
-    <div className="flex flex-col items-center gap-8 px-6 py-20 w-full lg:px-0">
+    <div className="flex flex-col items-center gap-8 px-6 py-20 w-full lg:px-0 relative">
       <h1>Pricing</h1>
 
       <div className="md:w-2/3 2xl:w-1/2 ">
@@ -107,6 +108,12 @@ const PricingCards: FC<PricingCardsProps> = ({ pageBlur, setPageBlur }) => {
           />
         ))}
       </div>
+
+      {addOnsOpen && (
+        <div className='absolute inset-y-3/4 z-[-1]'>
+          <WavyLine />
+        </div>
+      )}
     </div>
   );
 };
