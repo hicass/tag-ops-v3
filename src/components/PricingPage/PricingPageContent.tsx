@@ -12,7 +12,7 @@ const PricingPageContent: FC = () => {
   const [pageBlur, setPageBlur] = useState(false);
 
   return (
-    <main className="flex flex-col items-center my-20 gap-16 relative overflow-hidden">
+    <main className="flex flex-col items-center gap-10 relative overflow-hidden">
       <Header />
       <Intro />
       <Quote />
