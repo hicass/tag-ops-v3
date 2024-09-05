@@ -4,7 +4,7 @@ import { FC } from 'react';
 
 import { motion } from 'framer-motion';
 
-type Testimonial = {
+export type Testimonial = {
   name: string;
   title: string;
   description: string;
