@@ -28,10 +28,10 @@ interface HeaderProps {
 
 const Header: FC<HeaderProps> = ({ title, topCards }) => {
   return (
-    <section className="w-full flex flex-col items-center sm:mt-8 p-6 gap-6 md:w-2/3 2xl:w-1/2">
-      <h1>{title}</h1>
+    <section className="w-full flex flex-col items-center sm:mt-8 pt-6 gap-6 md:w-2/3 2xl:w-1/2">
+      <h1 className="text-center">{title}</h1>
 
-      <div className='flex gap-10'>
+      <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center xl:justify-between gap-4 w-full">
         {topCards.map((card, idx) => (
           <motion.div
             variants={cardVariants}
@@ -41,7 +41,8 @@ const Header: FC<HeaderProps> = ({ title, topCards }) => {
               once: true,
               amount: 0.1,
             }}
-            className="rounded-xl mt-6 mb-10 p-4 bg-secondarylight drop-shadow"
+            key={idx}
+            className="rounded-xl mx-5 xl:mx-0 sm:mt-6 sm:mb-10 p-4 bg-secondarylight drop-shadow w-60"
           >
             <p className="txt-lg-bold text-center">{card}</p>
           </motion.div>
