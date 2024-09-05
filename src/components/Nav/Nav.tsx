@@ -17,9 +17,9 @@ export type NavLink = {
 
 const navProps = {
   companyLinks: [
+    { title: 'Case Studies', href: '/case-studies' },
     { title: 'About Us', href: '/about' },
     { title: 'Pricing', href: '/pricing' },
-    { title: 'Case Studies', href: '/case-studies' },
   ],
   serviceLinks: [
     { title: 'Operations', href: '/operations' },
