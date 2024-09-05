@@ -57,7 +57,7 @@ const RegularNav: FC<NavProps> = ({ companyLinks, serviceLinks }) => {
       </div>
 
       <div className="flex items-center">
-        <ul className="flex flex-row items-center gap-8">
+        <ul className="flex flex-row items-center gap-10">
           {companyLinks.map((link, idx) => (
             <li key={idx}>
               <Link

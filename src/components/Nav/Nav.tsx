@@ -19,6 +19,7 @@ const navProps = {
   companyLinks: [
     { title: 'About Us', href: '/about' },
     { title: 'Pricing', href: '/pricing' },
+    { title: 'Case Studies', href: '/case-studies' },
   ],
   serviceLinks: [
     { title: 'Operations', href: '/operations' },
