@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 const diversityZoomCaseStudyData: CaseStudy = {
-  title: 'Diversity Zoom: A Scalable ATS',
+  title: 'A Scalable ATS',
   topCards: [
     'A documented onboarding process for the recruiting team',
     '$13,992 saved per year with a new system implementation',
