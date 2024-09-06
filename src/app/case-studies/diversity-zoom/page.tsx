@@ -46,10 +46,10 @@ const diversityZoomCaseStudyData: CaseStudy = {
     name: 'Chris Chen',
     title: 'Chief of Operations',
     description:
-      '“Courtney / Tag Ops more than delivered on her engagement with DiversityZoom. As a small business owner, we were impressed with the structure, speed, and strategic mindset provided as early as the discovery call, through to the final deliverables. Working with Tag Ops resulted in immediate impact in our P&L and business roadmap, and a lot of "oh, that\'s cool" from our executive team in response to suggested solutions. We appreciated how Courtney / TagOps took the time to maintain project timelines and incorporate continuous feedback throughout the engagement. We plan to work with TagOps for our future needs, and wholeheartedly recommend TagOps.”',
+      '"Courtney / Tag Ops more than delivered on her engagement with DiversityZoom. As a small business owner, we were impressed with the structure, speed, and strategic mindset provided as early as the discovery call, through to the final deliverables. Working with Tag Ops resulted in immediate impact in our P&L and business roadmap, and a lot of "oh, that\'s cool" from our executive team in response to suggested solutions. We appreciated how Courtney / TagOps took the time to maintain project timelines and incorporate continuous feedback throughout the engagement. We plan to work with TagOps for our future needs, and wholeheartedly recommend TagOps."',
   },
 };
 
-export default function AboutPage() {
+export default function DiverstiyZoomCaseStudyPage() {
   return <CaseStudyPageContent caseStudy={diversityZoomCaseStudyData} />;
 }
