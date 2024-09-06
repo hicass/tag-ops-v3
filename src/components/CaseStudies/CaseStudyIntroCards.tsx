@@ -33,7 +33,7 @@ const caseStudyIntros: CaseStudyIntro[] = [
     logoAlt: 'Cocoon Logo',
     logoWidth: 535,
     logoHeight: 87,
-    href: '/case-studies/diversity-zoom',
+    href: '/case-studies/cocoon',
     description:
       "Revamped and automated Cocoon's Accounts Receivable system, achieving a $25,800 annual savings in labor costs. The improvements led to a significant reduction in overdue invoices, decreasing 90+ days overdue amounts from $500,000 to $72,000, and streamlined invoicing and payment reconciliation processes.",
   },
