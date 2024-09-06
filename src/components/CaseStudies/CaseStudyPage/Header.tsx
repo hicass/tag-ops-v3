@@ -42,7 +42,7 @@ const Header: FC<HeaderProps> = ({ title, topCards }) => {
               amount: 0.1,
             }}
             key={idx}
-            className="rounded-xl mx-5 xl:mx-0 sm:mt-6 sm:mb-10 p-4 bg-secondarylight drop-shadow w-60"
+            className="flex items-center rounded-xl mx-5 xl:mx-0 sm:mt-6 sm:mb-10 p-4 bg-secondarylight drop-shadow min-h-40 w-60"
           >
             <p className="txt-lg-bold text-center">{card}</p>
           </motion.div>
