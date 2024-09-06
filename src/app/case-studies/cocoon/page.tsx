@@ -29,7 +29,7 @@ const cocoonCaseStudyData: CaseStudy = {
     location: 'San Francisco, CA',
     companySize: '68',
     yearFounded: '2020',
-    solution: '',
+    solution: 'AR software implementation + AR data cleanup',
     description:
       'Cocoon Leave Management is a simple and efficient platform that makes managing employee leave easy. It streamlines the process for both employees and employers, ensuring smooth operations, compliance, and reducing administrative tasks, so everyone can focus on what matters most, the leave itself.',
   },
@@ -46,10 +46,10 @@ const cocoonCaseStudyData: CaseStudy = {
     name: 'Alice Zheng',
     title: 'Chief of Staff and Director of Operations, Support, and Finance',
     description:
-      '"Courtney’s been a pleasure and joy to work with and always very responsive. With a “no task too small” mentality, she has been an incredible resource to us. I would highly recommend her to anyone in need of her services!”',
+      '"Courtney’s been a pleasure and joy to work with and always very responsive. With a "no task too small" mentality, she has been an incredible resource to us. I would highly recommend her to anyone in need of her services!"',
   },
 };
 
-export default function AboutPage() {
+export default function CocoonCaseStudyPage() {
   return <CaseStudyPageContent caseStudy={cocoonCaseStudyData} />;
 }
