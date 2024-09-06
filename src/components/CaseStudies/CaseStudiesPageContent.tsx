@@ -12,6 +12,6 @@ const CaseStudiesPageContent: FC = () => {
       <ClientsServed />
     </main>
   );
-}
+};
 
 export default CaseStudiesPageContent;
