@@ -70,21 +70,24 @@ const CaseStudyIntroCards: FC = () => {
 
         return (
           <motion.div
+            key={idx}
             ref={container}
-            className="h-fit sm:sticky sm:mb-8 top-5 lg:top-40 2xl:w-1/20"
+            className="h-fit sm:sticky relative sm:mb-8 top-5 lg:top-40 2xl:w-1/20"
             style={{ scale }}
           >
             <div className="flex flex-col gap-4 md:gap-10 bg-accentlight rounded-xl mb-10 sm:mb-20 p-4 sm:p-4 drop-shadow">
               <div className="flex flex-col-reverse gap-6 sm:gap-0 sm:flex-row justify-between">
                 <h3 className="w-full sm:w-1/2">{caseStudyIntro.title}</h3>
                 <div className="flex flex-col justify-center w-full sm:w-1/3">
-                  <Image
-                    src={caseStudyIntro.logo}
-                    alt={caseStudyIntro.logoAlt}
-                    layout="responsive"
-                    width={caseStudyIntro.logoWidth}
-                    height={caseStudyIntro.logoHeight}
-                  />
+                  <div>
+                    <Image
+                      src={caseStudyIntro.logo}
+                      alt={caseStudyIntro.logoAlt}
+                      layout="responsive"
+                      width={caseStudyIntro.logoWidth}
+                      height={caseStudyIntro.logoHeight}
+                    />
+                  </div>
                 </div>
               </div>
 
