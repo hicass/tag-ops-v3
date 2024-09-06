@@ -58,17 +58,6 @@ const RegularNav: FC<NavProps> = ({ companyLinks, serviceLinks }) => {
 
       <div className="flex items-center">
         <ul className="flex flex-row items-center gap-10">
-          {companyLinks.map((link, idx) => (
-            <li key={idx}>
-              <Link
-                href={link.href}
-                className="txt-md-semibold hover:text-primary"
-              >
-                {link.title}
-              </Link>
-            </li>
-          ))}
-
           <li
             ref={scope}
             onMouseEnter={() => setIsOpen(!isOpen)}
@@ -94,6 +83,16 @@ const RegularNav: FC<NavProps> = ({ companyLinks, serviceLinks }) => {
 
             <RegularNavDropDown isOpen={isOpen} serviceLinks={serviceLinks} />
           </li>
+          {companyLinks.map((link, idx) => (
+            <li key={idx}>
+              <Link
+                href={link.href}
+                className="txt-md-semibold hover:text-primary"
+              >
+                {link.title}
+              </Link>
+            </li>
+          ))}
 
           <li>
             <Link href="/contact">

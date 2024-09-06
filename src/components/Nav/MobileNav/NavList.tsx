@@ -59,21 +59,11 @@ const NavList: FC<NavListProps> = ({
       className="fixed left-0 top-16 w-full h-screen origin-top bg-background p-10 z-40"
     >
       <div className="overflow-hidden flex h-fit flex-col">
-        <div className="flex flex-col h-full gap-4">
-          {companyLinks.map((link, idx) => (
-            <div className="overflow-hidden pb-2" key={idx}>
-              <MobileNavLink
-                title={link.title}
-                href={link.href}
-                style={'text-h4 manrope-bold'}
-              />
-            </div>
-          ))}
-
+        <div className="flex flex-col h-full gap-2">
           <div className="overflow-hidden">
             <div className="flex flex-col gap-1">
-              <span className="text-h4 kayak-bold text-primary">Services</span>
-              <div className="flex flex-col gap-2">
+              <span className="text-h2 kayak-bold">Services</span>
+              <div className="flex flex-col gap-2 mb-4">
                 {serviceLinks.map((link, idx) => (
                   <div className="overflow-hidden" key={idx}>
                     <MobileNavLink
@@ -86,6 +76,15 @@ const NavList: FC<NavListProps> = ({
               </div>
             </div>
           </div>
+          {companyLinks.map((link, idx) => (
+            <div className="overflow-hidden pb-2" key={idx}>
+              <MobileNavLink
+                title={link.title}
+                href={link.href}
+                style={'text-lg manrope-bold'}
+              />
+            </div>
+          ))}
 
           <div className="mt-6 mb-10">
             <Link
