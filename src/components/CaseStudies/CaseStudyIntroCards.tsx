@@ -52,11 +52,11 @@ const TestimonialsSection: FC = () => {
             }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.3 }}
-            className="flex flex-col gap-10 bg-accentlight rounded-xl mb-10 p-4 drop-shadow"
+            className="flex flex-col gap-6 md:gap-10 bg-accentlight rounded-xl mb-10 p-4 drop-shadow"
           >
-            <div className="flex justify-between">
-              <h3 className="w-1/2">{caseStudyIntro.title}</h3>
-              <div className="flex flex-col justify-center w-1/3">
+            <div className="flex flex-col-reverse gap-6 sm:gap-0 sm:flex-row justify-between">
+              <h3 className="w-full text-center sm:text-left sm:w-1/2">{caseStudyIntro.title}</h3>
+              <div className="flex flex-col justify-center w-full sm:w-1/3">
                 <Image
                   src={caseStudyIntro.logo}
                   alt={caseStudyIntro.logoAlt}
@@ -67,7 +67,7 @@ const TestimonialsSection: FC = () => {
               </div>
             </div>
 
-            <p className="txt-md">{caseStudyIntro.description}</p>
+            <p className="txt-md mb-6 sm:mb-0">{caseStudyIntro.description}</p>
 
             <Button
               text="View Case Study"
