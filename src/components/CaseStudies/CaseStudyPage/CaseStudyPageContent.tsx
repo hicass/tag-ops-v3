@@ -44,7 +44,7 @@ interface CaseStudyPageContentProps {
 
 const CaseStudyPageContent: FC<CaseStudyPageContentProps> = ({ caseStudy }) => {
   return (
-    <main className="flex flex-col items-center gap-16 relative overflow-hidden">
+    <main className="flex flex-col items-center gap-10 relative overflow-hidden">
       <Header title={caseStudy.title} topCards={caseStudy.topCards} />
       <SnapshotSection snapshot={caseStudy.snapshot} logo={caseStudy.logo} />
       <ProblemSection problem={caseStudy.problem} />
