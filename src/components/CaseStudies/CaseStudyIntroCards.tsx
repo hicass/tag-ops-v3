@@ -4,9 +4,9 @@ import { FC, useRef } from 'react';
 import Image from 'next/legacy/image';
 
 import { motion, useScroll, useTransform } from 'framer-motion';
-import Button from '../Button';
+import CaseStudyIntroCard from './CaseStudyIntroCard';
 
-type CaseStudyIntro = {
+export type CaseStudyIntro = {
   title: string;
   logo: string;
   logoAlt: string;
@@ -64,45 +64,15 @@ const CaseStudyIntroCards: FC = () => {
       className="flex flex-col items-center px-6 md:px-0 md:w-4/5 lg:w-2/3 2xl:w-1/2 relative"
     >
       {caseStudyIntros.map((caseStudyIntro, idx) => {
-        const range = [idx * 0.1, 1];
-        const targetScale = 1 - (caseStudyIntros.length - idx) * 0.05;
-        const scale = useTransform(scrollYProgress, range, [1, targetScale]);
-
         return (
-          <motion.div
+          <CaseStudyIntroCard
             key={idx}
-            ref={container}
-            className="h-fit sm:sticky relative sm:mb-8 top-5 lg:top-40 2xl:w-1/20"
-            style={{ scale }}
-          >
-            <div className="flex flex-col gap-4 md:gap-10 bg-accentlight rounded-xl mb-10 sm:mb-20 p-4 sm:p-4 drop-shadow">
-              <div className="flex flex-col-reverse gap-6 sm:gap-0 sm:flex-row justify-between">
-                <h3 className="w-full sm:w-1/2">{caseStudyIntro.title}</h3>
-                <div className="flex flex-col justify-center w-full sm:w-1/3">
-                  <div>
-                    <Image
-                      src={caseStudyIntro.logo}
-                      alt={caseStudyIntro.logoAlt}
-                      layout="responsive"
-                      width={caseStudyIntro.logoWidth}
-                      height={caseStudyIntro.logoHeight}
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <p className="txt-md mb-6 sm:mb-0">
-                {caseStudyIntro.description}
-              </p>
-
-              <Button
-                text="View Case Study"
-                blue={true}
-                textSize={'text-lg'}
-                href={caseStudyIntro.href}
-              />
-            </div>
-          </motion.div>
+            caseStudyIntro={caseStudyIntro}
+            idx={idx}
+            length={caseStudyIntros.length}
+            scrollYProgress={scrollYProgress}
+            container={container}
+          />
         );
       })}
     </motion.div>
