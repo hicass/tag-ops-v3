@@ -37,13 +37,7 @@ const CaseStudyIntroCard: FC<CaseStudyIntroCardProps> = ({
           <h3 className="w-full sm:w-1/2">{caseStudyIntro.title}</h3>
           <div className="flex flex-col justify-center w-full sm:w-1/3">
             <div>
-              <Image
-                src={caseStudyIntro.logo}
-                alt={caseStudyIntro.logoAlt}
-                layout="responsive"
-                width={caseStudyIntro.logoWidth}
-                height={caseStudyIntro.logoHeight}
-              />
+              <img src={caseStudyIntro.logo} alt={caseStudyIntro.logoAlt} />
             </div>
           </div>
         </div>
