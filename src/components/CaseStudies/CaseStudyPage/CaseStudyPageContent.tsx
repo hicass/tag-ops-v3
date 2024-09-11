@@ -2,7 +2,7 @@
 
 import { FC } from 'react';
 
-import { Testimonial } from '@/components/LandingPage/TestimonialsSection';
+import { Testimonial } from '@/components/LandingPage/TestimonialsSection/TestimonialsSection';
 
 import Header from './Header';
 import SnapshotSection from './SnapshotSection';

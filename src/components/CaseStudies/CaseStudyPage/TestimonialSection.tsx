@@ -4,7 +4,7 @@ import { FC } from 'react';
 
 import { motion } from 'framer-motion';
 
-import { Testimonial } from '@/components/LandingPage/TestimonialsSection';
+import { Testimonial } from '@/components/LandingPage/TestimonialsSection/TestimonialsSection';
 
 interface TestimonialProps {
   testimonial: Testimonial;
