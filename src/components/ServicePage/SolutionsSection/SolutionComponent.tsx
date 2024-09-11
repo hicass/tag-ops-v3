@@ -29,8 +29,8 @@ export default function SolutionComponent({ title, description }: any) {
       }}
       className="rounded-xl mt-6 mb-10 p-4 bg-secondarylight drop-shadow"
     >
-      <p className="txt-md-bold">{title}</p>
-      <p className="mt-2 txt-rg">{description}</p>
+      <p className="txt-md-semibold">{title}</p>
+      <p className="mt-2 txt-rg text-text/80">{description}</p>
     </motion.div>
   );
 }

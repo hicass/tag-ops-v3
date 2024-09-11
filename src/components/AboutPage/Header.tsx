@@ -19,7 +19,7 @@ const Header: FC = () => {
         We are Tag Operations, your partner in operational excellence.
       </h3>
 
-      <p className="mt-4 txt-md text-center">
+      <p className="mt-4 txt-md text-text/80 text-center">
         Every business, regardless of size, deserves tailored support to thrive.
         Born from this belief, we offer innovative and flexible back-office
         solutions, empowering you to streamline operations, optimize resources,

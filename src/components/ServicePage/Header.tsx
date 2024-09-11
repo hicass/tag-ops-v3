@@ -40,7 +40,7 @@ const Header: FC<HeaderProps> = ({name, description}) => {
       >
         <h1 className="text-background text-center">{name}</h1>
 
-        <p className="mt-4 txt-lg-semibold sm:text-h4 text-background text-center md:w-3/4 2xl:w-1/2">
+        <p className="mt-4 txt-lg sm:text-h4 text-background text-center md:w-3/4 2xl:w-1/2">
           {description}
         </p>
       </motion.div>

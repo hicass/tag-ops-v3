@@ -111,7 +111,7 @@ const FlowCards: FC = () => {
             />
           </div>
           <h3 className="txt-md-bold pl-6">{card.title}</h3>
-          <p className="mt-2 txt-rg border-l-4 pl-6 min-h-24 h-fit">
+          <p className="mt-2 txt-rg text-text/80 border-l-4 pl-6 min-h-24 h-fit">
             {card.description}
           </p>
         </motion.div>

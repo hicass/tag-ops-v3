@@ -70,7 +70,7 @@ const PricingCard: FC<PricingCardProps> = ({
 
           <div className="flex flex-col gap-4">
             {card.description.map((paragraph, idx) => (
-              <p key={idx}>{paragraph}</p>
+              <p key={idx} className='text-text/80'>{paragraph}</p>
             ))}
           </div>
         </div>

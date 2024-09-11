@@ -89,7 +89,7 @@ const TeamMemberCards: FC = () => {
             </div>
           </div>
 
-          <p className="mt-6 txt-rg">{card.description}</p>
+          <p className="mt-6 txt-rg text-text/80">{card.description}</p>
         </motion.div>
       ))}
     </>

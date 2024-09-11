@@ -20,8 +20,8 @@ const InefficiencyCostComponent: FC<InefficiencyCostProps> = ({
       transition={{ duration: 0.5 }}
       className="mt-10"
     >
-      <p className="txt-md-bold">{title}</p>
-      <p className="mt-2 txt-rg">{description}</p>
+      <p className="txt-md-semibold">{title}</p>
+      <p className="mt-2 txt-rg text-text/80">{description}</p>
     </motion.div>
   );
 };
