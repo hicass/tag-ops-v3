@@ -18,7 +18,7 @@ const pricingCardData = {
     },
     {
       title: 'Build',
-      price: { cost: '$5,000', fee: '+ (Flat Fee)' },
+      price: { cost: '$5,000+', fee: '(Flat Fee)' },
       description: [
         "We build out all of the necessary systems and processes you need to get your foot off the ground as a company. If you have existing systems in place, we'll optimize them holistically and integrate them with the rest of your systems for a fraction of the cost of building it from scratch.",
       ],
@@ -59,14 +59,14 @@ const pricingCardData = {
     },
     {
       title: 'Manage',
-      price: { cost: '$1,400', fee: '+ (Monthly)' },
+      price: { cost: '$1,400+', fee: '(Monthly)' },
       description: [
         'We manage the preexisting systems and processes that were built by you or the systems and processes that we built in the Foundational Build stage - serving as your Fractional Operations team.',
       ],
     },
     {
       title: 'Recruit',
-      price: { cost: '$3,400', fee: '+ (Per Role)' },
+      price: { cost: '$3,400+', fee: '(Per Role)' },
       description: [
         'When / if you need help filling our role or another role in the company, we offer hourly recruiting services',
         "*we'll first build out our tried and true recruiting system and process to fit your company, then get the search going (see build add ons)",
