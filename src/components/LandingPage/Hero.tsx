@@ -2,7 +2,6 @@
 
 import { FC } from 'react';
 
-import Button from '@/components/Button';
 import MainLogo from '../Logos/MainLogo';
 
 const Hero: FC = () => {
@@ -20,7 +19,7 @@ const Hero: FC = () => {
         </div>
 
         <p className="text-lg sm:text-h3 manrope-semibold text-center my-2 sm:mt-6 sm:mb-2 w-full">
-          Your trusted, embedded, and proactive team.
+          Your trusted, embedded, and proactive operations team.
         </p>
       </div>
     </div>
