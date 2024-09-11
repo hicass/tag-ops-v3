@@ -53,7 +53,7 @@ const AnalyticsSection: FC = () => {
           </div>
 
           <div className="flex w-full flex-row items-center gap-2">
-            <p className="text-md">Powered By: </p>
+            <p className="text-md text-text/80">Powered By: </p>
             <div className="w-1/3">
               <Link href="https://www.teamwork.com/" target="_blank">
                 <Image
@@ -77,7 +77,7 @@ const AnalyticsSection: FC = () => {
             once: true,
             amount: 0.2,
           }}
-          className="lg:mt-6 txt-md md:w-4/5 lg:w-1/5"
+          className="lg:mt-6 txt-md text-text/80 md:w-4/5 lg:w-1/5"
         >
           Our project management software empowers your business with analytics,
           not only on tasks and project budgets but also a breakdown of how much

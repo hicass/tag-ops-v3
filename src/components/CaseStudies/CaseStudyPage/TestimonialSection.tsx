@@ -26,10 +26,10 @@ const TestimonialSection: FC<TestimonialProps> = ({ testimonial }) => {
       >
         <div>
           <p className="txt-lg-bold">{testimonial.name}</p>
-          <p className="txt-md-semibold">{testimonial.title}</p>
+          <p className="txt-rg-semibold">{testimonial.title}</p>
         </div>
 
-        <p className="pt-2 txt-rg">{testimonial.description}</p>
+        <p className="pt-2 txt-rg text-text/80">{testimonial.description}</p>
       </motion.div>
     </section>
   );

@@ -16,7 +16,7 @@ export default function ContactPage() {
         <h2>Contact</h2>
 
         <div className="flex flex-col">
-          <p className="mt-2 txt-rg md:mt-4">
+          <p className="mt-2 txt-rg text-text/80 md:mt-4">
             Fill out this form to start the conversation on how we can best
             support your business. Whether your business is large or small,
             we're here to assist you in achieving your operational goals.

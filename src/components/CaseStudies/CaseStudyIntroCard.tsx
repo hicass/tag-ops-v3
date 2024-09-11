@@ -42,7 +42,7 @@ const CaseStudyIntroCard: FC<CaseStudyIntroCardProps> = ({
           </div>
         </div>
 
-        <p className="txt-md mb-6 sm:mb-0">{caseStudyIntro.description}</p>
+        <p className="txt-md text-text/80 mb-6 sm:mb-0">{caseStudyIntro.description}</p>
 
         <Button
           text="View Case Study"

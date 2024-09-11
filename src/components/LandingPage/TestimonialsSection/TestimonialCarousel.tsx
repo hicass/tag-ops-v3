@@ -54,11 +54,11 @@ const TestimonialsCarousel: FC<TestimonialsCarouselProps> = ({
               className="snap-center snap-always bg-accentlight mt-4 rounded-xl w-[77vw] sm:w-[70vw] md:w-[55vw] my-10 p-4 mx-2 sm:mx-4 first:ml-4 md:first:ml-10 last:mr-10 drop-shadow shrink-0"
             >
               <div>
-                <p className="txt-lg-bold">{testimonial.name}</p>
+                <p className="txt-md-bold">{testimonial.name}</p>
                 <p className="txt-rg-semibold">{testimonial.title}</p>
               </div>
 
-              <p className="mt-4 txt-rg">{testimonial.description}</p>
+              <p className="mt-4 txt-rg text-text/80 ">{testimonial.description}</p>
             </motion.li>
           ))}
         </ul>

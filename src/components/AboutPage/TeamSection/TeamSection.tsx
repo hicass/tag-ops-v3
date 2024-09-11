@@ -9,7 +9,7 @@ const TeamSection: FC = () => {
         Meet the team!
       </h2>
 
-      <p className="mt-6 txt-md">
+      <p className="mt-6 txt-md text-text/80">
         Our Tag Ops team is a dynamic group of experts dedicated to operational
         excellence. With diverse industry backgrounds, we bring a wealth of
         knowledge to every project. We're committed to tailoring solutions to

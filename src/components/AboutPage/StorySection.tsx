@@ -43,10 +43,10 @@ const StorySection: FC = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="txt-md"
+          className="txt-md text-text/80"
         >
           Our journey began in late 2022 when our founder,{' '}
-          <span className="manrope-semibold">Courtney Walters</span>, recognized
+          <span className="manrope-semibold text-text/85">Courtney Walters</span>, recognized
           a critical gap in the business landscape. Having worked extensively
           within San Francisco's startup ecosystem, it became evident that while
           front-office functions like customer success and marketing received
@@ -59,35 +59,35 @@ const StorySection: FC = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="txt-md"
+          className="txt-md text-text/80"
         >
           Drawing from firsthand experiences, Courtney realized the
-          <span className="manrope-semibold">
+          <span className="manrope-semibold text-text/85">
             {' '}
             transformative power hidden within back-office optimization
           </span>{' '}
           and embarked on a mission to help businesses achieve operational
           excellence. From automating processes to integrating sophisticated
           software solutions, the right approach drives scalability and unlocks{' '}
-          <span className="manrope-semibold"> significant cost savings</span>.
+          <span className="manrope-semibold text-text/85"> significant cost savings</span>.
         </motion.p>
 
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="txt-md"
+          className="txt-md text-text/80"
         >
           We believe that{' '}
-          <span className="manrope-semibold">
+          <span className="manrope-semibold text-text/85">
             {' '}
             high-quality operational support
           </span>{' '}
           is indispensable for every business{' '}
-          <span className="manrope-semibold"> regardless of its size</span>, and
+          <span className="manrope-semibold text-text/85"> regardless of its size</span>, and
           understand that not all companies require a dedicated operations
           leader. We offer a
-          <span className="manrope-semibold">
+          <span className="manrope-semibold text-text/85">
             {' '}
             holistic, flexible, and customizable
           </span>{' '}
@@ -100,7 +100,7 @@ const StorySection: FC = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="txt-md"
+          className="txt-md text-text/80"
         >
           At{' '}
           <span className="text-primary manrope-semibold">Tag Operations</span>,
