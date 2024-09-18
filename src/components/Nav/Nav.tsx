@@ -20,6 +20,7 @@ const navProps = {
     { title: 'About Us', href: '/about' },
     { title: 'Case Studies', href: '/case-studies' },
     { title: 'Pricing', href: '/pricing' },
+    { title: 'Blog', href: '/blog' },
   ],
   serviceLinks: [
     { title: 'Operations', href: '/operations' },
