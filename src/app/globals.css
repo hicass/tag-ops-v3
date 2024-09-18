@@ -257,6 +257,34 @@ h4,
   padding: 0 20px;
 }
 
+.blog-card-link::after {
+  position: absolute;
+  content: "";
+  width: 0;
+  left: 0;
+  bottom: -7px;
+  background: var(--primary);
+  height: 2px;
+  transition: 0.2s ease-out;
+}
+
+.blog-card-link {
+  transition-delay: 0.2s;
+}
+
+.blog-card-link:hover::after {
+  width: 100%;
+}
+
+.blog-card-link:hover .blog-card-arrow {
+  transform: translateX(4px);
+}
+
+.blog-card-arrow {
+  transition: 0.2s;
+  transition-delay: 0.2s;
+}
+
 @media (max-width: 500px) {
   .blob-top-small {
     top: 0.8rem;
