@@ -51,7 +51,7 @@ const TestimonialsCarousel: FC<TestimonialsCarouselProps> = ({
               }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.3 }}
-              className="snap-center snap-always bg-accentlight mt-4 rounded-xl w-[77vw] sm:w-[70vw] md:w-[55vw] my-10 p-4 mx-2 sm:mx-4 first:ml-4 md:first:ml-10 last:mr-10 drop-shadow shrink-0"
+              className="snap-center snap-always bg-accentlight mt-4 rounded-xl w-[77vw] sm:w-[70vw] md:w-[55vw] 2xl:w-[40vw] my-10 p-4 mx-2 sm:mx-4 first:ml-4 md:first:ml-10 last:mr-10 drop-shadow shrink-0"
             >
               <div>
                 <p className="txt-md-bold">{testimonial.name}</p>
