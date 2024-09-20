@@ -36,7 +36,7 @@ const blogCardsData = [
 
 const BlogCards: FC = () => {
   return (
-    <div className="flex flex-wrap md:w-full lg:w-full 2xl:w-3/5 justify-center gap-6 mx-5">
+    <div className="flex flex-wrap md:w-full lg:w-full 2xl:w-4/5 justify-center gap-6 mx-5">
       {blogCardsData.map((card, idx) => (
         <motion.div
           key={idx}
