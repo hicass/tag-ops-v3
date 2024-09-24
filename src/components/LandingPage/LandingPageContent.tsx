@@ -8,10 +8,16 @@ import TestimonialsSection from './TestimonialsSection/TestimonialsSection';
 import ClientsServed from '@/components/ClientsServed/ClientsServed';
 import AnalyticsSection from './AnalyticsSection';
 
-const LandingPageContent: FC = () => {
+interface LandingPageContentProps {
+  LandingPageData: any; // Replace with more specific types
+}
+
+const LandingPageContent: FC<LandingPageContentProps> = async ({ LandingPageData }) => {
+  console.log(LandingPageData);
+
   return (
     <main className="flex flex-col items-center gap-16 overflow-hidden">
-      <Hero />
+      <Hero {...LandingPageData.hero} />
       <SolutionsSection />
       <FlowSection />
       <WavyLine />
@@ -23,3 +29,4 @@ const LandingPageContent: FC = () => {
 };
 
 export default LandingPageContent;
+
