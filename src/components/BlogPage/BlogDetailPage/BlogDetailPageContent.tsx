@@ -1,21 +1,21 @@
 'use client';
 import { FC } from 'react';
-import { Blog } from '@/app/blog/[id]/page';
+import { Blog } from '@/app/blog/[slug]/page';
 
 import Header from './Header';
-import ContentBlocks from './ContentBlocks';
+import Body from './Body';
 import ClientsServed from '@/components/ClientsServed/ClientsServed';
 
 const BlogDetailPageContent: FC<Blog> = ({
   title,
   author,
-  date,
-  contentBlocks,
+  publishedAt,
+  body,
 }) => {
   return (
     <main className="flex flex-col items-center gap-10 relative overflow-hidden">
-      <Header title={title} author={author} date={date} />
-      <ContentBlocks contentBlocks={contentBlocks} />
+      <Header title={title} author={author} publishedAt={publishedAt} />
+      <Body body={body} />
       <ClientsServed />
     </main>
   );
