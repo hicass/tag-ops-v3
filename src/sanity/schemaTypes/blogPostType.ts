@@ -64,7 +64,7 @@ export const blogPostType = defineType({
     defineField({
       name: 'body',
       type: 'blockContent',
-      validation: (Rule) => Rule.required().error('Title is required.'),
+      validation: (Rule) => Rule.required().error('Body is required.'),
     }),
   ],
   preview: {
