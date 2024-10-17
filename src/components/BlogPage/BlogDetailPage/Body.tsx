@@ -10,7 +10,7 @@ interface BodyProps {
   body: PortableTextBlock[];
 }
 
-const customComponents = {
+export const customComponents = {
   types: {
     image: ({ value }: any) => (
       <img src={value.asset.url} alt={value.alt || 'Image'} />
