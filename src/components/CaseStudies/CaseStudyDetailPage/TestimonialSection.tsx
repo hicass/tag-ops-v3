@@ -3,8 +3,7 @@
 import { FC } from 'react';
 
 import { motion } from 'framer-motion';
-
-import { Testimonial } from '@/components/LandingPage/TestimonialsSection/TestimonialsSection';
+import { Testimonial } from '../CaseStudiesPageContent';
 
 interface TestimonialProps {
   testimonial: Testimonial;
@@ -29,7 +28,7 @@ const TestimonialSection: FC<TestimonialProps> = ({ testimonial }) => {
           <p className="txt-rg-semibold">{testimonial.title}</p>
         </div>
 
-        <p className="pt-2 txt-rg text-text/80">{testimonial.description}</p>
+        <p className="pt-2 txt-rg text-text/80">{testimonial.body}</p>
       </motion.div>
     </section>
   );
