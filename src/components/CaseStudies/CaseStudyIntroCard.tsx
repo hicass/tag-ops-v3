@@ -1,14 +1,13 @@
 import { FC, RefObject } from 'react';
-import Image from 'next/legacy/image';
 
 import { motion, MotionValue, useTransform } from 'framer-motion';
 
-import { CaseStudyIntro } from './CaseStudyIntroCards';
-
 import Button from '../Button';
+import { CaseStudy } from './CaseStudiesPageContent';
+import { urlFor } from '@/sanity/lib/image';
 
 interface CaseStudyIntroCardProps {
-  caseStudyIntro: CaseStudyIntro;
+  caseStudy: CaseStudy;
   idx: number;
   length: number;
   container: RefObject<HTMLDivElement>;
@@ -16,7 +15,7 @@ interface CaseStudyIntroCardProps {
 }
 
 const CaseStudyIntroCard: FC<CaseStudyIntroCardProps> = ({
-  caseStudyIntro,
+  caseStudy,
   idx,
   length,
   container,
@@ -34,21 +33,26 @@ const CaseStudyIntroCard: FC<CaseStudyIntroCardProps> = ({
     >
       <div className="flex flex-col gap-4 md:gap-10 bg-accentlight rounded-xl mb-10 sm:mb-20 p-4 sm:p-4 drop-shadow">
         <div className="flex flex-col-reverse gap-6 sm:gap-0 sm:flex-row justify-between">
-          <h3 className="w-full sm:w-1/2">{caseStudyIntro.title}</h3>
+          <h3 className="w-full sm:w-1/2">{caseStudy.title}</h3>
           <div className="flex flex-col justify-center w-full sm:w-1/3">
             <div>
-              <img src={caseStudyIntro.logo} alt={caseStudyIntro.logoAlt} />
+              {caseStudy.companyLogo.asset && (
+                <img
+                  src={urlFor(caseStudy.companyLogo.asset).url()}
+                  alt={caseStudy.companyLogo.alt}
+                />
+              )}
             </div>
           </div>
         </div>
 
-        <p className="txt-md text-text/80 mb-6 sm:mb-0">{caseStudyIntro.description}</p>
+        <p className="txt-md text-text/80 mb-6 sm:mb-0">{caseStudy.preview}</p>
 
         <Button
           text="View Case Study"
           blue={true}
           textSize={'text-lg'}
-          href={caseStudyIntro.href}
+          href={caseStudy.slug.current}
         />
       </div>
     </motion.div>

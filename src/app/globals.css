@@ -136,6 +136,9 @@
 
 * {
   font-family: 'Manrope-Regular', sans-serif;
+}
+
+body {
   color: var(--text);
 }
 
