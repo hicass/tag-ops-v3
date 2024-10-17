@@ -47,7 +47,8 @@ export const caseStudyType = defineType({
       validation: (Rule) => Rule.required().error('Slug is required.'),
     }),
     defineField({
-      name: 'Overview',
+      name: 'overview',
+      title: 'Overview',
       type: 'array',
       of: [
         {
