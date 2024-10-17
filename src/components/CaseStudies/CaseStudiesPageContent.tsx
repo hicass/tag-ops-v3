@@ -11,10 +11,10 @@ interface Slug {
   _type: string;
 }
 
-interface Testimonial {
+export interface Testimonial {
   title: string;
   name: string;
-  body: PortableTextBlock[];
+  body: string;
 }
 
 export interface CompanyLogo {
